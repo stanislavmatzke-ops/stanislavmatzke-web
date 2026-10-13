@@ -6,7 +6,6 @@ The following content is **© Stanislav Matzke, all rights reserved** and may no
 
 - texts, articles and case studies – `src/app/i18n/cs.ts`, `src/app/i18n/en.ts`
 - photographs and images – `public/img/`
-- CVs – `public/cv/`
 
 You are welcome to fork the code as a starting point for your own site – please replace the content with your own.
 

@@ -3,7 +3,6 @@
     "rewrite": "/index.csr.html",
     "exclude": [
       "/img/*",
-      "/cv/*",
       "/fonts/*",
       "/*.{css,js,mjs,map,svg,png,jpg,jpeg,webp,ico,pdf,txt,xml,json,woff,woff2}"
     ]
@@ -40,7 +39,6 @@
     { "route": "/clanky/co-ai-agent-pokazil", "rewrite": "/clanky/co-ai-agent-pokazil/index.html" },
     { "route": "/en/articles/co-ai-agent-pokazil", "rewrite": "/en/articles/co-ai-agent-pokazil/index.html" },
     { "route": "/fonts/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
-    { "route": "/cv/*", "headers": { "Cache-Control": "public, max-age=3600" } },
     { "route": "/img/*", "headers": { "Cache-Control": "public, max-age=86400" } }
   ]
 }

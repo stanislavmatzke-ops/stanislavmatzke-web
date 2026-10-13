@@ -50,10 +50,8 @@ import { CtaBand } from '../shared/cta-band';
             }
           </ol>
 
-          <h2 class="h2-sm">{{ a.downloadsTitle }}</h2>
+          <h2 class="h2-sm">{{ a.linksTitle }}</h2>
           <div class="contact-list">
-            <a [href]="site.cvCz" download>{{ a.cvCz }}</a>
-            <a [href]="site.cvEn" download>{{ a.cvEn }}</a>
             <a [href]="site.linkedin" target="_blank" rel="noopener">LinkedIn</a>
             <a [href]="site.github" target="_blank" rel="noopener">GitHub</a>
           </div>

@@ -824,9 +824,7 @@ export const en: Content = {
     ],
     hobbiesTitle: 'Outside work',
     hobbies: 'Craft and manual work, homebrewing, travel, sport.',
-    downloadsTitle: 'Downloads and links',
-    cvCz: 'CV (Czech, PDF)',
-    cvEn: 'CV (English, PDF)',
+    linksTitle: 'Links',
   },
 
   contact: {

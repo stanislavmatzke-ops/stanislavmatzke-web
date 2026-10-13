@@ -40,7 +40,7 @@ npm run build      # produkční build do dist/stanislavmatzke-web/browser
 | Hlavička, patička | `src/app/layout/` |
 | Sdílené komponenty (bloky článků, formulář, logo) | `src/app/shared/` |
 | Barvy, typografie, rozvržení | `src/styles.css` |
-| Obrázky, CV, písma, favicon, `robots.txt`, `sitemap.xml` | `public/` |
+| Obrázky, písma, favicon, `robots.txt`, `sitemap.xml` | `public/` |
 | Konfigurace hostingu – směrování, bezpečnostní hlavičky, cache | `public/staticwebapp.config.json` |
 
 ## Přidání stránky nebo článku
@@ -81,4 +81,4 @@ Nahlášení bezpečnostní chyby: viz [SECURITY.md](SECURITY.md).
 ## Licence
 
 **Zdrojový kód** je pod [licencí MIT](LICENSE).
-**Obsah** – texty, články, fotografie a CV – je © Stanislav Matzke, všechna práva vyhrazena; viz [CONTENT-LICENSE.md](CONTENT-LICENSE.md).
+**Obsah** – texty, články a fotografie – je © Stanislav Matzke, všechna práva vyhrazena; viz [CONTENT-LICENSE.md](CONTENT-LICENSE.md).

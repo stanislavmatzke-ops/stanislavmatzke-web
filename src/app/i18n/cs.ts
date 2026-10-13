@@ -826,9 +826,7 @@ export const cs = {
     ],
     hobbiesTitle: 'Mimo práci',
     hobbies: 'Řemeslná a manuální práce, homebrewing, cestování, sport.',
-    downloadsTitle: 'Ke stažení a odkazy',
-    cvCz: 'Životopis (CZ, PDF)',
-    cvEn: 'CV (EN, PDF)',
+    linksTitle: 'Odkazy',
   },
 
   contact: {

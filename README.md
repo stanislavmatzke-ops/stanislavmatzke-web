@@ -40,7 +40,7 @@ npm run build      # production build in dist/stanislavmatzke-web/browser
 | Header, footer | `src/app/layout/` |
 | Shared components (article blocks, contact form, logo) | `src/app/shared/` |
 | Colours, typography, layout | `src/styles.css` |
-| Images, CVs, fonts, favicon, `robots.txt`, `sitemap.xml` | `public/` |
+| Images, fonts, favicon, `robots.txt`, `sitemap.xml` | `public/` |
 | Hosting config – routing fallback, security headers, caching | `public/staticwebapp.config.json` |
 
 ## Adding a page or an article
@@ -81,4 +81,4 @@ See [SECURITY.md](SECURITY.md) for reporting a vulnerability.
 ## License
 
 The **source code** is released under the [MIT License](LICENSE).
-The **content** – texts, articles, photographs and CVs – is © Stanislav Matzke, all rights reserved; see [CONTENT-LICENSE.md](CONTENT-LICENSE.md).
+The **content** – texts, articles and photographs – is © Stanislav Matzke, all rights reserved; see [CONTENT-LICENSE.md](CONTENT-LICENSE.md).
