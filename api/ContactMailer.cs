@@ -39,13 +39,16 @@ public sealed class AcsContactMailer(EmailClient client, ContactSettings setting
     }
 }
 
-/// <summary>Locally without a connection string: nothing leaves the machine.</summary>
+/// <summary>
+/// No connection string configured: nothing can be sent. Fail loudly so the visitor sees an error (with my e-mail
+/// address) instead of a false "message arrived".
+/// </summary>
 public sealed class LogContactMailer(ILogger<LogContactMailer> logger) : IContactMailer
 {
     public Task SendAsync(ContactMessage m, CancellationToken ct)
     {
-        logger.LogWarning("CONTACT_ACS_CONNECTION_STRING is not set – message from {Email} NOT sent", Mask.Email(m.Email));
-        return Task.CompletedTask;
+        logger.LogError("CONTACT_ACS_CONNECTION_STRING is not set – message from {Email} NOT sent", Mask.Email(m.Email));
+        throw new InvalidOperationException("E-mail sending is not configured (CONTACT_ACS_CONNECTION_STRING).");
     }
 }
 

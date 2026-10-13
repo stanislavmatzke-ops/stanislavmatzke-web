@@ -31,7 +31,7 @@ npm run build      # production build in dist/stanislavmatzke-web/browser
 The contact form needs the API. To run both together, use the [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) and [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local):
 
 ```bash
-cp api/local.settings.example.json api/local.settings.json   # without a connection string nothing is sent, only logged
+cp api/local.settings.example.json api/local.settings.json   # without a connection string nothing is sent (the form shows an error)
 npx @azure/static-web-apps-cli start http://localhost:4200 --api-location api --run "npm start"
 # → http://localhost:4280
 ```

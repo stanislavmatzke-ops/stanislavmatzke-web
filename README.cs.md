@@ -31,7 +31,7 @@ npm run build      # produkční build do dist/stanislavmatzke-web/browser
 Kontaktní formulář potřebuje API. Obojí najednou spustíš přes [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) a [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local):
 
 ```bash
-cp api/local.settings.example.json api/local.settings.json   # bez connection stringu se nic neodešle, jen zaloguje
+cp api/local.settings.example.json api/local.settings.json   # bez connection stringu se nic neodešle (formulář ukáže chybu)
 npx @azure/static-web-apps-cli start http://localhost:4200 --api-location api --run "npm start"
 # → http://localhost:4280
 ```
