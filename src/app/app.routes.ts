@@ -4,6 +4,7 @@ import { HomePage } from './pages/home';
 import { ServicesPage } from './pages/services';
 import { ArticlesPage } from './pages/articles';
 import { ArticlePage } from './pages/article';
+import { ProjectsPage } from './pages/projects';
 import { JobScoutPage } from './pages/job-scout';
 import { ReferencesPage } from './pages/references';
 import { AboutPage } from './pages/about';
@@ -15,6 +16,7 @@ const components: Record<PageKey, Routes[number]['component']> = {
   home: HomePage,
   services: ServicesPage,
   articles: ArticlesPage,
+  projects: ProjectsPage,
   jobScout: JobScoutPage,
   references: ReferencesPage,
   about: AboutPage,

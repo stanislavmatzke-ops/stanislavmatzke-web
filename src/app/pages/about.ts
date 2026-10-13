@@ -30,7 +30,14 @@ import { CtaBand } from '../shared/cta-band';
           <ul class="checks">@for (x of a.how; track x) { <li>{{ x }}</li> }</ul>
 
           <h2 class="h2-sm">{{ a.techTitle }}</h2>
-          <ul class="tags" role="list">@for (x of a.tech; track x) { <li class="tag">{{ x }}</li> }</ul>
+          <div class="tech-groups">
+            @for (g of a.tech; track g.name) {
+              <div class="tech-group">
+                <span class="tech-group__name">{{ g.name }}</span>
+                <ul class="tags" role="list">@for (x of g.items; track x) { <li class="tag tag--small">{{ x }}</li> }</ul>
+              </div>
+            }
+          </div>
 
           <h2 class="h2-sm">{{ a.hobbiesTitle }}</h2>
           <p class="muted">{{ a.hobbies }}</p>

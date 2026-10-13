@@ -40,10 +40,14 @@ export const en: Content = {
       title: 'Article – Stanislav Matzke',
       description: '',
     },
+    projects: {
+      title: 'Projects – Stanislav Matzke',
+      description: 'Showcases of what one experienced person can deliver with AI today: Job Scout, a Delphi → .NET transformation and this website.',
+    },
     jobScout: {
       title: 'Job Scout – case study – Stanislav Matzke',
       description:
-        'An AI agent that reviews job offers every morning and prepares the groundwork. .NET 10, Angular, Claude API, Azure. One person with AI in ~10 days.',
+        'A smart assistant for your job search: offers scored against your CV, cover letter drafts, a morning e-mail. .NET 10, Angular, Claude API, Azure. One person with AI in ~3 days.',
     },
     references: {
       title: 'References – Stanislav Matzke',
@@ -97,11 +101,26 @@ export const en: Content = {
       eyebrow: 'Is this you?',
       title: 'Typical situations companies come to me with',
       items: [
-        'A key system works, but every change takes weeks – and you keep postponing modernisation because it looks expensive and risky.',
-        'A vendor is proposing a big project and you need an independent view of the design and the price.',
-        'An internal process runs on spreadsheets and e-mails and deserves a proper application.',
-        'Your systems do not talk to each other and data is re-typed by hand.',
-        'You want to use AI – sensibly, securely and with known costs.',
+        {
+          title: 'An old system is holding you back',
+          text: 'Whether it still works or fails more and more often – every change takes weeks and you keep postponing modernisation because it looks expensive and risky.',
+        },
+        {
+          title: 'The vendor’s quote looks expensive',
+          text: 'Months of work for a whole team? With modern AI-assisted development it often takes a fraction of the time and cost. I will independently assess the design and the budget.',
+        },
+        {
+          title: 'You have an idea for an app',
+          text: 'An internal process living in spreadsheets and e-mails, or your own idea you want to bring to life. The road from idea to working application is shorter than ever.',
+        },
+        {
+          title: 'Your systems don’t talk to each other',
+          text: 'Data is re-typed by hand or through spreadsheets and connecting to the old system seems impossible. I am happy to show you it can be done.',
+        },
+        {
+          title: 'You want to use AI',
+          text: 'Whether in development or directly in your processes and products – sensibly, securely and with known costs.',
+        },
       ],
       ctaText: 'Sound familiar? Let’s talk it through in 30 minutes, free and with no obligation.',
       ctaLink: 'Book a call →',
@@ -115,15 +134,15 @@ export const en: Content = {
 
     built: {
       eyebrow: 'Built with AI',
-      title: 'What used to take a team months, I now deliver in days.',
+      title: 'What used to take a team months, one experienced person now delivers in days.',
       lead:
-        'Showcase projects I built with AI agents – from design through code and tests to deployment on Azure. Not slide-deck prototypes, but applications that run and that you can try.',
-      statValue: '~10 days',
+        'Showcase projects I built with AI agents – from design through code and tests to deployment on Azure. Not “slide-deck” prototypes, but applications that run and that you can try.',
+      statValue: '~3 days',
       statLabel: 'Job Scout',
-      statText: 'one person with an AI agent. Without AI, an estimated 2–3 months for a team of three.',
+      statText: 'of intensive work by one person with an AI agent. Without AI, an estimated 2–3 months for a team of three.',
       jobScoutTitle: 'Job Scout',
       jobScoutText:
-        'An AI agent that reviews job offers every morning, scores them against the user’s profile and prepares the groundwork. The agent prepares, a human decides.',
+        'A smart assistant for your job search: every morning it reviews new offers, scores them against your CV, drafts cover letters and sends a summary by e-mail. AI pre-selects, a human decides.',
       jobScoutTags: ['.NET 10', 'Angular', 'Claude API', 'Azure', 'PostgreSQL', '600+ tests'],
       demo: 'Try the demo →',
       study: 'Case study →',
@@ -217,7 +236,7 @@ export const en: Content = {
         ],
         outcome: 'A concise report with findings ranked by severity, concrete recommendations and a presentation for management and IT.',
         experience: '',
-        firstStep: 'A review in 1–2 weeks.',
+        firstStep: 'Send me the materials (design, vendor proposal, code access) – you usually get the assessment within 1–2 weeks, depending on scope.',
       },
       {
         id: 'na-miru',
@@ -230,7 +249,7 @@ export const en: Content = {
           'deployment to the cloud (Azure) or on-premises, CI/CD, monitoring and operations',
         ],
         outcome: 'Analysis → design → development in stages with a demo of each stage → deployment and operations. The code and documentation belong to you.',
-        experience: 'Four years of in-house development at VZP ČR (application modernisation, team lead), systems for banks and financial companies, Job Scout from scratch to production.',
+        experience: 'Four years of in-house development at VZP ČR (application modernisation, team lead), systems for banks and financial companies, Job Scout and other custom applications – see Projects.',
         firstStep: 'An initial analysis and design of the first stage.',
       },
       {
@@ -241,7 +260,7 @@ export const en: Content = {
         points: [
           'quick diagnosis: current state, risks, recommended strategy',
           'analysis and design: inventory, business rules extracted from code with the help of AI, target architecture, roadmap and estimate',
-          'gradual migration with tests that check the new system calculates exactly like the old one',
+          'gradual migration with tests that check the new system behaves exactly like the old one',
         ],
         outcome: 'A clear plan for the system – what to keep, what to modernise, in which order and for how much.',
         experience: 'I spent years building systems in Delphi and PL/SQL (MONETA, Raiffeisenbank, ARBES); today I design solutions in .NET and Azure. I understand both worlds.',
@@ -258,7 +277,7 @@ export const en: Content = {
           'monitoring, so you learn about a failure before a customer reports it',
         ],
         outcome: 'A reliable connection with documentation and visibility into what is happening.',
-        experience: 'Integrations with partners and carriers on a smart parcel locker platform (e.g. Rohlik.cz), internal system integration at VZP.',
+        experience: 'Integrations with carriers (PPL, DPD, Czech Post) and partners on a smart parcel locker platform, internal system integration at VZP.',
         firstStep: 'An integration design and estimate.',
       },
       {
@@ -276,17 +295,17 @@ export const en: Content = {
         firstStep: 'An AI adoption proposal in 1–2 weeks.',
       },
       {
-        id: 'tech-lead',
-        title: 'Contract tech lead',
-        short: 'I will strengthen your team – architecture, code reviews, leading developers and bringing AI into the team’s work.',
-        forWhom: 'Teams lacking a senior person for architecture, technical decisions and the move to AI-assisted development.',
+        id: 'posila-tymu',
+        title: 'Architect and team reinforcement',
+        short: 'I will strengthen your team in a role with real responsibility – architect, tech lead or senior developer. Architecture, code reviews, leadership and bringing AI into the team’s work.',
+        forWhom: 'Teams lacking an experienced person for architecture, technical decisions or the move to AI-assisted development.',
         points: [
           'architecture and technical decisions recorded so you can come back to them (ADRs)',
           'code reviews, mentoring, CI/CD and rules for working safely with AI agents',
           'communication with management and the business in plain language',
         ],
         outcome: 'Long-term on contract, part-time or full-time. For the right team, employment too.',
-        experience: 'Leading a development team at VZP ČR, reporting directly to the IT director.',
+        experience: 'Leading a development team at VZP ČR reporting directly to the IT director, architecture of a smart parcel locker microservice platform.',
         firstStep: 'An intro meeting with the team.',
       },
     ],
@@ -310,38 +329,44 @@ export const en: Content = {
         date: 'October 2026',
         readTime: '6 min read',
         blocks: [
-          { kind: 'h2', text: 'Fifteen years of almost no change' },
           {
             kind: 'p',
-            text: 'When I started on Delphi systems in 2011, a developer wrote code line by line. A lot changed by 2022 – better IDEs, frameworks, the cloud, CI/CD, containers. But the essence stayed the same: a senior developer’s productivity was mostly about how much code they could write, debug and review. Speed-ups were measured in percent.',
-          },
-          { kind: 'h2', text: 'Autocomplete and chat' },
-          {
-            kind: 'p',
-            text: 'The first AI assistants completed lines and answered questions in a chat. Useful, but you still assembled everything yourself – and often corrected confident nonsense. The gain was mostly in routine work.',
-          },
-          { kind: 'h2', text: 'AI that understands the whole project' },
-          {
-            kind: 'p',
-            text: 'Then models started working with the whole repository: refactoring across dozens of files, writing tests, explaining unfamiliar code. I experienced it myself when I moved to .NET after years of Java – I was fully productive within days, not months.',
-          },
-          { kind: 'h2', text: 'Today: agents that finish the job' },
-          {
-            kind: 'p',
-            text: 'A current AI agent takes a task, plans it, edits files, runs the build and tests, fixes errors and comes back with a result. And it improves month by month, not year by year – what did not work last year works today.',
+            text: 'I have been building enterprise systems since 2011. Plenty of tools and trends came and went, but the real leap in what one person can deliver came only with AI. Step by step:',
           },
           {
+            kind: 'stages',
+            entries: [
+              { label: '2011–2022', title: 'Line by line', text: 'Better IDEs, frameworks, cloud and CI/CD. But speed-ups were measured in percent – a human still wrote the code.' },
+              { label: 'First assistants', title: 'Autocomplete and chat', text: 'AI completed lines and answered questions. Useful mostly for routine work, often with confident nonsense.' },
+              { label: 'Whole project', title: 'AI understands the repo', text: 'Refactoring across dozens of files, tests, explaining unfamiliar code. A new technology in days, not months.' },
+              { label: 'Today', title: 'Agents finish the job', text: 'They plan, edit files, run the build and tests, fix errors. Improving month by month, not year by year.' },
+            ],
+          },
+          { kind: 'h2', text: 'What it means in practice' },
+          {
             kind: 'p',
-            text: 'Concretely: I built Job Scout – a .NET 10 backend, job-ad scraping, an AI pipeline, sign-in via Microsoft and Google, user management, Angular, 600+ tests, CI, 21 recorded architecture decisions and deployment on Azure – in about ten days. Without AI I would have estimated 2–3 months for a team of three.',
+            text: 'A concrete example: I built Job Scout – a .NET 10 backend, job-ad scraping, an AI pipeline, sign-in via Microsoft and Google, user management, Angular, 600+ tests, CI, 21 recorded architecture decisions and deployment on Azure – in about three days of intensive work.',
+          },
+          {
+            kind: 'compare',
+            entries: [
+              { label: '2–3 months', title: 'a team of three without AI (estimate)' },
+              { label: '~3 days', title: 'one experienced person with an AI agent' },
+            ],
+            text: 'Same scope, same quality bar: tests, security, documentation, deployment.',
+          },
+          {
+            kind: 'p',
+            text: 'I had experienced it before: when I moved to .NET after years of Java, AI made me fully productive within days. Today it is no longer just about writing code faster – one person can cover the whole workflow, from design to operations.',
           },
           { kind: 'h2', text: 'What it means for modernising old systems' },
           {
-            kind: 'ul',
-            items: [
-              'Getting to know a large old codebase takes days, not weeks – AI goes through forms, stored procedures and triggers.',
-              'Business rules hidden in code can be extracted and written down; a human then verifies them with users.',
-              'Characterisation tests that check the new system calculates exactly like the old one are much faster to write.',
-              'Migrating module by module is significantly cheaper – systems nobody touched for years “because it is expensive” are worth recalculating.',
+            kind: 'cards',
+            entries: [
+              { label: '01', title: 'Understanding the code', text: 'Days instead of weeks – AI goes through forms, stored procedures and triggers.' },
+              { label: '02', title: 'Business rules', text: 'Rules hidden in code can be extracted and written down; a human verifies them with users.' },
+              { label: '03', title: 'Tests as a safety net', text: 'Characterisation tests that check the new system behaves exactly like the old one.' },
+              { label: '04', title: 'Module by module', text: 'Much cheaper than before – systems nobody touched for years are worth recalculating.' },
             ],
           },
           {
@@ -364,10 +389,32 @@ export const en: Content = {
         date: 'October 2026',
         readTime: '7 min read',
         blocks: [
+          {
+            kind: 'project',
+            caption: 'Which project this is about',
+            src: 'img/job-scout-cover.webp',
+            alt: 'Job Scout – application preview',
+            text: 'Job Scout is a web application that reviews new job offers every morning, scores them against your CV and drafts cover letters for the best ones. It runs in production on Azure and anyone can try it.',
+            items: [
+              '~3 days of intensive work by one person with an AI agent',
+              'Microsoft / Google sign-in, multiple users, access approval',
+              '.NET 10, Angular, Claude API, Azure, 600+ tests',
+            ],
+            href: 'Job Scout case study →',
+          },
           { kind: 'h2', text: 'The good news first: it (almost) no longer makes silly mistakes' },
           {
             kind: 'p',
-            text: 'The usual “vibe coding” horrors – passwords and API keys in code, missing input validation, SQL injection, home-made authentication – never showed up in Job Scout. The agent kept secrets out of the repository on its own, validated input, wrote 600+ automated tests, added prompt-injection protection and tests that guard the application’s layers.',
+            text: 'The usual “vibe coding” horrors never showed up in Job Scout. On its own, the agent:',
+          },
+          {
+            kind: 'ul',
+            items: [
+              'kept passwords and API keys out of the repository,',
+              'validated input and never hand-assembled SQL,',
+              'wrote 600+ automated tests and tests that guard the application’s layers,',
+              'added prompt-injection protection.',
+            ],
           },
           {
             kind: 'p',
@@ -376,15 +423,15 @@ export const en: Content = {
           { kind: 'h2', text: 'Story 1: anyone with access could burn through the AI budget' },
           {
             kind: 'p',
-            text: 'Job Scout’s morning run had hard limits from day one. Then we added “Score” and “Write a new cover letter” buttons – each one a paid AI call. The agent implemented them exactly as specified: they worked, were tested, and the costs were recorded.',
+            text: 'The morning run had hard limits from day one. Then we added “Score” and “Write a new cover letter” buttons – each one a paid AI call. The agent implemented them exactly as specified.',
           },
           {
-            kind: 'p',
-            text: 'But nobody – the agent included – asked: “What if someone clicks a thousand times?” Changing a single letter in the notes re-ran the profile analysis. A letter could be rewritten endlessly. A human found it, not the AI – the day after launch, when I sent the app to the first users and clicked through it myself.',
-          },
-          {
-            kind: 'p',
-            text: 'The fix took one morning: per-click limits in a rolling 24-hour window, a daily “emergency brake” for the whole app that e-mails the admin, a lock against two quick clicks, and a monthly spending cap directly with the AI provider.',
+            kind: 'facts',
+            entries: [
+              { title: 'The bug', text: 'Nobody asked “what if someone clicks a thousand times?”. Changing one letter in the notes re-ran the profile analysis; a letter could be rewritten endlessly.' },
+              { title: 'How I found it', text: 'The day after launch, when I sent the app to the first users and clicked through it myself. A human found it, not the AI.' },
+              { title: 'The fix (one morning)', text: 'Per-click limits in a rolling 24-hour window, a daily “emergency brake” that e-mails the admin, a double-click lock and a monthly cap with the AI provider.' },
+            ],
           },
           {
             kind: 'lesson',
@@ -393,11 +440,15 @@ export const en: Content = {
           { kind: 'h2', text: 'Story 2: a rejected user got into the app' },
           {
             kind: 'p',
-            text: 'Access to Job Scout is approved by an admin. The agent implemented “Reject request” – using the existing “suspended account” state. Logical at first glance. But a suspended user is still a member and may view their own data. So a rejected applicant could sign in and get inside.',
+            text: 'Access to Job Scout is approved by an admin. The agent implemented “Reject request” – using the existing “suspended account” state. Logical at first glance.',
           },
           {
-            kind: 'p',
-            text: 'The tests were green because they tested exactly what the agent wrote. Nobody tested that a rejected applicant must see nothing at all. I found it with a manual test in production: I rejected a test account and it signed in just fine.',
+            kind: 'facts',
+            entries: [
+              { title: 'The bug', text: 'A suspended user is still a member and may view their own data. So a rejected applicant could sign in and get inside.' },
+              { title: 'Why tests missed it', text: 'They tested exactly what the agent wrote. Nobody tested that a rejected applicant must see nothing at all.' },
+              { title: 'How I found it', text: 'A manual test in production: I rejected a test account and it signed in just fine. Rejection is now a separate action.' },
+            ],
           },
           {
             kind: 'lesson',
@@ -411,7 +462,16 @@ export const en: Content = {
           { kind: 'h2', text: 'Checking against a list: where AI shines' },
           {
             kind: 'p',
-            text: 'After launch we went through the app point by point against a security checklist for vibe coding – input validation, authorisation, sessions, rate limiting, secrets, dependencies, prompt injection, code analysis in CI, security headers. The agent did the review. Give it a clear list to check against and it is thorough – and it found another hole it had created itself: anyone could request access a hundred times and the admin would get a hundred e-mails.',
+            text: 'After launch we went through the app point by point against a security checklist for vibe coding. The agent did the review – and given a clear list, it is thorough. It found another hole it had created itself: anyone could request access a hundred times and the admin would get a hundred e-mails.',
+          },
+          {
+            kind: 'cards',
+            entries: [
+              { title: 'Input and injection', text: 'parameterised queries, output escaping, size limits' },
+              { title: 'Authorisation', text: 'every query scoped to the data owner, permissions from the database' },
+              { title: 'Abuse', text: 'rate limiting, AI limits, capped e-mails' },
+              { title: 'CI and dependencies', text: 'CodeQL, Dependabot, vulnerable package checks' },
+            ],
           },
           {
             kind: 'source',
@@ -452,13 +512,58 @@ export const en: Content = {
     ] as Article[],
   },
 
+  projects: {
+    eyebrow: 'Projects',
+    title: 'Built with AI',
+    lead: 'Showcases of what one experienced person can deliver with AI today – from design through code and tests to deployment and operations. Not “slide-deck” prototypes, but things that run.',
+    status: { live: 'live', soon: 'in progress', done: 'done' },
+    items: [
+      {
+        id: 'job-scout',
+        status: 'live',
+        title: 'Job Scout',
+        subtitle: 'A smart assistant for your job search',
+        text: 'A complete web application: every morning it reviews new job offers, scores them against your CV, drafts cover letters for the best ones and sends a summary by e-mail. Microsoft and Google sign-in, multiple users, AI cost control, running on Azure.',
+        facts: ['~3 days of intensive work', '600+ tests', '21 ADRs', 'CZ / EN'],
+        tags: ['.NET 10', 'Angular', 'Claude API', 'Azure', 'PostgreSQL'],
+        image: 'img/job-scout-cover.webp',
+      },
+      {
+        id: 'delphi',
+        status: 'soon',
+        title: 'Delphi → .NET transformation with AI',
+        subtitle: 'Modernising a typical enterprise system',
+        text: 'A sample modernisation of a receivables system from Delphi and Oracle PL/SQL to .NET and Azure – step by step, no “big bang”. Characterisation tests as a safety net, gradual move of logic out of the database, an AI agent as a helper and an AI assistant in the new application. I will publish the result as a case study and open source.',
+        facts: ['Delphi + Oracle PL/SQL', '→ .NET 10 + Azure', 'Strangler Fig', 'AI assistant over the data'],
+        tags: ['Delphi', 'Oracle', '.NET', 'Azure', 'AI'],
+        image: '',
+      },
+      {
+        id: 'web',
+        status: 'done',
+        title: 'This website',
+        subtitle: 'From brief to production in one day',
+        text: 'A personal website with everything around it: design, Angular, Czech and English, light and dark mode, Azure hosting with a custom domain and certificate, automatic deployment from GitHub and e-mail on the own domain with SPF, DKIM and DMARC. All in one day with AI.',
+        facts: ['1 day', 'Azure Static Web Apps', 'own domain and e-mail', 'CZ / EN, light / dark'],
+        tags: ['Angular', 'Azure', 'GitHub Actions', 'Cloudflare'],
+        image: '',
+      },
+    ],
+    caseStudy: 'Case study →',
+    demo: 'Try the demo →',
+    github: 'GitHub →',
+    soonNote: 'Want to know when it is ready? Drop me a line.',
+  },
+
   jobScout: {
     eyebrow: 'Case study',
-    title: 'Job Scout: an AI agent that prepares, but does not decide',
+    title: 'Job Scout: a smart assistant for your job search',
     lead:
-      'Every morning it goes through job portals, finds ads matching the user’s CV, scores them and drafts a cover letter for the best ones. A human always does the replying.',
+      'A complete web application that reviews new job offers every morning, scores them against your CV, drafts cover letters for the best ones and sends a summary by e-mail. AI pre-selects, a human decides.',
+    imageAlt: 'Job Scout – offers scored against a CV, Microsoft and Google sign-in, morning e-mail and AI costs',
+    imageCaption: 'Illustration of the app – companies and offers are fictional.',
     facts: [
-      { value: '~10 days', label: 'one person with an AI agent' },
+      { value: '~3 days', label: 'of intensive work with an AI agent' },
       { value: '2–3 months', label: 'estimate for a team of three without AI' },
       { value: '600+', label: 'automated tests' },
       { value: '21', label: 'recorded architecture decisions' },
@@ -467,36 +572,72 @@ export const en: Content = {
       { kind: 'h2', text: 'Why it exists' },
       {
         kind: 'p',
-        text: 'I wanted to learn hands-on how to build applications with AI on a real problem – my own job search. It became a tool I use every day and a demonstration of how to build such an application properly: with sign-in, multiple users, cost control and cloud deployment.',
+        text: 'Everyone knows job hunting: dozens of portals, hundreds of ads and hours of reading before you find the few offers that really fit. I wanted to show that with AI you can quickly build an application that does this work for you – while meeting everything expected of a real product: sign-in, multiple users, data protection, cost control and cloud operations.',
+      },
+      {
+        kind: 'p',
+        text: 'It runs in production, I use it every day, and anyone can try it – without signing up, on a demo account with real current job offers.',
       },
       { kind: 'h2', text: 'How it works' },
       {
-        kind: 'ul',
-        items: [
-          'AI turns a CV and free-form notes (“fully remote, no Java”) into a structured profile.',
-          'Every morning it fetches only ads published since the last run.',
-          'A cheap model (Haiku) triages titles in batches and drops the clearly irrelevant ones.',
-          'A stronger model (Sonnet) scores the full ad: 1–10, reasons, risks, questions for the employer.',
-          'For a score of 7 or more it drafts a cover letter in the language of the ad.',
-          'The user sees everything in the web app and gets a short morning e-mail. Nothing is ever sent automatically.',
+        kind: 'stages',
+        entries: [
+          { label: '1', title: 'Sign-in', text: 'With a Microsoft or Google account – no new passwords.' },
+          { label: '2', title: 'Your CV', text: 'Upload a CV and a few notes (“fully remote, no Java”). AI builds your profile from them.' },
+          { label: '3', title: 'Search every morning', text: 'At 6:30 only new offers are fetched; a cheap model triages titles, a stronger one scores the rest 1–10.' },
+          { label: '4', title: 'Letter and e-mail', text: 'Cover letter drafts for the best offers, a morning summary by e-mail. Nothing is ever sent automatically.' },
         ],
       },
-      { kind: 'h2', text: 'What makes it interesting' },
-      {
-        kind: 'ul',
-        items: [
-          'Two models chosen by cost and difficulty, tokens and price recorded for every call, limits against abuse.',
-          'Structured output with validation – AI output is never trusted blindly. Prompt-injection protection.',
-          'Sign-in via Microsoft and Google with no tokens in the browser (BFF), admin approval of access.',
-          'A modular monolith with ports and adapters, architecture tests, 21 documented decisions (ADRs).',
-          'Azure Container Apps, PostgreSQL, Key Vault, infrastructure as code (Bicep), CI in GitHub Actions with vulnerability scanning.',
-          'Czech and English, a public demo account that resets every morning.',
-        ],
-      },
-      { kind: 'h2', text: 'Technology' },
+      { kind: 'h2', text: 'Under the hood – for developers' },
       {
         kind: 'p',
-        text: '.NET 10 · ASP.NET Core · EF Core · Angular 21 · Claude API (official SDK) · Playwright · Azure Container Apps · PostgreSQL · Key Vault · Azure Communication Services · Bicep · GitHub Actions',
+        text: 'For those who want to know how it is built. All decisions, including rejected alternatives, are recorded as ADRs in the public repository.',
+      },
+      { kind: 'h3', text: 'Sign-in and access' },
+      {
+        kind: 'ul',
+        items: [
+          'OpenID Connect with Microsoft and Google, no own passwords.',
+          'BFF pattern: the browser never sees a token, only an HttpOnly / Secure / __Host- cookie; CSRF protection.',
+          'Access by admin approval, one-link invitations; permissions are read from the database on every request.',
+        ],
+      },
+      { kind: 'h3', text: 'AI you can steer and afford' },
+      {
+        kind: 'ul',
+        items: [
+          'A pipeline instead of one expensive call: a cheap model (Haiku) triages in batches, a stronger one (Sonnet) scores and writes letters.',
+          'Structured output with a JSON schema and validation – AI output is never trusted blindly; CVs and ads are untrusted data for the model.',
+          'Every call is recorded with tokens and price; per-click limits (rolling 24 h) and an emergency brake for the whole app.',
+          'Own narrow LLM port – the model is switched in configuration, the app does not know the vendor SDK.',
+        ],
+      },
+      { kind: 'h3', text: 'Cloud and operations' },
+      {
+        kind: 'ul',
+        items: [
+          'The whole environment as code (Bicep), deployed with one script.',
+          'One Docker image (Angular + API + worker + headless Chromium) from GitHub Actions; Azure Container Apps + a Container Apps Job for the morning run.',
+          'Secrets only in Key Vault via managed identity; PostgreSQL, data in the EU; e-mails via Azure Communication Services with SPF and DKIM.',
+        ],
+      },
+      { kind: 'h3', text: 'Quality and security' },
+      {
+        kind: 'ul',
+        items: [
+          '600+ automated tests (533 .NET + 85 Angular) with no network and no AI calls; architecture tests guard the layers.',
+          'CI on every commit, CodeQL, Dependabot, vulnerable package checks, security headers, rate limiting.',
+          'A modular monolith with ports and adapters; 21 ADRs public on GitHub.',
+        ],
+      },
+      {
+        kind: 'cards',
+        entries: [
+          { label: 'Backend', title: '.NET 10 · ASP.NET Core · EF Core' },
+          { label: 'Frontend', title: 'Angular 21 · signals · CZ / EN' },
+          { label: 'AI', title: 'Claude API · Haiku + Sonnet' },
+          { label: 'Cloud', title: 'Azure Container Apps · PostgreSQL · Key Vault' },
+        ],
       },
     ] as Block[],
     aiLink: 'What the agent got wrong and how I found out →',
@@ -526,7 +667,7 @@ export const en: Content = {
         text: 'Hundreds of smart lockers in more than 100 municipalities, thousands to tens of thousands of parcels at peak.',
         highlights: [
           'microservice solution on Azure with about 35 domains',
-          'new integrations with partners and carriers (e.g. Rohlik.cz)',
+          'integrations with carriers and partners (e.g. PPL, DPD, Czech Post)',
           'multi-package shipments across services',
           'security, secrets management, choice of Azure components',
         ],
@@ -660,9 +801,9 @@ export const en: Content = {
     howTitle: 'How I like to work',
     how: [
       'With a clear goal, trust and ownership of the result.',
-      'Fewer meetings, more finished work.',
-      'I write decisions down so we can come back to them.',
-      'I hand over code that is secure, tested and documented – and I stand behind it, even when AI wrote much of it.',
+      'I focus on efficiency – fewer meetings, more finished work.',
+      'I write important decisions down briefly and clearly, so everyone knows why we decided the way we did.',
+      'I hand over code that is secure, tested and documented – and I stand behind it, even though I make full use of AI tools in development.',
     ],
     timelineTitle: 'Experience',
     timeline: [
@@ -673,8 +814,13 @@ export const en: Content = {
     ],
     techTitle: 'Technology',
     tech: [
-      'C#/.NET', 'Java (Spring Boot)', 'Delphi', 'Oracle PL/SQL', 'MS SQL', 'PostgreSQL', 'MongoDB',
-      'Azure', 'Docker', 'Azure DevOps', 'GitHub Actions', 'Angular', 'Claude API', 'AI agents',
+      { name: 'Backend', items: ['C# / .NET (Core)', 'ASP.NET Core', 'Entity Framework', 'Java', 'Spring Boot', 'Delphi', 'REST API', 'microservices', 'messaging (Service Bus)'] },
+      { name: 'Databases', items: ['Oracle PL/SQL', 'MS SQL', 'PostgreSQL', 'MongoDB', 'SQLite', 'schema design and tuning'] },
+      { name: 'Cloud and DevOps', items: ['Azure', 'App Service', 'Container Apps', 'Service Bus', 'Key Vault', 'Communication Services', 'Bicep', 'Docker', 'Kubernetes', 'Azure DevOps', 'GitHub Actions', 'Jenkins', 'Git'] },
+      { name: 'Security and identity', items: ['OAuth2', 'OpenID Connect', 'Microsoft Entra ID / SSO', 'Google sign-in', 'secrets management', 'OWASP'] },
+      { name: 'Frontend', items: ['Angular', 'TypeScript', 'React', 'RxJS / signals'] },
+      { name: 'AI', items: ['Claude API', 'AI agents', 'tool calling', 'structured output', 'evals and costs', 'prompt-injection protection'] },
+      { name: 'Quality and architecture', items: ['xUnit', 'Playwright', 'architecture tests', 'CI/CD', 'ADRs', 'modular monolith', 'Strangler Fig'] },
     ],
     hobbiesTitle: 'Outside work',
     hobbies: 'Craft and manual work, homebrewing, travel, sport.',

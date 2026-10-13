@@ -25,7 +25,10 @@ import { CtaBand } from '../shared/cta-band';
       </header>
 
       <div class="container">
-        <div class="shot shot--wide" role="img" [attr.aria-label]="t.common.screenshot">{{ t.common.screenshot }}</div>
+        <figure class="case-image">
+          <img src="img/job-scout-cover.webp" [alt]="j.imageAlt" width="1600" height="1000" />
+          <figcaption>{{ j.imageCaption }}</figcaption>
+        </figure>
         <dl class="stats">
           @for (f of j.facts; track f.label) {
             <div><dt>{{ f.value }}</dt><dd>{{ f.label }}</dd></div>

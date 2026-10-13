@@ -6,6 +6,7 @@ export const PATHS = {
     home: '',
     services: 'sluzby',
     articles: 'clanky',
+    projects: 'projekty',
     jobScout: 'projekty/job-scout',
     references: 'reference',
     about: 'o-mne',
@@ -16,6 +17,7 @@ export const PATHS = {
     home: '',
     services: 'services',
     articles: 'articles',
+    projects: 'projects',
     jobScout: 'projects/job-scout',
     references: 'references',
     about: 'about',
@@ -28,14 +30,40 @@ export type PageKey = keyof typeof PATHS.cs;
 /** Stránka, která není v PATHS: detail článku (adresa podle slugu) a 404. */
 export type AnyPage = PageKey | 'article' | 'notFound';
 
+/** Položka ve vizuálních blocích (časová osa, karty, srovnání, rozpad příběhu). */
+export interface Entry {
+  label?: string;
+  title: string;
+  text?: string;
+}
+
 /** Blok souvislého textu (článek, případová studie, zásady). */
 export interface Block {
-  kind: 'h2' | 'p' | 'ul' | 'lesson' | 'quote' | 'source' | 'link';
+  kind:
+    | 'h2'
+    | 'h3'
+    | 'p'
+    | 'ul'
+    | 'lesson'
+    | 'quote'
+    | 'source'
+    | 'link'
+    | 'stages'
+    | 'compare'
+    | 'cards'
+    | 'facts'
+    | 'image'
+    | 'project';
   text?: string;
   items?: string[];
+  entries?: Entry[];
   href?: string;
   /** U kind 'link': odkaz na jiný článek podle slugu. */
   article?: string;
+  /** U kind 'image' a 'project': obrázek. */
+  src?: string;
+  alt?: string;
+  caption?: string;
 }
 
 export interface Meta {

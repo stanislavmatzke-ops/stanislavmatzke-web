@@ -34,6 +34,22 @@ export class SeoService {
       this.meta.updateTag({ property: 'og:locale', content: lang === 'en' ? 'en_GB' : 'cs_CZ' });
       this.doc.documentElement.lang = lang;
 
+      const ogImage =
+        page === 'jobScout' || page === 'projects' || (page === 'article' && article?.slug === 'co-ai-agent-pokazil')
+          ? `${ORIGIN}/img/${lang === 'en' ? 'job-scout-og-en' : 'job-scout-og'}.jpg`
+          : null;
+      if (ogImage) {
+        this.meta.updateTag({ property: 'og:image', content: ogImage });
+        this.meta.updateTag({ property: 'og:image:width', content: '1200' });
+        this.meta.updateTag({ property: 'og:image:height', content: '630' });
+        this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+      } else {
+        this.meta.removeTag('property="og:image"');
+        this.meta.removeTag('property="og:image:width"');
+        this.meta.removeTag('property="og:image:height"');
+        this.meta.removeTag('name="twitter:card"');
+      }
+
       if (missing) {
         this.meta.updateTag({ name: 'robots', content: 'noindex' });
         return;

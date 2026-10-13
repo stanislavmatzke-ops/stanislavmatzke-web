@@ -49,7 +49,7 @@ import { Logo } from '../shared/logo';
 
         <nav id="hlavni-menu" class="site-nav" [class.site-nav--open]="open()" [attr.aria-label]="t.nav.menu">
           <a [routerLink]="i18n.link('services')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.services }}</a>
-          <a [routerLink]="i18n.link('jobScout')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.showcase }}</a>
+          <a [routerLink]="i18n.link('projects')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.showcase }}</a>
           <a [routerLink]="i18n.link('articles')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.articles }}</a>
           <a [routerLink]="i18n.link('references')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.references }}</a>
           <a [routerLink]="i18n.link('about')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.about }}</a>

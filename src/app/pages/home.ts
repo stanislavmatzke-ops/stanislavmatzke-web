@@ -51,7 +51,10 @@ import { ContactForm } from '../shared/contact-form';
         </header>
         <div class="grid">
           @for (item of h.fit.items; track $index) {
-            <div class="card card--quote">{{ item }}</div>
+            <div class="card card--quote">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.text }}</p>
+            </div>
           }
           <div class="card card--accent">
             <span>{{ h.fit.ctaText }}</span>
@@ -101,7 +104,9 @@ import { ContactForm } from '../shared/contact-form';
 
         <div class="showcase">
           <article class="band-card band-card--main showcase__main">
-            <div class="shot shot--band" role="img" [attr.aria-label]="t.common.screenshot">{{ t.common.screenshot }}</div>
+            <a class="shot-img" [routerLink]="i18n.link('jobScout')">
+              <img src="img/job-scout-cover.webp" [alt]="t.jobScout.imageAlt" width="1600" height="1000" loading="lazy" />
+            </a>
             <div class="band-card__body">
               <div class="title-row">
                 <h3 class="h3-lg">{{ h.built.jobScoutTitle }}</h3>
@@ -114,6 +119,7 @@ import { ContactForm } from '../shared/contact-form';
               <div class="links links--band">
                 <a [href]="site.jobScoutDemo" target="_blank" rel="noopener">{{ h.built.demo }}</a>
                 <a [routerLink]="i18n.link('jobScout')">{{ h.built.study }}</a>
+                <a [routerLink]="i18n.link('projects')">{{ t.nav.showcase }} →</a>
                 <a [href]="site.jobScoutRepo" target="_blank" rel="noopener">{{ h.built.github }}</a>
               </div>
             </div>
