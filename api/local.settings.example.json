@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "CONTACT_ACS_CONNECTION_STRING": "",
+    "CONTACT_FROM": "kontakt@stanislavmatzke.com",
+    "CONTACT_TO": "kontakt@stanislavmatzke.com",
+    "CONTACT_ALLOWED_ORIGINS": "http://localhost:4280,http://localhost:4200"
+  }
+}

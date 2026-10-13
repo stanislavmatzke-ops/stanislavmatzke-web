@@ -840,9 +840,11 @@ export const en: Content = {
       company: 'Company (optional)',
       message: 'What do you need help with',
       submit: 'Send message',
+      sending: 'Sending…',
       note: 'I will only use your details to reply to your message.',
-      subject: 'Enquiry from the website',
-      sent: 'Your e-mail program has opened with a pre-filled message. Just hit send.',
+      sent: 'Thank you, your message has arrived. I will get back to you within one business day.',
+      error: 'The message could not be sent. Please write to me directly at',
+      rateLimited: 'Several messages have already been sent from your connection. Please try again later or write to me directly at',
     },
     faqTitle: 'Frequently asked questions',
     faq: [
@@ -892,7 +894,7 @@ export const en: Content = {
       },
       {
         kind: 'p',
-        text: 'E-mails to kontakt@stanislavmatzke.com are forwarded by Cloudflare to my Google (Gmail) mailbox. Both providers process the messages only as technical intermediaries.',
+        text: 'Messages from the form are sent by the website’s server through Azure Communication Services (Microsoft) to kontakt@stanislavmatzke.com; e-mails to this address are forwarded by Cloudflare to my Google (Gmail) mailbox. All three providers process the messages only as technical intermediaries. To prevent abuse, the server briefly (at most one hour) keeps your IP address in memory – it is never stored.',
       },
       { kind: 'h2', text: 'Visiting the website' },
       {

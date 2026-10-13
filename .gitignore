@@ -14,3 +14,8 @@ Thumbs.db
 *.pfx
 .vscode/
 .idea/
+
+# Contact API (.NET)
+api/bin/
+api/obj/
+api/local.settings.json

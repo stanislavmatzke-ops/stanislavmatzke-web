@@ -943,6 +943,19 @@ p {
   color: var(--accent);
   font-weight: 500;
 }
+.form__status--error {
+  color: var(--warn-ink);
+  background: var(--warn);
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+.form__status--error a {
+  color: inherit;
+}
+.form .btn:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
 .hp {
   position: absolute;
   left: -10000px;

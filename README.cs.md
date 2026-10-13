@@ -15,6 +15,7 @@ Web je sám jednou z ukázek práce: návrh, kód, texty ve dvou jazycích, host
 - **Čisté CSS** s proměnnými pro světlý a tmavý režim
 - **Předgenerováno při buildu** (`outputMode: static`) – každá stránka v obou jazycích je hotové HTML s vlastním titulkem, popisem a Open Graph značkami; v prohlížeči se na něj aplikace jen napojí (hydratace)
 - **Písma hostovaná u sebe** (IBM Plex Sans, IBM Plex Mono, Newsreader) – žádné požadavky na třetí strany
+- **Kontaktní API** – .NET 10 Azure Function, izolovaný worker (`api/`), e-mail přes Azure Communication Services
 - **Azure Static Web Apps** (Free), nasazení přes GitHub Actions při každém pushi do `main`
 
 ## Spuštění lokálně
@@ -26,6 +27,16 @@ npm install
 npm start          # http://localhost:4200
 npm run build      # produkční build do dist/stanislavmatzke-web/browser
 ```
+
+Kontaktní formulář potřebuje API. Obojí najednou spustíš přes [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) a [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local):
+
+```bash
+cp api/local.settings.example.json api/local.settings.json   # bez connection stringu se nic neodešle, jen zaloguje
+npx @azure/static-web-apps-cli start http://localhost:4200 --api-location api --run "npm start"
+# → http://localhost:4280
+```
+
+V Azure si API čte `CONTACT_ACS_CONNECTION_STRING` (volitelně `CONTACT_FROM`, `CONTACT_TO`, `CONTACT_LIMIT_PER_HOUR`, `CONTACT_LIMIT_PER_DAY`) z proměnných prostředí Static Web App.
 
 ## Struktura projektu
 
@@ -42,6 +53,7 @@ npm run build      # produkční build do dist/stanislavmatzke-web/browser
 | Barvy, typografie, rozvržení | `src/styles.css` |
 | Obrázky, písma, favicon, `robots.txt`, `sitemap.xml` | `public/` |
 | Konfigurace hostingu – směrování, bezpečnostní hlavičky, cache | `public/staticwebapp.config.json` |
+| API kontaktního formuláře (.NET) | `api/` |
 
 ## Přidání stránky nebo článku
 
@@ -63,8 +75,8 @@ Předgenerované stránky jsou uvedené na třech místech, která musí sedět:
 
 ## Bezpečnost a soukromí
 
-- Čistě statický web – žádný backend, databáze, uživatelské účty ani tajné údaje v repozitáři.
-- Kontaktní formulář otevře e-mailový program návštěvníka (`mailto:`); web sám e-maily neodesílá, takže jím nejde zahltit schránku.
+- Statický web a jeden malý API endpoint – žádná databáze, uživatelské účty ani tajné údaje v repozitáři.
+- Kontaktní formulář posílá na `/api/contact`, který e-mailuje vždy jen do mé schránky (Reply-To je návštěvník; žádný potvrzovací e-mail, takže formulářem nejde posílat poštu jiným lidem). Ochrana: kontrola původu požadavku, past na roboty, minimální doba vyplnění, filtr na zprávy plné odkazů, validace vstupu, limit zpráv na připojení za hodinu a denní strop pro celý web.
 - Přísné bezpečnostní hlavičky: Content-Security-Policy (`script-src 'self'`, žádné cizí zdroje), HSTS, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy, Permissions-Policy.
 - Žádné cookies, analytika, cizí písma ani skripty.
 - Token pro nasazení je jen v GitHub Actions secrets; pull requesty z forků nikdy nedostanou náhledové nasazení.
@@ -74,7 +86,7 @@ Nahlášení bezpečnostní chyby: viz [SECURITY.md](SECURITY.md).
 
 ## Plán
 
-- [ ] Kontaktní formulář přes malou .NET Azure Function a Azure Communication Services – s pastí na roboty, CAPTCHA (Cloudflare Turnstile), limitem na IP adresu a denním stropem
+- [ ] CAPTCHA (Cloudflare Turnstile) pro formulář – jen pokud by spam prošel současnou ochranou
 - [ ] Loga firem v referencích
 - [ ] Analytika bez cookies, šetrná k soukromí
 

@@ -1,7 +1,11 @@
 {
+  "platform": {
+    "apiRuntime": "dotnet-isolated:10.0"
+  },
   "navigationFallback": {
     "rewrite": "/index.csr.html",
     "exclude": [
+      "/api/*",
       "/img/*",
       "/fonts/*",
       "/*.{css,js,mjs,map,svg,png,jpg,jpeg,webp,ico,pdf,txt,xml,json,woff,woff2}"

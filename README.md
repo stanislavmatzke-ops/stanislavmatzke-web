@@ -15,6 +15,7 @@ The site itself is one of the showcase projects: design, code, texts in two lang
 - **Plain CSS** with custom properties for the light and dark theme
 - **Prerendered at build time** (`outputMode: static`) – every page in both languages ships as ready-made HTML with its own title, description and Open Graph tags, then hydrates in the browser
 - **Self-hosted fonts** (IBM Plex Sans, IBM Plex Mono, Newsreader) – no third-party requests
+- **Contact API** – .NET 10 isolated Azure Function (`api/`), e-mail via Azure Communication Services
 - **Azure Static Web Apps** (Free tier), deployed by GitHub Actions on every push to `main`
 
 ## Running locally
@@ -26,6 +27,16 @@ npm install
 npm start          # http://localhost:4200
 npm run build      # production build in dist/stanislavmatzke-web/browser
 ```
+
+The contact form needs the API. To run both together, use the [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) and [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local):
+
+```bash
+cp api/local.settings.example.json api/local.settings.json   # without a connection string nothing is sent, only logged
+npx @azure/static-web-apps-cli start http://localhost:4200 --api-location api --run "npm start"
+# → http://localhost:4280
+```
+
+In Azure the API reads `CONTACT_ACS_CONNECTION_STRING` (and optionally `CONTACT_FROM`, `CONTACT_TO`, `CONTACT_LIMIT_PER_HOUR`, `CONTACT_LIMIT_PER_DAY`) from the Static Web App's environment variables.
 
 ## Project structure
 
@@ -42,6 +53,7 @@ npm run build      # production build in dist/stanislavmatzke-web/browser
 | Colours, typography, layout | `src/styles.css` |
 | Images, fonts, favicon, `robots.txt`, `sitemap.xml` | `public/` |
 | Hosting config – routing fallback, security headers, caching | `public/staticwebapp.config.json` |
+| Contact form API (.NET) | `api/` |
 
 ## Adding a page or an article
 
@@ -63,8 +75,8 @@ Prerendered pages are listed in three places that must stay in sync: `src/app/ap
 
 ## Security and privacy
 
-- Static site only – no backend, no database, no user accounts, no secrets in the repository.
-- The contact form opens the visitor's e-mail client (`mailto:`); the site itself cannot send e-mail, so it cannot be abused to flood an inbox.
+- Static site plus one small API endpoint – no database, no user accounts, no secrets in the repository.
+- The contact form posts to `/api/contact`, which only ever e-mails my own inbox (Reply-To is the visitor; no confirmation mail, so it cannot be used to send mail to others). Protection: same-origin check, honeypot, minimum fill time, link-stuffing filter, input validation, a per-client hourly limit and a daily cap for the whole site.
 - Strict security headers: Content-Security-Policy (`script-src 'self'`, no third-party origins), HSTS, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy, Permissions-Policy.
 - No cookies, no analytics, no external fonts or scripts.
 - The deployment token lives only in GitHub Actions secrets; pull requests from forks never get a preview deployment.
@@ -74,7 +86,7 @@ See [SECURITY.md](SECURITY.md) for reporting a vulnerability.
 
 ## Roadmap
 
-- [ ] Contact form backed by a small .NET Azure Function and Azure Communication Services – with a honeypot, CAPTCHA (Cloudflare Turnstile), per-IP rate limiting and a daily cap
+- [ ] CAPTCHA (Cloudflare Turnstile) for the contact form – only if spam gets through the current protection
 - [ ] Company logos in the references section
 - [ ] Cookie-less, privacy-friendly analytics
 

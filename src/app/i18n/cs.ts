@@ -842,9 +842,11 @@ export const cs = {
       company: 'Firma (nepovinné)',
       message: 'S čím potřebujete pomoci',
       submit: 'Odeslat zprávu',
+      sending: 'Odesílám…',
       note: 'Údaje použiji jen k odpovědi na vaši zprávu.',
-      subject: 'Poptávka z webu',
-      sent: 'Otevřel se váš e-mailový program s předvyplněnou zprávou. Stačí ji odeslat.',
+      sent: 'Děkuji, zpráva dorazila. Ozvu se do jednoho pracovního dne.',
+      error: 'Zprávu se nepodařilo odeslat. Napište mi prosím přímo na',
+      rateLimited: 'Z vašeho připojení už odešlo několik zpráv za sebou. Zkuste to prosím později, nebo napište přímo na',
     },
     faqTitle: 'Časté otázky',
     faq: [
@@ -894,7 +896,7 @@ export const cs = {
       },
       {
         kind: 'p',
-        text: 'E-maily na kontakt@stanislavmatzke.com přeposílá služba Cloudflare do mé schránky u Googlu (Gmail). Oba poskytovatelé zpracovávají zprávy jen jako technický prostředník.',
+        text: 'Zprávu z formuláře odešle server webu přes Azure Communication Services (Microsoft) na kontakt@stanislavmatzke.com; e-maily na tuto adresu přeposílá služba Cloudflare do mé schránky u Googlu (Gmail). Všichni tři poskytovatelé zpracovávají zprávy jen jako technický prostředník. Kvůli ochraně proti zneužití server krátce (nejvýše hodinu) drží v paměti vaši IP adresu – nikam ji neukládá.',
       },
       { kind: 'h2', text: 'Návštěva webu' },
       {
