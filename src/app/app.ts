@@ -11,7 +11,8 @@ import { I18n } from './i18n/i18n.service';
   imports: [RouterOutlet, Header, Footer],
   template: `
     <a class="skip-link" href="#obsah">{{ i18n.t().nav.skip }}</a>
-    <app-header />
+    <!-- Ikona přepínače režimu závisí na localStorage, server ji nezná → hlavičku jen překreslit. -->
+    <app-header ngSkipHydration />
     <main id="obsah">
       <router-outlet />
     </main>

@@ -13,6 +13,7 @@ The site itself is one of the showcase projects: design, code, texts in two lang
 - **Angular 21** – standalone components, signals, zoneless change detection, no UI library
 - **Typed i18n** – Czech is the source dictionary, the English one must match its type (`Content = typeof cs`), so a missing translation is a compile error
 - **Plain CSS** with custom properties for the light and dark theme
+- **Prerendered at build time** (`outputMode: static`) – every page in both languages ships as ready-made HTML with its own title, description and Open Graph tags, then hydrates in the browser
 - **Self-hosted fonts** (IBM Plex Sans, IBM Plex Mono, Newsreader) – no third-party requests
 - **Azure Static Web Apps** (Free tier), deployed by GitHub Actions on every push to `main`
 
@@ -42,6 +43,10 @@ npm run build      # production build in dist/stanislavmatzke-web/browser
 | Images, CVs, fonts, favicon, `robots.txt`, `sitemap.xml` | `public/` |
 | Hosting config – routing fallback, security headers, caching | `public/staticwebapp.config.json` |
 
+## Adding a page or an article
+
+Prerendered pages are listed in three places that must stay in sync: `src/app/app.routes.server.ts` (generated from `PATHS` and the article list automatically), `public/sitemap.xml` and the `routes` rewrites in `public/staticwebapp.config.json`.
+
 ## Pages
 
 | Czech | English |
@@ -69,7 +74,6 @@ See [SECURITY.md](SECURITY.md) for reporting a vulnerability.
 
 ## Roadmap
 
-- [ ] Prerendering (`@angular/ssr`, `outputMode: static`) so that link previews on LinkedIn and other networks show the right title and image
 - [ ] Contact form backed by a small .NET Azure Function and Azure Communication Services – with a honeypot, CAPTCHA (Cloudflare Turnstile), per-IP rate limiting and a daily cap
 - [ ] Company logos in the references section
 - [ ] Cookie-less, privacy-friendly analytics

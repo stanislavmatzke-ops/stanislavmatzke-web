@@ -13,6 +13,7 @@ Web je sám jednou z ukázek práce: návrh, kód, texty ve dvou jazycích, host
 - **Angular 21** – standalone komponenty, signals, bez zone.js, bez UI knihovny
 - **Typované překlady** – čeština je zdrojový slovník, anglický musí odpovídat jeho typu (`Content = typeof cs`), takže chybějící překlad je chyba při kompilaci
 - **Čisté CSS** s proměnnými pro světlý a tmavý režim
+- **Předgenerováno při buildu** (`outputMode: static`) – každá stránka v obou jazycích je hotové HTML s vlastním titulkem, popisem a Open Graph značkami; v prohlížeči se na něj aplikace jen napojí (hydratace)
 - **Písma hostovaná u sebe** (IBM Plex Sans, IBM Plex Mono, Newsreader) – žádné požadavky na třetí strany
 - **Azure Static Web Apps** (Free), nasazení přes GitHub Actions při každém pushi do `main`
 
@@ -42,6 +43,10 @@ npm run build      # produkční build do dist/stanislavmatzke-web/browser
 | Obrázky, CV, písma, favicon, `robots.txt`, `sitemap.xml` | `public/` |
 | Konfigurace hostingu – směrování, bezpečnostní hlavičky, cache | `public/staticwebapp.config.json` |
 
+## Přidání stránky nebo článku
+
+Předgenerované stránky jsou uvedené na třech místech, která musí sedět: `src/app/app.routes.server.ts` (generuje se automaticky z `PATHS` a seznamu článků), `public/sitemap.xml` a přesměrování v `routes` v `public/staticwebapp.config.json`.
+
 ## Stránky
 
 | Česky | Anglicky |
@@ -69,7 +74,6 @@ Nahlášení bezpečnostní chyby: viz [SECURITY.md](SECURITY.md).
 
 ## Plán
 
-- [ ] Předgenerování stránek (`@angular/ssr`, `outputMode: static`), aby náhledy odkazů na LinkedInu a jinde ukazovaly správný titulek a obrázek
 - [ ] Kontaktní formulář přes malou .NET Azure Function a Azure Communication Services – s pastí na roboty, CAPTCHA (Cloudflare Turnstile), limitem na IP adresu a denním stropem
 - [ ] Loga firem v referencích
 - [ ] Analytika bez cookies, šetrná k soukromí

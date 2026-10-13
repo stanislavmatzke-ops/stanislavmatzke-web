@@ -34,21 +34,15 @@ export class SeoService {
       this.meta.updateTag({ property: 'og:locale', content: lang === 'en' ? 'en_GB' : 'cs_CZ' });
       this.doc.documentElement.lang = lang;
 
-      const ogImage =
-        page === 'jobScout' || page === 'projects' || (page === 'article' && article?.slug === 'co-ai-agent-pokazil')
-          ? `${ORIGIN}/img/${lang === 'en' ? 'job-scout-og-en' : 'job-scout-og'}.jpg`
-          : null;
-      if (ogImage) {
-        this.meta.updateTag({ property: 'og:image', content: ogImage });
-        this.meta.updateTag({ property: 'og:image:width', content: '1200' });
-        this.meta.updateTag({ property: 'og:image:height', content: '630' });
-        this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-      } else {
-        this.meta.removeTag('property="og:image"');
-        this.meta.removeTag('property="og:image:width"');
-        this.meta.removeTag('property="og:image:height"');
-        this.meta.removeTag('name="twitter:card"');
-      }
+      // Obrázek pro náhled odkazu (LinkedIn, Facebook, Slack…): Job Scout u projektu, jinak obecný s portrétem.
+      const jobScout = page === 'jobScout' || page === 'projects' || (page === 'article' && article?.slug === 'co-ai-agent-pokazil');
+      const ogImage = `${ORIGIN}/img/${jobScout ? 'job-scout-og' : 'og-default'}${lang === 'en' ? '-en' : ''}.jpg`;
+      this.meta.updateTag({ property: 'og:image', content: ogImage });
+      this.meta.updateTag({ property: 'og:image:width', content: '1200' });
+      this.meta.updateTag({ property: 'og:image:height', content: '630' });
+      this.meta.updateTag({ property: 'og:type', content: page === 'article' ? 'article' : 'website' });
+      this.meta.updateTag({ property: 'og:site_name', content: 'Stanislav Matzke' });
+      this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
 
       if (missing) {
         this.meta.updateTag({ name: 'robots', content: 'noindex' });
@@ -58,6 +52,7 @@ export class SeoService {
       const url = (l: Lang) =>
         ORIGIN + (page === 'article' && article ? this.i18n.articleLink(article.slug, l) : this.i18n.link(page === 'article' ? 'articles' : page, l));
       this.setLink('canonical', url(lang));
+      this.meta.updateTag({ property: 'og:url', content: url(lang) });
       this.setLink('alternate', url('cs'), 'cs');
       this.setLink('alternate', url('en'), 'en');
       this.setLink('alternate', url('cs'), 'x-default');
