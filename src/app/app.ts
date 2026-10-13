@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { DOCUMENT, Component, inject } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './layout/header';
 import { Footer } from './layout/footer';
@@ -22,5 +23,13 @@ export class App {
 
   constructor() {
     inject(SeoService); // spustí aktualizaci titulku a meta značek
+
+    // Router při skoku na kotvu (#konzultace) ignoruje CSS scroll-margin,
+    // proto mu odsazení předáme sami: výška sticky hlavičky + kousek vzduchu.
+    const doc = inject(DOCUMENT);
+    inject(ViewportScroller).setOffset(() => {
+      const header = doc.querySelector('.site-header');
+      return [0, (header?.getBoundingClientRect().height ?? 72) + 24];
+    });
   }
 }

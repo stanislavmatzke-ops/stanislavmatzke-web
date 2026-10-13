@@ -74,6 +74,8 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Kotvy (#konzultace apod.) nesmí skončit pod sticky hlavičkou */
+  scroll-padding-top: 96px;
 }
 
 body {
@@ -955,7 +957,6 @@ p {
   gap: 24px 56px;
   padding-block: 44px;
   border-top: 1px solid var(--line);
-  scroll-margin-top: 90px;
 }
 .service__head {
   flex: 1 1 340px;
