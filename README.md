@@ -1,63 +1,80 @@
 # stanislavmatzke.com
 
-Osobní web Stanislava Matzkeho – služby, ukázky práce, reference. Angular 21, čeština a angličtina, světlý a tmavý režim.
+**English** · [Česky](README.cs.md)
 
-## Spuštění lokálně (Windows)
+Personal website of **Stanislav Matzke** – freelance software architect and developer (.NET, Java, Oracle, Azure, AI).
 
-Potřebuješ Node.js 22 a npm (stejné jako pro Job Scout).
+**Live:** [stanislavmatzke.com](https://stanislavmatzke.com) · Czech and English · light and dark mode
 
-```powershell
-cd "C:\Users\stani\Documents\Claude\Projects\New Job\dev\web\stanislavmatzke-web"
-npm install        # poprvé, trvá 1–2 minuty
-npm start          # otevře http://localhost:4200
+The site itself is one of the showcase projects: design, code, texts in two languages, Azure hosting with a custom domain, CI/CD and e-mail on the domain (SPF, DKIM, DMARC) were built in about a day together with an AI coding agent – reviewed and directed by a human.
+
+## Tech stack
+
+- **Angular 21** – standalone components, signals, zoneless change detection, no UI library
+- **Typed i18n** – Czech is the source dictionary, the English one must match its type (`Content = typeof cs`), so a missing translation is a compile error
+- **Plain CSS** with custom properties for the light and dark theme
+- **Self-hosted fonts** (IBM Plex Sans, IBM Plex Mono, Newsreader) – no third-party requests
+- **Azure Static Web Apps** (Free tier), deployed by GitHub Actions on every push to `main`
+
+## Running locally
+
+Requires Node.js 22.12 or newer.
+
+```bash
+npm install
+npm start          # http://localhost:4200
+npm run build      # production build in dist/stanislavmatzke-web/browser
 ```
 
-Změny v souborech se v prohlížeči projeví samy. Zastavení: `Ctrl+C`.
+## Project structure
 
-Produkční build na zkoušku: `npm run build` → výsledek ve složce `dist/`.
-
-## Kde co je
-
-| Co | Kde |
+| What | Where |
 | --- | --- |
-| **Texty (čeština)** | `src/app/i18n/cs.ts` |
-| **Texty (angličtina)** | `src/app/i18n/en.ts` – kompilátor hlídá, že nic nechybí |
-| Kontaktní a fakturační údaje (IČO, adresa, e-mail…) | `src/app/core/site.ts` |
-| Adresy stránek v obou jazycích | `src/app/i18n/types.ts` (`PATHS`) |
-| Barvy, písma, rozvržení (světlý i tmavý režim) | `src/styles.css` (proměnné nahoře) |
-| Stránky | `src/app/pages/` |
-| Hlavička, patička | `src/app/layout/` |
-| Fotka, CV ke stažení, favicon | `public/` |
+| Texts – Czech (source) | `src/app/i18n/cs.ts` |
+| Texts – English | `src/app/i18n/en.ts` |
+| URL paths in both languages | `src/app/i18n/types.ts` (`PATHS`) |
+| Contact and company details | `src/app/core/site.ts` |
+| Title, description, canonical, hreflang, Open Graph | `src/app/core/seo.service.ts` |
+| Pages | `src/app/pages/` |
+| Header, footer | `src/app/layout/` |
+| Shared components (article blocks, contact form, logo) | `src/app/shared/` |
+| Colours, typography, layout | `src/styles.css` |
+| Images, CVs, fonts, favicon, `robots.txt`, `sitemap.xml` | `public/` |
+| Hosting config – routing fallback, security headers, caching | `public/staticwebapp.config.json` |
 
-## Stránky
+## Pages
 
-| Česky | Anglicky |
+| Czech | English |
 | --- | --- |
 | `/` | `/en` |
 | `/sluzby` | `/en/services` |
-| `/prace-s-ai` | `/en/working-with-ai` |
+| `/projekty` | `/en/projects` |
 | `/projekty/job-scout` | `/en/projects/job-scout` |
+| `/clanky`, `/clanky/:slug` | `/en/articles`, `/en/articles/:slug` |
 | `/reference` | `/en/references` |
 | `/o-mne` | `/en/about` |
 | `/kontakt` | `/en/contact` |
 | `/ochrana-osobnich-udaju` | `/en/privacy` |
 
-## Nasazení
+## Security and privacy
 
-Azure Static Web Apps (Free), nasazení z GitHub Actions při každém pushi do `main`.
+- Static site only – no backend, no database, no user accounts, no secrets in the repository.
+- The contact form opens the visitor's e-mail client (`mailto:`); the site itself cannot send e-mail, so it cannot be abused to flood an inbox.
+- Strict security headers: Content-Security-Policy (`script-src 'self'`, no third-party origins), HSTS, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy, Permissions-Policy.
+- No cookies, no analytics, no external fonts or scripts.
+- The deployment token lives only in GitHub Actions secrets; pull requests from forks never get a preview deployment.
+- Dependabot keeps npm packages and GitHub Actions up to date.
 
-- Build: `app_location: "/"`, `output_location: "dist/stanislavmatzke-web/browser"`
-- `public/staticwebapp.config.json` – směrování všech adres na Angular, bezpečnostní hlavičky
-- **Dokud web není spuštěný naostro:** hlavička `X-Robots-Tag: noindex` a `robots.txt` zakazují indexování.
-  Při spuštění odstranit `X-Robots-Tag` a upravit `robots.txt` (návod je v něm).
+See [SECURITY.md](SECURITY.md) for reporting a vulnerability.
 
-## Před spuštěním naostro (TODO)
+## Roadmap
 
-- [ ] IČO a adresa sídla v `site.ts`
-- [ ] Snímek obrazovky Job Scout (místo zástupného rámečku)
-- [ ] Loga firem místo textových názvů (po kontrole smluv / NDA)
-- [ ] Předgenerování stránek (prerender) kvůli vyhledávačům – `@angular/ssr`, `outputMode: static`
-- [ ] Písma hostovat u sebe (GDPR) místo Google Fonts
-- [ ] Kontaktní formulář → .NET Azure Function + Azure Communication Services (teď otevře e-mailový program)
-- [ ] `sitemap.xml`, `robots.txt`, Open Graph obrázek, analytika bez cookies
-- [ ] GitHub repozitář, Azure Static Web Apps, doména, e-mail na doméně (Microsoft 365)
+- [ ] Prerendering (`@angular/ssr`, `outputMode: static`) so that link previews on LinkedIn and other networks show the right title and image
+- [ ] Contact form backed by a small .NET Azure Function and Azure Communication Services – with a honeypot, CAPTCHA (Cloudflare Turnstile), per-IP rate limiting and a daily cap
+- [ ] Company logos in the references section
+- [ ] Cookie-less, privacy-friendly analytics
+
+## License
+
+The **source code** is released under the [MIT License](LICENSE).
+The **content** – texts, articles, photographs and CVs – is © Stanislav Matzke, all rights reserved; see [CONTENT-LICENSE.md](CONTENT-LICENSE.md).

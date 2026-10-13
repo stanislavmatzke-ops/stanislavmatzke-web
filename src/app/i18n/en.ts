@@ -151,7 +151,7 @@ export const en: Content = {
       delphiText:
         'A sample migration of a receivables system: characterisation tests, step-by-step move of logic out of PL/SQL, an AI assistant over the data.',
       webTitle: 'This website',
-      webText: 'Angular, light and dark mode, Czech and English, deployed on Azure. The code will be public.',
+      webText: 'Angular, light and dark mode, Czech and English, deployed on Azure. The code is public on GitHub.',
       data:
         'Security first: only business-grade AI services that do not train on your data, or tools inside your own environment. I review every change and stand behind it.',
       articleLink: 'What the AI agent got wrong and how I found out →',
@@ -892,10 +892,14 @@ export const en: Content = {
         kind: 'p',
         text: 'When you write to me, I use your name, e-mail, company if given and the message only to reply and to discuss a possible engagement (legitimate interest or pre-contractual steps). I keep messages for at most 2 years from the last contact unless they lead to a contract.',
       },
-      { kind: 'h2', text: 'Analytics' },
       {
         kind: 'p',
-        text: 'This website uses no advertising or tracking cookies. Visits are measured anonymously without cookies. Your choice of light or dark mode is remembered only by your browser.',
+        text: 'E-mails to kontakt@stanislavmatzke.com are forwarded by Cloudflare to my Google (Gmail) mailbox. Both providers process the messages only as technical intermediaries.',
+      },
+      { kind: 'h2', text: 'Visiting the website' },
+      {
+        kind: 'p',
+        text: 'This website uses no cookies or tracking tools and loads nothing from third parties – even the fonts are hosted on the site itself. Hosting is provided by Microsoft Azure, which briefly processes technical access data (such as your IP address) for security and operation. Your choice of light or dark mode is remembered only by your browser.',
       },
       { kind: 'h2', text: 'Your rights' },
       {

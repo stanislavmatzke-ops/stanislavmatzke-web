@@ -153,7 +153,7 @@ export const cs = {
       delphiText:
         'Ukázková migrace systému správy pohledávek: charakterizační testy, postupný převod logiky z PL/SQL, AI asistent nad daty.',
       webTitle: 'Tento web',
-      webText: 'Angular, světlý i tmavý režim, čeština a angličtina, nasazení v Azure. Kód bude veřejný.',
+      webText: 'Angular, světlý i tmavý režim, čeština a angličtina, nasazení v Azure. Kód je veřejný na GitHubu.',
       data:
         'Bezpečnost na prvním místě: jen firemní AI služby, které na vašich datech netrénují, nebo nástroje ve vašem prostředí. Každou změnu kontroluji a ručím za ni.',
       articleLink: 'Co AI agent pokazil a jak jsem na to přišel →',
@@ -894,10 +894,14 @@ export const cs = {
         kind: 'p',
         text: 'Když mi napíšete, použiji vaše jméno, e-mail, případně firmu a obsah zprávy jen k odpovědi a k jednání o případné spolupráci (oprávněný zájem, resp. jednání o smlouvě). Zprávy uchovávám nejdéle 2 roky od posledního kontaktu, pokud z ní nevznikne smluvní vztah.',
       },
-      { kind: 'h2', text: 'Návštěvnost' },
       {
         kind: 'p',
-        text: 'Web nepoužívá reklamní ani sledovací cookies. Návštěvnost měřím anonymně bez cookies. Volbu světlého nebo tmavého režimu si pamatuje jen váš prohlížeč.',
+        text: 'E-maily na kontakt@stanislavmatzke.com přeposílá služba Cloudflare do mé schránky u Googlu (Gmail). Oba poskytovatelé zpracovávají zprávy jen jako technický prostředník.',
+      },
+      { kind: 'h2', text: 'Návštěva webu' },
+      {
+        kind: 'p',
+        text: 'Web nepoužívá žádné cookies ani sledovací nástroje a nenačítá nic od třetích stran – i písma jsou uložená přímo na webu. Hosting zajišťuje Microsoft Azure, který kvůli bezpečnosti a provozu krátkodobě zpracovává technické údaje o přístupu (např. IP adresu). Volbu světlého nebo tmavého režimu si pamatuje jen váš prohlížeč.',
       },
       { kind: 'h2', text: 'Vaše práva' },
       {

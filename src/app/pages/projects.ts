@@ -51,7 +51,7 @@ import { CtaBand } from '../shared/cta-band';
                     <a [routerLink]="i18n.link('contact')">{{ p.soonNote }}</a>
                   }
                   @case ('web') {
-                    <a [href]="site.github" target="_blank" rel="noopener">{{ p.github }}</a>
+                    <a [href]="site.webRepo" target="_blank" rel="noopener">{{ p.github }}</a>
                   }
                 }
               </div>

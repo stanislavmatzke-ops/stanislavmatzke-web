@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://stanislavmatzke.com/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/sluzby</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/sluzby"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/sluzby"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/sluzby"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/sluzby"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/clanky</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/clanky"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/articles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/clanky"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en/articles</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/clanky"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/articles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/clanky"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/projekty</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/projekty"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/projekty"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en/projects</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/projekty"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/projekty"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/projekty/job-scout</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/projekty/job-scout"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/projects/job-scout"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/projekty/job-scout"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en/projects/job-scout</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/projekty/job-scout"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/projects/job-scout"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/projekty/job-scout"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/reference</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/reference"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/references"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/reference"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en/references</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/reference"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/references"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/reference"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/o-mne</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/o-mne"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/o-mne"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/o-mne"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/o-mne"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/kontakt</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/kontakt"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/kontakt"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/ochrana-osobnich-udaju</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/ochrana-osobnich-udaju"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/ochrana-osobnich-udaju"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/ochrana-osobnich-udaju"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/ochrana-osobnich-udaju"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/clanky/rychlost-vyvoje</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/clanky/rychlost-vyvoje"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/articles/rychlost-vyvoje"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/clanky/rychlost-vyvoje"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en/articles/rychlost-vyvoje</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/clanky/rychlost-vyvoje"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/articles/rychlost-vyvoje"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/clanky/rychlost-vyvoje"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/clanky/co-ai-agent-pokazil</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/clanky/co-ai-agent-pokazil"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/articles/co-ai-agent-pokazil"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/clanky/co-ai-agent-pokazil"/>
+  </url>
+  <url>
+    <loc>https://stanislavmatzke.com/en/articles/co-ai-agent-pokazil</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stanislavmatzke.com/clanky/co-ai-agent-pokazil"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stanislavmatzke.com/en/articles/co-ai-agent-pokazil"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stanislavmatzke.com/clanky/co-ai-agent-pokazil"/>
+  </url>
+</urlset>

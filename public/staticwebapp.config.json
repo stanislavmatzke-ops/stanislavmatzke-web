@@ -1,16 +1,19 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/img/*", "/cv/*", "/*.{css,js,mjs,map,svg,png,jpg,jpeg,webp,ico,pdf,txt,xml,json,woff,woff2}"]
+    "exclude": ["/img/*", "/cv/*", "/fonts/*", "/*.{css,js,mjs,map,svg,png,jpg,jpeg,webp,ico,pdf,txt,xml,json,woff,woff2}"]
   },
   "globalHeaders": {
-    "X-Robots-Tag": "noindex, nofollow",
+    "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "DENY",
     "Referrer-Policy": "strict-origin-when-cross-origin",
-    "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+    "Cross-Origin-Opener-Policy": "same-origin"
   },
   "routes": [
+    { "route": "/fonts/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
     { "route": "/cv/*", "headers": { "Cache-Control": "public, max-age=3600" } },
     { "route": "/img/*", "headers": { "Cache-Control": "public, max-age=86400" } }
   ]

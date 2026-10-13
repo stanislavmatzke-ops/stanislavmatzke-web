@@ -12,6 +12,7 @@ export const SITE = {
   github: 'https://github.com/stanislavmatzke-ops',
   jobScoutDemo: 'https://jobscout.stanislavmatzke.com',
   jobScoutRepo: 'https://github.com/stanislavmatzke-ops/job-scout',
+  webRepo: 'https://github.com/stanislavmatzke-ops/stanislavmatzke-web',
   portrait: 'img/stanislav-matzke.jpg',
   cvCz: 'cv/Stanislav_Matzke_CV_CZ.pdf',
   cvEn: 'cv/Stanislav_Matzke_CV_EN.pdf',

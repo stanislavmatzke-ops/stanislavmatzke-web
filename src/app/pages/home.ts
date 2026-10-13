@@ -134,6 +134,9 @@ import { ContactForm } from '../shared/contact-form';
               <span class="pill pill--small pill--band-neutral">{{ t.common.openSource }}</span>
               <h3>{{ h.built.webTitle }}</h3>
               <p>{{ h.built.webText }}</p>
+              <div class="links links--band">
+                <a [href]="site.webRepo" target="_blank" rel="noopener">{{ h.built.github }}</a>
+              </div>
             </article>
           </div>
         </div>

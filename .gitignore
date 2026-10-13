@@ -5,3 +5,12 @@
 .DS_Store
 Thumbs.db
 *.log
+
+# Local secrets and editor settings – never commit
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+.vscode/
+.idea/

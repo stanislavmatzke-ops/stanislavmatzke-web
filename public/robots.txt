@@ -1,6 +1,4 @@
-# Dočasně: web ještě není spuštěný naostro. Při spuštění nahradit:
-#   User-agent: *
-#   Allow: /
-#   Sitemap: https://stanislavmatzke.com/sitemap.xml
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://stanislavmatzke.com/sitemap.xml
