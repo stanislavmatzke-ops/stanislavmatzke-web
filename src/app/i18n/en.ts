@@ -899,7 +899,7 @@ export const en: Content = {
       { kind: 'h2', text: 'Visiting the website' },
       {
         kind: 'p',
-        text: 'This website uses no cookies or tracking tools and loads nothing from third parties – even the fonts are hosted on the site itself. Hosting is provided by Microsoft Azure, which briefly processes technical access data (such as your IP address) for security and operation. Your choice of light or dark mode is remembered only by your browser.',
+        text: 'This website uses no cookies and no advertising or cross-site tracking tools – even the fonts are hosted on the site itself. Visits are measured with Cloudflare Web Analytics: no cookies, no browser fingerprinting and no tracking of individuals, only aggregate numbers (pages viewed, where visits came from, country, device type). Hosting is provided by Microsoft Azure, which briefly processes technical access data (such as your IP address) for security and operation. Your choice of light or dark mode is remembered only by your browser.',
       },
       { kind: 'h2', text: 'Your rights' },
       {

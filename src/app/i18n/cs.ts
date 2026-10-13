@@ -901,7 +901,7 @@ export const cs = {
       { kind: 'h2', text: 'Návštěva webu' },
       {
         kind: 'p',
-        text: 'Web nepoužívá žádné cookies ani sledovací nástroje a nenačítá nic od třetích stran – i písma jsou uložená přímo na webu. Hosting zajišťuje Microsoft Azure, který kvůli bezpečnosti a provozu krátkodobě zpracovává technické údaje o přístupu (např. IP adresu). Volbu světlého nebo tmavého režimu si pamatuje jen váš prohlížeč.',
+        text: 'Web nepoužívá žádné cookies ani reklamní či sledovací nástroje napříč weby – i písma jsou uložená přímo na webu. Návštěvnost měřím přes Cloudflare Web Analytics: bez cookies, bez otisku prohlížeče a bez sledování jednotlivých lidí, jen souhrnná čísla (zobrazené stránky, odkud návštěva přišla, země, typ zařízení). Hosting zajišťuje Microsoft Azure, který kvůli bezpečnosti a provozu krátkodobě zpracovává technické údaje o přístupu (např. IP adresu). Volbu světlého nebo tmavého režimu si pamatuje jen váš prohlížeč.',
       },
       { kind: 'h2', text: 'Vaše práva' },
       {

@@ -77,8 +77,8 @@ Prerendered pages are listed in three places that must stay in sync: `src/app/ap
 
 - Static site plus one small API endpoint – no database, no user accounts, no secrets in the repository.
 - The contact form posts to `/api/contact`, which only ever e-mails my own inbox (Reply-To is the visitor; no confirmation mail, so it cannot be used to send mail to others). Protection: same-origin check, honeypot, minimum fill time, link-stuffing filter, input validation, a per-client hourly limit and a daily cap for the whole site.
-- Strict security headers: Content-Security-Policy (`script-src 'self'`, no third-party origins), HSTS, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy, Permissions-Policy.
-- No cookies, no analytics, no external fonts or scripts.
+- Strict security headers: Content-Security-Policy (`script-src 'self'` plus the Cloudflare analytics beacon, nothing else), HSTS, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy, Permissions-Policy.
+- No cookies and no external fonts; the only third-party script is cookie-less [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/).
 - The deployment token lives only in GitHub Actions secrets; pull requests from forks never get a preview deployment.
 - Dependabot keeps npm packages and GitHub Actions up to date.
 
@@ -88,7 +88,6 @@ See [SECURITY.md](SECURITY.md) for reporting a vulnerability.
 
 - [ ] CAPTCHA (Cloudflare Turnstile) for the contact form – only if spam gets through the current protection
 - [ ] Company logos in the references section
-- [ ] Cookie-less, privacy-friendly analytics
 
 ## License
 

@@ -11,6 +11,8 @@
     <!-- Světlý / tmavý režim nastavíme dřív, než se stránka vykreslí (bez probliknutí).
          Samostatný soubor místo inline skriptu, aby šla použít přísná Content-Security-Policy. -->
     <script src="theme-init.js"></script>
+    <!-- Cloudflare Web Analytics: návštěvnost bez cookies -->
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "02b5141c83654823a526f8c9759a29c3"}'></script>
     <link rel="preload" href="/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin />
   </head>

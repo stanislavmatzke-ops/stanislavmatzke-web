@@ -77,8 +77,8 @@ Předgenerované stránky jsou uvedené na třech místech, která musí sedět:
 
 - Statický web a jeden malý API endpoint – žádná databáze, uživatelské účty ani tajné údaje v repozitáři.
 - Kontaktní formulář posílá na `/api/contact`, který e-mailuje vždy jen do mé schránky (Reply-To je návštěvník; žádný potvrzovací e-mail, takže formulářem nejde posílat poštu jiným lidem). Ochrana: kontrola původu požadavku, past na roboty, minimální doba vyplnění, filtr na zprávy plné odkazů, validace vstupu, limit zpráv na připojení za hodinu a denní strop pro celý web.
-- Přísné bezpečnostní hlavičky: Content-Security-Policy (`script-src 'self'`, žádné cizí zdroje), HSTS, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy, Permissions-Policy.
-- Žádné cookies, analytika, cizí písma ani skripty.
+- Přísné bezpečnostní hlavičky: Content-Security-Policy (`script-src 'self'` plus měřicí skript Cloudflare, nic jiného), HSTS, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy, Permissions-Policy.
+- Žádné cookies ani cizí písma; jediný skript třetí strany je měření návštěvnosti bez cookies – [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/).
 - Token pro nasazení je jen v GitHub Actions secrets; pull requesty z forků nikdy nedostanou náhledové nasazení.
 - Dependabot hlídá aktualizace npm balíčků i GitHub Actions.
 
@@ -88,7 +88,6 @@ Nahlášení bezpečnostní chyby: viz [SECURITY.md](SECURITY.md).
 
 - [ ] CAPTCHA (Cloudflare Turnstile) pro formulář – jen pokud by spam prošel současnou ochranou
 - [ ] Loga firem v referencích
-- [ ] Analytika bez cookies, šetrná k soukromí
 
 ## Licence
 
