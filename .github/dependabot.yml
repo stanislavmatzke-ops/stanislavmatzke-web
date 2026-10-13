@@ -5,8 +5,22 @@ updates:
     schedule:
       interval: weekly
     groups:
+      # Angular packages and the TypeScript version they require always move together
       angular:
-        patterns: ['@angular/*', '@angular-devkit/*']
+        patterns: ['@angular/*', '@angular-devkit/*', 'typescript']
+    ignore:
+      # Major Angular upgrades are done by hand with `ng update` (it runs code migrations)
+      - dependency-name: '@angular/*'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@angular-devkit/*'
+        update-types: ['version-update:semver-major']
+      # TypeScript is pinned to the range the Angular compiler supports; ng update bumps it
+      - dependency-name: 'typescript'
+        update-types: ['version-update:semver-major', 'version-update:semver-minor']
+  - package-ecosystem: nuget
+    directory: /api
+    schedule:
+      interval: weekly
   - package-ecosystem: github-actions
     directory: /
     schedule:
