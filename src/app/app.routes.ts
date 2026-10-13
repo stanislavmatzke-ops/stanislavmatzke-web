@@ -2,7 +2,8 @@ import { Routes } from '@angular/router';
 import { Lang, PageKey, PATHS } from './i18n/types';
 import { HomePage } from './pages/home';
 import { ServicesPage } from './pages/services';
-import { AiPage } from './pages/ai';
+import { ArticlesPage } from './pages/articles';
+import { ArticlePage } from './pages/article';
 import { JobScoutPage } from './pages/job-scout';
 import { ReferencesPage } from './pages/references';
 import { AboutPage } from './pages/about';
@@ -13,7 +14,7 @@ import { NotFoundPage } from './pages/not-found';
 const components: Record<PageKey, Routes[number]['component']> = {
   home: HomePage,
   services: ServicesPage,
-  ai: AiPage,
+  articles: ArticlesPage,
   jobScout: JobScoutPage,
   references: ReferencesPage,
   about: AboutPage,
@@ -21,17 +22,22 @@ const components: Record<PageKey, Routes[number]['component']> = {
   privacy: PrivacyPage,
 };
 
-/** Každá stránka existuje česky (bez prefixu) a anglicky (/en/...). */
+const prefixed = (lang: Lang, path: string) => (lang === 'en' ? (path ? `en/${path}` : 'en') : path);
+
+/** Každá stránka existuje česky (bez prefixu) a anglicky (/en/...); články mají adresu podle slugu. */
 function routesFor(lang: Lang): Routes {
-  return (Object.keys(components) as PageKey[]).map((page) => {
-    const path = PATHS[lang][page];
-    return {
-      path: lang === 'en' ? (path ? `en/${path}` : 'en') : path,
-      pathMatch: 'full',
-      component: components[page],
-      data: { lang, page },
-    };
+  const pages: Routes = (Object.keys(components) as PageKey[]).map((page) => ({
+    path: prefixed(lang, PATHS[lang][page]),
+    pathMatch: 'full',
+    component: components[page],
+    data: { lang, page },
+  }));
+  pages.push({
+    path: prefixed(lang, `${PATHS[lang].articles}/:slug`),
+    component: ArticlePage,
+    data: { lang, page: 'article' },
   });
+  return pages;
 }
 
 export const routes: Routes = [

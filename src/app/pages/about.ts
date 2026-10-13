@@ -9,7 +9,7 @@ import { CtaBand } from '../shared/cta-band';
   template: `
     @let t = i18n.t();
     @let a = t.about;
-    <section class="page-head">
+    <section class="page-head page-head--pattern">
       <div class="container about">
         <div class="stack">
           <span class="eyebrow">{{ a.eyebrow }}</span>

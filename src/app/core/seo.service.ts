@@ -18,7 +18,14 @@ export class SeoService {
       const t = this.i18n.t();
       const page = this.i18n.page();
       const lang = this.i18n.lang();
-      const m = t.meta[page];
+      const article = this.i18n.article();
+
+      let m = t.meta[page];
+      if (page === 'article' && article) {
+        m = { title: `${article.title} – Stanislav Matzke`, description: article.perex };
+      }
+      const missing = page === 'notFound' || (page === 'article' && !article);
+      if (page === 'article' && !article) m = t.meta.notFound;
 
       this.title.setTitle(m.title);
       this.meta.updateTag({ name: 'description', content: m.description });
@@ -27,12 +34,13 @@ export class SeoService {
       this.meta.updateTag({ property: 'og:locale', content: lang === 'en' ? 'en_GB' : 'cs_CZ' });
       this.doc.documentElement.lang = lang;
 
-      if (page === 'notFound') {
+      if (missing) {
         this.meta.updateTag({ name: 'robots', content: 'noindex' });
         return;
       }
       this.meta.removeTag('name="robots"');
-      const url = (l: Lang) => ORIGIN + this.i18n.link(page, l);
+      const url = (l: Lang) =>
+        ORIGIN + (page === 'article' && article ? this.i18n.articleLink(article.slug, l) : this.i18n.link(page === 'article' ? 'articles' : page, l));
       this.setLink('canonical', url(lang));
       this.setLink('alternate', url('cs'), 'cs');
       this.setLink('alternate', url('en'), 'en');

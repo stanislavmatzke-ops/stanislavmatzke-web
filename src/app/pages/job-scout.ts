@@ -12,7 +12,7 @@ import { CtaBand } from '../shared/cta-band';
     @let t = i18n.t();
     @let j = t.jobScout;
     <article>
-      <header class="page-head">
+      <header class="page-head page-head--pattern">
         <div class="container stack stack--sm">
           <span class="eyebrow">{{ j.eyebrow }}</span>
           <h1>{{ j.title }}</h1>
@@ -35,10 +35,10 @@ import { CtaBand } from '../shared/cta-band';
 
       <div class="container container--narrow prose">
         <app-blocks [blocks]="j.blocks" [lessonLabel]="t.common.lesson" />
-        <p class="prose__more"><a [routerLink]="i18n.link('ai')">{{ j.aiLink }}</a></p>
+        <p class="prose__more"><a [routerLink]="i18n.articleLink('co-ai-agent-pokazil')">{{ j.aiLink }}</a></p>
       </div>
     </article>
-    <app-cta-band [title]="t.ai.ctaTitle" [text]="t.ai.ctaText" />
+    <app-cta-band [title]="t.articles.ctaTitle" [text]="t.articles.ctaText" />
   `,
 })
 export class JobScoutPage {

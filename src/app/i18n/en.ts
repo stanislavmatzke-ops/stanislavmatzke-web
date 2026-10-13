@@ -1,12 +1,12 @@
 import { Content } from './cs';
-import { Block } from './types';
+import { Article, Block, Reference } from './types';
 
 /** English – návrh překladu, doladit po schválení češtiny. */
 export const en: Content = {
   nav: {
     services: 'Services',
-    ai: 'Working with AI',
-    showcase: 'Showcase',
+    showcase: 'Projects',
+    articles: 'Articles',
     references: 'References',
     about: 'About',
     contact: 'Contact',
@@ -18,28 +18,32 @@ export const en: Content = {
     otherLang: 'Čeština',
     otherLangShort: 'CZ',
     skip: 'Skip to content',
+    home: 'Stanislav Matzke – home page',
   },
 
   meta: {
     home: {
-      title: 'Stanislav Matzke – a software architect who still writes code',
+      title: 'Stanislav Matzke – building and modernising enterprise systems with AI',
       description:
-        'Design, development and modernisation of enterprise systems in .NET, Java, Oracle and Azure – with AI where it genuinely speeds things up. Prague / hybrid.',
+        'Fifteen years of enterprise development and the speed AI brings. Design, development, deployment and operations in .NET, Java, Oracle and Azure. Prague / hybrid.',
     },
     services: {
       title: 'Services – Stanislav Matzke',
       description:
         'Architecture consulting and reviews, custom systems, modernisation of Delphi and Oracle PL/SQL, integrations, AI in your solutions and contract tech lead.',
     },
-    ai: {
-      title: 'How I work with AI – Stanislav Matzke',
-      description:
-        'AI makes development several times faster – if someone who knows what they are doing is in charge. Real mistakes an AI agent made while building Job Scout.',
+    articles: {
+      title: 'Articles – Stanislav Matzke',
+      description: 'Lessons from practice: how AI is changing software development, legacy modernisation and what to watch out for.',
+    },
+    article: {
+      title: 'Article – Stanislav Matzke',
+      description: '',
     },
     jobScout: {
       title: 'Job Scout – case study – Stanislav Matzke',
       description:
-        'An AI agent that reviews job offers every morning and prepares the groundwork. .NET 10, Angular, Claude API, Azure. Built in ~10 days with AI.',
+        'An AI agent that reviews job offers every morning and prepares the groundwork. .NET 10, Angular, Claude API, Azure. One person with AI in ~10 days.',
     },
     references: {
       title: 'References – Stanislav Matzke',
@@ -48,7 +52,7 @@ export const en: Content = {
     },
     about: {
       title: 'About – Stanislav Matzke',
-      description: '15 years of designing and building enterprise systems – from Delphi and Oracle to .NET, Azure and AI.',
+      description: '15 years of designing and building enterprise systems – from Delphi and Oracle to .NET, Azure and AI agents.',
     },
     contact: {
       title: 'Contact – Stanislav Matzke',
@@ -74,15 +78,18 @@ export const en: Content = {
     openSource: 'open source',
     screenshot: 'Job Scout screenshot – coming soon',
     lesson: 'Lesson',
+    readArticle: 'Read the article →',
+    via: 'via',
   },
 
   home: {
-    kicker: 'A software architect who still writes code',
-    title: 'Systems that last. And the old ones that still have to.',
+    kicker: 'Architecture · development · deployment · operations',
+    titleStart: 'Years of building applications.',
+    titleHighlight: 'Next-generation speed.',
     lead:
-      'For fifteen years I have been designing and building enterprise systems in .NET, Java and Oracle on Azure – for banks, insurers and large companies. I build new solutions, modernise old ones sensibly and bring in AI where it genuinely speeds up the work.',
-    ctaSecondary: 'See my work',
-    tags: ['.NET', 'Java', 'Oracle PL/SQL', 'Azure', 'Angular', 'LLMs & AI agents'],
+      'I combine know-how from building enterprise systems from the ground up with what AI can do today. I design the solution, build it, deploy it and keep it running – fast, securely and owning the result. The proof is in projects you can try yourself.',
+    ctaSecondary: 'See the projects',
+    tags: ['.NET', 'Java', 'Oracle PL/SQL', 'Azure', 'Angular', 'AI agents & LLMs'],
     logosLabel: 'I have worked for',
     logos: ['VZP ČR', 'Raiffeisenbank', 'MONETA Money Bank', 'SAB Finance', 'ARBES', 'Vodafone', 'IFS'],
 
@@ -90,7 +97,7 @@ export const en: Content = {
       eyebrow: 'Is this you?',
       title: 'Typical situations companies come to me with',
       items: [
-        'A key system works, but every change takes weeks and fewer and fewer people understand it.',
+        'A key system works, but every change takes weeks – and you keep postponing modernisation because it looks expensive and risky.',
         'A vendor is proposing a big project and you need an independent view of the design and the price.',
         'An internal process runs on spreadsheets and e-mails and deserves a proper application.',
         'Your systems do not talk to each other and data is re-typed by hand.',
@@ -106,55 +113,41 @@ export const en: Content = {
       all: 'All services in detail →',
     },
 
-    ai: {
-      eyebrow: 'Working with AI',
-      title: 'AI makes development several times faster. If someone who knows what they’re doing is in charge.',
+    built: {
+      eyebrow: 'Built with AI',
+      title: 'What used to take a team months, I now deliver in days.',
       lead:
-        'AI writes code faster than any of us. But it cannot decide what should be built, notice when it is confidently wrong, or take responsibility for the result. That difference is experience.',
-      fastTitle: 'What AI speeds up',
-      fast: [
-        'finding your way around large, old codebases',
-        'extracting business rules from code and databases',
-        'tests, documentation and routine code',
-        'prototypes that validate an idea quickly',
-      ],
-      humanTitle: 'Where a human decides',
-      human: [
-        'architecture and trade-offs that will last for years',
-        'who may see what – permissions and personal data',
-        'what happens when it is abused, and what it will cost',
-        'reviewing the output – green tests are not enough',
-      ],
-      statLabel: 'On my own project',
+        'Showcase projects I built with AI agents – from design through code and tests to deployment on Azure. Not slide-deck prototypes, but applications that run and that you can try.',
       statValue: '~10 days',
-      statText:
-        'instead of an estimated 40–60 person-days without AI. Job Scout: backend, AI agent, sign-in, user management, 600+ tests, deployed on Azure.',
-      data:
-        'Your data: only business-grade AI services that do not train on it – or tools inside your own environment. Without AI is possible too, just slower and more expensive.',
-      articleLink: 'Read: What the AI agent got wrong and how I found out →',
-    },
-
-    showcase: {
-      eyebrow: 'Showcase',
-      title: 'Don’t take my word for it – try it',
+      statLabel: 'Job Scout',
+      statText: 'one person with an AI agent. Without AI, an estimated 2–3 months for a team of three.',
       jobScoutTitle: 'Job Scout',
       jobScoutText:
         'An AI agent that reviews job offers every morning, scores them against the user’s profile and prepares the groundwork. The agent prepares, a human decides.',
-      jobScoutTags: ['.NET 10', 'Angular', 'Claude API', 'Azure Container Apps', 'PostgreSQL'],
+      jobScoutTags: ['.NET 10', 'Angular', 'Claude API', 'Azure', 'PostgreSQL', '600+ tests'],
       demo: 'Try the demo →',
       study: 'Case study →',
       github: 'GitHub →',
-      delphiTitle: 'Delphi\u00a0→ .NET modernisation with AI',
+      delphiTitle: 'Delphi → .NET modernisation with AI',
       delphiText:
         'A sample migration of a receivables system: characterisation tests, step-by-step move of logic out of PL/SQL, an AI assistant over the data.',
       webTitle: 'This website',
-      webText: 'Angular, light and dark mode, Czech and English. The code will be public.',
+      webText: 'Angular, light and dark mode, Czech and English, deployed on Azure. The code will be public.',
+      data:
+        'Security first: only business-grade AI services that do not train on your data, or tools inside your own environment. I review every change and stand behind it.',
+      articleLink: 'What the AI agent got wrong and how I found out →',
+    },
+
+    articles: {
+      eyebrow: 'Articles',
+      title: 'Lessons from practice',
+      all: 'All articles →',
     },
 
     references: {
       eyebrow: 'References',
       title: 'Where I have worked',
-      lead: 'A selection from the last 15 years – directly and through vendors. Banking, finance, healthcare, logistics.',
+      lead: 'A selection from the last 15 years – directly and through vendors. Banking, finance, healthcare, logistics, public sector.',
       all: 'All references →',
       rows: [
         { years: '2025–2026', name: '', text: 'Cloud platform for a network of smart parcel lockers · Azure, microservices' },
@@ -200,7 +193,11 @@ export const en: Content = {
     eyebrow: 'Services',
     title: 'How I can help',
     lead:
-      'I work as an architect who still writes code. I will help you decide, design the solution and build it myself – or strengthen your team. I price individually after the intro call, always for the result.',
+      'I cover the whole workflow – from design and analysis through development to deployment and operations. Faster and cheaper than before thanks to AI, with a focus on security and quality. I price individually after the intro call, always for the result.',
+    guarantee: {
+      title: 'You pay for results, not effort',
+      text: 'Before we start, we agree on exactly what I will deliver, by when and for how much. Then it is up to me to deliver it. If I do not deliver the agreed result, you pay nothing – and I refund any deposit. The risk is mine, not yours.',
+    },
     labels: {
       forWhom: 'Who it is for',
       outcome: 'What you get',
@@ -225,25 +222,25 @@ export const en: Content = {
       {
         id: 'na-miru',
         title: 'Custom systems',
-        short: 'Internal information systems and web applications from analysis to operations – for smaller firms and large organisations.',
+        short: 'Internal information systems and web applications from design to operations – for smaller firms and large organisations.',
         forWhom: 'Companies for whom spreadsheets and boxed software are no longer enough – from smaller firms to in-house IT of large organisations.',
         points: [
           'internal information systems, records, workflows and approvals',
           'web applications with sign-in via company accounts (Microsoft, Google, SSO)',
-          'deployment to the cloud (Azure) or on-premises, CI/CD, monitoring',
+          'deployment to the cloud (Azure) or on-premises, CI/CD, monitoring and operations',
         ],
-        outcome: 'Analysis → design → development in stages with a demo of each stage → handover and operations. The code and documentation belong to you.',
-        experience: 'Four years of in-house development at VZP ČR (application modernisation, team lead), systems for banks and financial companies.',
+        outcome: 'Analysis → design → development in stages with a demo of each stage → deployment and operations. The code and documentation belong to you.',
+        experience: 'Four years of in-house development at VZP ČR (application modernisation, team lead), systems for banks and financial companies, Job Scout from scratch to production.',
         firstStep: 'An initial analysis and design of the first stage.',
       },
       {
         id: 'modernizace',
         title: 'Modernising legacy systems',
-        short: 'Delphi, Oracle PL/SQL, old .NET or Java. A gradual move to a modern architecture with no downtime.',
-        forWhom: 'Companies with a key system that is 10–25 years old – Delphi, Oracle PL/SQL, old .NET Framework or Java.',
+        short: 'Delphi, Oracle PL/SQL, old .NET or Java. Faster and cheaper than ever thanks to AI – and with no downtime.',
+        forWhom: 'Companies with a key system that is 10–25 years old whose modernisation they kept postponing because it looked expensive and risky.',
         points: [
           'quick diagnosis: current state, risks, recommended strategy',
-          'analysis and design: inventory, business rules extracted from code, target architecture, roadmap and estimate',
+          'analysis and design: inventory, business rules extracted from code with the help of AI, target architecture, roadmap and estimate',
           'gradual migration with tests that check the new system calculates exactly like the old one',
         ],
         outcome: 'A clear plan for the system – what to keep, what to modernise, in which order and for how much.',
@@ -268,7 +265,7 @@ export const en: Content = {
         id: 'ai',
         title: 'AI in your solutions',
         short: 'Assistants and agents over company data – secure, with measurable quality and costs known upfront.',
-        forWhom: 'Companies that want to use AI sensibly – not because it is fashionable.',
+        forWhom: 'Companies that want to use AI fully and securely – neither avoiding it nor deploying it blindly.',
         points: [
           'where AI makes sense in your system and where it does not',
           'assistants and agents over company data (LLMs via API, tool calling, document search)',
@@ -281,11 +278,11 @@ export const en: Content = {
       {
         id: 'tech-lead',
         title: 'Contract tech lead',
-        short: 'I will strengthen your team as an architect who still writes code – code reviews, leading developers, clear communication with management.',
-        forWhom: 'Teams lacking a senior person for architecture and technical decisions.',
+        short: 'I will strengthen your team – architecture, code reviews, leading developers and bringing AI into the team’s work.',
+        forWhom: 'Teams lacking a senior person for architecture, technical decisions and the move to AI-assisted development.',
         points: [
           'architecture and technical decisions recorded so you can come back to them (ADRs)',
-          'code reviews, mentoring, CI/CD and quality setup',
+          'code reviews, mentoring, CI/CD and rules for working safely with AI agents',
           'communication with management and the business in plain language',
         ],
         outcome: 'Long-term on contract, part-time or full-time. For the right team, employment too.',
@@ -297,91 +294,162 @@ export const en: Content = {
     ctaText: 'That’s fine – we will find out on the intro call.',
   },
 
-  ai: {
-    eyebrow: 'Working with AI',
-    title: 'AI makes development several times faster. If someone who knows what they’re doing is in charge.',
-    lead:
-      'I built Job Scout in under two weeks. An AI agent wrote the code; I acted as the architect and reviewer – I specified, checked, tested and deployed. Here is what the agent did brilliantly, what it got wrong, and what that means for companies.',
-    meta: 'October 2026 · 7 min read',
-    blocks: [
-      { kind: 'h2', text: 'The good news first: it (almost) no longer makes silly mistakes' },
-      {
-        kind: 'p',
-        text: 'The usual “vibe coding” horrors – passwords and API keys in code, missing input validation, SQL injection, home-made authentication – never showed up in Job Scout. The agent kept secrets out of the repository on its own, validated input, wrote 600+ automated tests, added prompt-injection protection and tests that guard the application’s layers.',
-      },
-      {
-        kind: 'p',
-        text: 'The mistakes it did make were of a different kind: the code was correct, the tests were green – but the logic was not thought through. Exactly the kind no linter or security scanner will find.',
-      },
-      { kind: 'h2', text: 'Story 1: anyone with access could burn through the AI budget' },
-      {
-        kind: 'p',
-        text: 'Job Scout’s morning run had hard limits from day one. Then we added “Score” and “Write a new cover letter” buttons – each one a paid AI call. The agent implemented them exactly as specified: they worked, were tested, and the costs were recorded.',
-      },
-      {
-        kind: 'p',
-        text: 'But nobody – the agent included – asked: “What if someone clicks a thousand times?” Changing a single letter in the notes re-ran the profile analysis. A letter could be rewritten endlessly. A human found it, not the AI – the day after launch, when I sent the app to the first users and clicked through it myself.',
-      },
-      {
-        kind: 'p',
-        text: 'The fix took one morning: per-click limits in a rolling 24-hour window, a daily “emergency brake” for the whole app that e-mails the admin, a lock against two quick clicks, and a monthly spending cap directly with the AI provider.',
-      },
-      {
-        kind: 'lesson',
-        text: 'In AI applications, a “denial of wallet” attack is as real a risk as a data leak (OWASP lists it for LLM apps as Unbounded Consumption). AI delivers what you specify – the question “how much could this cost us if it is abused” has to come from a human.',
-      },
-      { kind: 'h2', text: 'Story 2: a rejected user got into the app' },
-      {
-        kind: 'p',
-        text: 'Access to Job Scout is approved by an admin. The agent implemented “Reject request” – using the existing “suspended account” state. Logical at first glance. But a suspended user is still a member and may view their own data. So a rejected applicant could sign in and get inside.',
-      },
-      {
-        kind: 'p',
-        text: 'The tests were green because they tested exactly what the agent wrote. Nobody tested that a rejected applicant must see nothing at all. I found it with a manual test in production: I rejected a test account and it signed in just fine.',
-      },
-      {
-        kind: 'lesson',
-        text: 'Authorisation is where “almost right” means “wrong”. No automation replaces a review of access rules and a manual “let me try to get in” test.',
-      },
-      { kind: 'h2', text: 'Bonus: two parts that never talked to each other' },
-      {
-        kind: 'p',
-        text: 'The agent wrote a workflow that builds a Docker image after every commit – and sensibly skips commits that only touch documentation. On another day it wrote a deploy script that deploys the image for the latest commit. Each part correct on its own. Together: after a README change the script tried to deploy an image that was never built. Not a bug in the code, but in combining two decisions made on different days.',
-      },
-      { kind: 'h2', text: 'Checking against a list: where AI shines' },
-      {
-        kind: 'p',
-        text: 'After launch we went through the app point by point against a security checklist for vibe coding – input validation, authorisation, sessions, rate limiting, secrets, dependencies, prompt injection, code analysis in CI, security headers. The agent did the review. Give it a clear list to check against and it is thorough – and it found another hole it had created itself: anyone could request access a hundred times and the admin would get a hundred e-mails.',
-      },
-      {
-        kind: 'source',
-        text: 'O2 CyberNews: Vibe coding – working code is not automatically secure (in Czech)',
-        href: 'https://o2cybernews.cz/clanky/vibe-coding-funkcni-kod-neni-automaticky-bezpecny',
-      },
-      { kind: 'h2', text: 'What this means for companies' },
-      {
-        kind: 'ul',
-        items: [
-          'AI is improving fast – a good agent with clear rules no longer makes the classic security mistakes on its own. That does not mean the code is finished.',
-          'What needs watching is logic, not syntax: who may see what, what happens when it is abused, what it costs, how the parts work together.',
-          'Green tests are not enough – the agent tests what it wrote. Tests for “what must never happen” have to be invented by a human.',
-          'Fast feedback from real use caught both main bugs within 24 hours. Releasing early to a small group and having limits and cost monitoring from day one paid off.',
-        ],
-      },
-      { kind: 'h2', text: 'How I use AI on client work' },
-      {
-        kind: 'ul',
-        items: [
-          'I use AI to find my way around large codebases, extract business rules, and draft tests and documentation. Conclusions, architecture and recommendations are mine.',
-          'Only business versions of AI services that contractually do not train on customer data. If you have your own approved tools (e.g. Azure OpenAI in your tenant), I use those.',
-          'I work on a copy of the code with anonymised or test data, never with production personal data. When the engagement ends I delete everything and confirm it in writing.',
-          'I never give AI keys or passwords. I review and approve every change the agent makes.',
-          'If you do not allow AI, that works too – just slower and more expensive, roughly by a third to a half.',
-        ],
-      },
-    ] as Block[],
-    ctaTitle: 'Want to know where AI could help in your system?',
+  articles: {
+    eyebrow: 'Articles',
+    title: 'Lessons from practice',
+    lead: 'How AI is changing software development and legacy modernisation – from my own experience, without the marketing.',
+    back: '← All articles',
+    ctaTitle: 'Want to know what AI could do with your system?',
     ctaText: 'Let’s discuss it on a free call.',
+    items: [
+      {
+        slug: 'rychlost-vyvoje',
+        title: 'Development speed: what changed in just a few years',
+        perex:
+          'For fifteen years software development got faster slowly. Then AI arrived and within a few years – and even more so in recent months – what one experienced person can deliver changed. What it means for new projects and for modernising old systems.',
+        date: 'October 2026',
+        readTime: '6 min read',
+        blocks: [
+          { kind: 'h2', text: 'Fifteen years of almost no change' },
+          {
+            kind: 'p',
+            text: 'When I started on Delphi systems in 2011, a developer wrote code line by line. A lot changed by 2022 – better IDEs, frameworks, the cloud, CI/CD, containers. But the essence stayed the same: a senior developer’s productivity was mostly about how much code they could write, debug and review. Speed-ups were measured in percent.',
+          },
+          { kind: 'h2', text: 'Autocomplete and chat' },
+          {
+            kind: 'p',
+            text: 'The first AI assistants completed lines and answered questions in a chat. Useful, but you still assembled everything yourself – and often corrected confident nonsense. The gain was mostly in routine work.',
+          },
+          { kind: 'h2', text: 'AI that understands the whole project' },
+          {
+            kind: 'p',
+            text: 'Then models started working with the whole repository: refactoring across dozens of files, writing tests, explaining unfamiliar code. I experienced it myself when I moved to .NET after years of Java – I was fully productive within days, not months.',
+          },
+          { kind: 'h2', text: 'Today: agents that finish the job' },
+          {
+            kind: 'p',
+            text: 'A current AI agent takes a task, plans it, edits files, runs the build and tests, fixes errors and comes back with a result. And it improves month by month, not year by year – what did not work last year works today.',
+          },
+          {
+            kind: 'p',
+            text: 'Concretely: I built Job Scout – a .NET 10 backend, job-ad scraping, an AI pipeline, sign-in via Microsoft and Google, user management, Angular, 600+ tests, CI, 21 recorded architecture decisions and deployment on Azure – in about ten days. Without AI I would have estimated 2–3 months for a team of three.',
+          },
+          { kind: 'h2', text: 'What it means for modernising old systems' },
+          {
+            kind: 'ul',
+            items: [
+              'Getting to know a large old codebase takes days, not weeks – AI goes through forms, stored procedures and triggers.',
+              'Business rules hidden in code can be extracted and written down; a human then verifies them with users.',
+              'Characterisation tests that check the new system calculates exactly like the old one are much faster to write.',
+              'Migrating module by module is significantly cheaper – systems nobody touched for years “because it is expensive” are worth recalculating.',
+            ],
+          },
+          {
+            kind: 'lesson',
+            text: 'A project you shelved two years ago as too expensive is worth recalculating. The price has changed more since then than in the previous ten years.',
+          },
+          { kind: 'h2', text: 'Where the bottleneck is now' },
+          {
+            kind: 'p',
+            text: 'Writing code is no longer the slowest part. The bottleneck is decisions: what to build, how to design it, who may see what, what it will cost to run and what happens when something fails. AI speeds up those who know what they are doing. Without experience you quickly get a lot of code nobody understands.',
+          },
+          { kind: 'link', text: 'What I ran into in practice when building with an AI agent →', article: 'co-ai-agent-pokazil' },
+        ] as Block[],
+      },
+      {
+        slug: 'co-ai-agent-pokazil',
+        title: 'What the AI agent got wrong – and why it matters',
+        perex:
+          'An AI agent wrote Job Scout; I was the architect and reviewer – I specified, checked, tested and deployed. The agent did not make the classic security mistakes. The ones it did make were trickier: correct code, green tests, logic not thought through.',
+        date: 'October 2026',
+        readTime: '7 min read',
+        blocks: [
+          { kind: 'h2', text: 'The good news first: it (almost) no longer makes silly mistakes' },
+          {
+            kind: 'p',
+            text: 'The usual “vibe coding” horrors – passwords and API keys in code, missing input validation, SQL injection, home-made authentication – never showed up in Job Scout. The agent kept secrets out of the repository on its own, validated input, wrote 600+ automated tests, added prompt-injection protection and tests that guard the application’s layers.',
+          },
+          {
+            kind: 'p',
+            text: 'The mistakes it did make were of a different kind: the code was correct, the tests were green – but the logic was not thought through. Exactly the kind no linter or security scanner will find.',
+          },
+          { kind: 'h2', text: 'Story 1: anyone with access could burn through the AI budget' },
+          {
+            kind: 'p',
+            text: 'Job Scout’s morning run had hard limits from day one. Then we added “Score” and “Write a new cover letter” buttons – each one a paid AI call. The agent implemented them exactly as specified: they worked, were tested, and the costs were recorded.',
+          },
+          {
+            kind: 'p',
+            text: 'But nobody – the agent included – asked: “What if someone clicks a thousand times?” Changing a single letter in the notes re-ran the profile analysis. A letter could be rewritten endlessly. A human found it, not the AI – the day after launch, when I sent the app to the first users and clicked through it myself.',
+          },
+          {
+            kind: 'p',
+            text: 'The fix took one morning: per-click limits in a rolling 24-hour window, a daily “emergency brake” for the whole app that e-mails the admin, a lock against two quick clicks, and a monthly spending cap directly with the AI provider.',
+          },
+          {
+            kind: 'lesson',
+            text: 'In AI applications, a “denial of wallet” attack is as real a risk as a data leak (OWASP lists it for LLM apps as Unbounded Consumption). AI delivers what you specify – the question “how much could this cost us if it is abused” has to come from a human.',
+          },
+          { kind: 'h2', text: 'Story 2: a rejected user got into the app' },
+          {
+            kind: 'p',
+            text: 'Access to Job Scout is approved by an admin. The agent implemented “Reject request” – using the existing “suspended account” state. Logical at first glance. But a suspended user is still a member and may view their own data. So a rejected applicant could sign in and get inside.',
+          },
+          {
+            kind: 'p',
+            text: 'The tests were green because they tested exactly what the agent wrote. Nobody tested that a rejected applicant must see nothing at all. I found it with a manual test in production: I rejected a test account and it signed in just fine.',
+          },
+          {
+            kind: 'lesson',
+            text: 'Authorisation is where “almost right” means “wrong”. No automation replaces a review of access rules and a manual “let me try to get in” test.',
+          },
+          { kind: 'h2', text: 'Bonus: two parts that never talked to each other' },
+          {
+            kind: 'p',
+            text: 'The agent wrote a workflow that builds a Docker image after every commit – and sensibly skips commits that only touch documentation. On another day it wrote a deploy script that deploys the image for the latest commit. Each part correct on its own. Together: after a README change the script tried to deploy an image that was never built. Not a bug in the code, but in combining two decisions made on different days.',
+          },
+          { kind: 'h2', text: 'Checking against a list: where AI shines' },
+          {
+            kind: 'p',
+            text: 'After launch we went through the app point by point against a security checklist for vibe coding – input validation, authorisation, sessions, rate limiting, secrets, dependencies, prompt injection, code analysis in CI, security headers. The agent did the review. Give it a clear list to check against and it is thorough – and it found another hole it had created itself: anyone could request access a hundred times and the admin would get a hundred e-mails.',
+          },
+          {
+            kind: 'source',
+            text: 'O2 CyberNews: Vibe coding – working code is not automatically secure (in Czech)',
+            href: 'https://o2cybernews.cz/clanky/vibe-coding-funkcni-kod-neni-automaticky-bezpecny',
+          },
+          { kind: 'h2', text: 'What this means for companies' },
+          {
+            kind: 'ul',
+            items: [
+              'AI is improving fast – a good agent with clear rules no longer makes the classic security mistakes on its own. That does not mean the code is finished.',
+              'What needs watching is logic, not syntax: who may see what, what happens when it is abused, what it costs, how the parts work together.',
+              'Green tests are not enough – the agent tests what it wrote. Tests for “what must never happen” have to be invented by a human.',
+              'Fast feedback from real use caught both main bugs within 24 hours. Releasing early to a small group and having limits and cost monitoring from day one paid off.',
+            ],
+          },
+          { kind: 'h2', text: 'How I use AI on client work' },
+          {
+            kind: 'ul',
+            items: [
+              'I use AI to find my way around large codebases, extract business rules, and draft tests and documentation. Conclusions, architecture and recommendations are mine.',
+              'Only business versions of AI services that contractually do not train on customer data. If you have your own approved tools (e.g. Azure OpenAI in your tenant), I use those.',
+              'I work on a copy of the code with anonymised or test data, never with production personal data. When the engagement ends I delete everything and confirm it in writing.',
+              'I never give AI keys or passwords. I review, approve and stand behind every change the agent makes.',
+            ],
+          },
+          { kind: 'h2', text: 'And what if you don’t want AI?' },
+          {
+            kind: 'p',
+            text: 'It can be done without it. But honestly: it is a step backwards. Whoever develops slower and more expensively than the competition will lose – companies in their markets and people in the job market. I had to adapt myself, and I know it can be done.',
+          },
+          {
+            kind: 'p',
+            text: 'The answer is not to avoid AI but to use it deliberately: with a focus on security, data protection and reviewing the output. I will gladly help you make that transition – just as I made it myself.',
+          },
+        ] as Block[],
+      },
+    ] as Article[],
   },
 
   jobScout: {
@@ -390,8 +458,8 @@ export const en: Content = {
     lead:
       'Every morning it goes through job portals, finds ads matching the user’s CV, scores them and drafts a cover letter for the best ones. A human always does the replying.',
     facts: [
-      { value: '~10 days', label: 'of development with an AI agent' },
-      { value: '40–60 MD', label: 'estimate for the same work without AI' },
+      { value: '~10 days', label: 'one person with an AI agent' },
+      { value: '2–3 months', label: 'estimate for a team of three without AI' },
       { value: '600+', label: 'automated tests' },
       { value: '21', label: 'recorded architecture decisions' },
     ],
@@ -440,96 +508,161 @@ export const en: Content = {
     eyebrow: 'References',
     title: 'Companies and projects I have worked on',
     lead:
-      'Over 15 years I have worked in banks, financial companies, healthcare and logistics – as an employee and through vendors. Project details are confidential, so only briefly.',
+      'Over 15 years I have worked in banks, financial companies, healthcare, logistics and the public sector – as an employee and through vendors. Project details are confidential, so only what matters.',
+    stats: [
+      { value: '15 years', label: 'of building enterprise systems' },
+      { value: '10', label: 'companies and major projects' },
+      { value: '5 sectors', label: 'banking, finance, healthcare, logistics, public sector' },
+    ],
     items: [
       {
         name: 'Smart parcel locker platform',
+        project: 'Cloud platform for a locker network',
         years: '2025–2026',
-        sector: 'Logistics',
-        text: 'Architecture and development of a cloud platform for a network of hundreds of parcel lockers in more than 100 municipalities – microservices on Azure, integrations with carriers and partners.',
-        tags: ['Architecture', 'Azure', 'Integrations'],
+        sector: 'logistics',
+        sectorLabel: 'Logistics',
+        role: 'Software architect / senior developer (contractor)',
+        via: '',
+        text: 'Hundreds of smart lockers in more than 100 municipalities, thousands to tens of thousands of parcels at peak.',
+        highlights: [
+          'microservice solution on Azure with about 35 domains',
+          'new integrations with partners and carriers (e.g. Rohlik.cz)',
+          'multi-package shipments across services',
+          'security, secrets management, choice of Azure components',
+        ],
+        tags: ['C#/.NET', 'Azure Service Bus', 'PostgreSQL', 'MongoDB', 'Docker'],
       },
       {
-        name: 'VZP ČR (General Health Insurance Company)',
+        name: 'VZP ČR',
+        project: 'Modernising internal applications',
         years: '2020–2025',
-        sector: 'Healthcare',
-        text: 'Modernising internal applications into web applications on Azure and leading the development team. Key project: PZS Manager for managing healthcare providers.',
-        tags: ['Modernisation', 'Team lead', 'Java, Angular'],
+        sector: 'health',
+        sectorLabel: 'Healthcare',
+        role: 'Team leader / full-stack developer (employee)',
+        via: '',
+        text: 'Moving the internal applications of the largest Czech health insurer to modern web applications on Azure.',
+        highlights: [
+          'leading a team of three, reporting directly to the IT director',
+          'PZS Manager – managing healthcare providers, used by VZP Point branches and the doctor search',
+          'CI/CD in Azure DevOps, Docker, sign-in via MS SSO',
+        ],
+        tags: ['Java', 'Spring Boot', 'Angular', 'Azure', 'OAuth2'],
       },
       {
         name: 'Records management system',
+        project: 'Backend rewrite Java → .NET Core',
         years: '2018–2020',
-        sector: 'Public sector',
-        text: 'Rewriting the backend from old Java to .NET Core while maintaining the original system during the migration.',
-        tags: ['Migration', '.NET'],
+        sector: 'public',
+        sectorLabel: 'Public sector',
+        role: 'Senior developer (contractor)',
+        via: 'Mediaport Solutions / ISF Group',
+        text: 'Rewriting the backend of a records management system from old Java to .NET Core 3.1.',
+        highlights: ['maintaining the original system throughout the migration'],
+        tags: ['Java', '.NET Core', 'Migration'],
       },
       {
         name: 'SAB Finance',
+        project: 'ProStream',
         years: '2018–2020',
-        sector: 'Finance',
+        sector: 'finance',
+        sectorLabel: 'Finance',
+        role: 'Senior developer (contractor)',
+        via: '',
         text: 'Backend of an online FX trading platform.',
-        tags: ['.NET', 'Oracle PL/SQL'],
+        highlights: [],
+        tags: ['C#/.NET', 'Oracle PL/SQL'],
       },
       {
         name: 'Raiffeisenbank',
+        project: 'CRAFOL',
         years: '2018–2020',
-        sector: 'Banking',
+        sector: 'bank',
+        sectorLabel: 'Banking',
+        role: 'Senior developer (contractor)',
+        via: '',
         text: 'Internal system for the Treasury department.',
-        tags: ['Delphi', '.NET', 'PL/SQL'],
+        highlights: [],
+        tags: ['Delphi', 'C#/.NET', 'PL/SQL'],
       },
       {
         name: 'ARBES Technologies',
-        years: '2013–2020',
-        sector: 'Asset management',
-        text: 'Systems for portfolio management, trading and unit-holder administration.',
+        project: 'ARBES TOPAS and ARBES TA',
+        years: '2013–2015 · 2018–2020',
+        sector: 'asset',
+        sectorLabel: 'Asset management',
+        role: 'Developer',
+        via: '',
+        text: 'Information systems for portfolio management, trading and unit-holder administration.',
+        highlights: ['ARBES TOPAS – portfolio management and trading', 'ARBES TA – unit-holder administration'],
         tags: ['Delphi', 'PL/SQL'],
       },
       {
         name: 'Vodafone',
+        project: 'BidSimplifier',
         years: '2017–2018',
-        sector: 'Telecommunications',
+        sector: 'telecom',
+        sectorLabel: 'Telecommunications',
+        role: 'Developer',
+        via: 'Cleverlance',
         text: 'Development and stabilisation of the BidSimplifier portal.',
-        tags: ['.NET', 'MS SQL'],
+        highlights: [],
+        tags: ['C#/.NET', 'MS SQL'],
       },
       {
         name: 'IFS',
+        project: 'ERP customisation',
         years: '2016–2017',
-        sector: 'ERP',
-        text: 'Customer customisations of an ERP system.',
-        tags: ['.NET', 'PL/SQL'],
+        sector: 'erp',
+        sectorLabel: 'ERP',
+        role: 'Developer',
+        via: '',
+        text: 'Customer customisations of the IFS ERP system.',
+        highlights: [],
+        tags: ['C#/.NET', 'PL/SQL'],
       },
       {
         name: 'MONETA Money Bank',
+        project: 'Rebranding from GE Money Bank',
         years: '2015–2016',
-        sector: 'Banking',
-        text: 'Rebranding from GE Money Bank: migrating the internal frontend from Delphi 6 to XE5 and a receivables management system.',
-        tags: ['Migration', 'Delphi', 'PL/SQL'],
+        sector: 'bank',
+        sectorLabel: 'Banking',
+        role: 'Developer',
+        via: '',
+        text: 'The bank’s rebranding project – changes to internal systems.',
+        highlights: ['migrating the internal frontend from Delphi 6 to XE5', 'receivables management system'],
+        tags: ['Delphi', 'PL/SQL', 'Migration'],
       },
       {
         name: 'Stem cell donor registry',
+        project: 'Prometheus',
         years: '2011–2013',
-        sector: 'Healthcare',
-        text: 'Development of the Prometheus system.',
+        sector: 'health',
+        sectorLabel: 'Healthcare',
+        role: 'Developer',
+        via: 'Steiner',
+        text: 'Development of the Prometheus system for the haematopoietic stem cell donor registry.',
+        highlights: [],
         tags: ['Delphi'],
       },
-    ],
+    ] as Reference[],
     ctaTitle: 'Want to be the next reference?',
     ctaText: 'Let’s start with a free call.',
   },
 
   about: {
     eyebrow: 'About',
-    title: 'An architect who still writes code',
+    title: 'From design to operations',
     paragraphs: [
-      'My name is Stanislav Matzke and I have been designing and building enterprise systems for 15 years. I started on Delphi and Oracle systems for banks and financial companies, moved through .NET and Java to cloud solutions on Azure and to leading a team in the in-house IT of VZP. Most recently I designed a microservice platform for a network of smart parcel lockers.',
-      'That is why I understand both the old and the new world: I know why a system from 2005 is written the way it is, and I can move it safely to a modern architecture. Today I add AI to that – as a tool that speeds up my work and as part of the solutions I build.',
+      'My name is Stanislav Matzke and I have been designing and building enterprise systems for 15 years. I started on Delphi and Oracle systems for banks and financial companies, moved through .NET and Java to cloud solutions on Azure and to leading a team in the in-house IT of VZP.',
+      'Recently I worked on a microservice platform for a network of smart parcel lockers, and I build my own applications – you can find some of them here on this website and on GitHub.',
+      'That is why I understand both the old and the new world: I know why a system from 2005 is written the way it is, and I can move it safely to a modern architecture. In the last few years I have added AI – and it changed what one person can deliver. Today I cover the whole workflow from design through development and deployment to operations.',
     ],
     howTitle: 'How I like to work',
     how: [
       'With a clear goal, trust and ownership of the result.',
       'Fewer meetings, more finished work.',
       'I write decisions down so we can come back to them.',
-      'I hand over code that the next person can find their way around.',
+      'I hand over code that is secure, tested and documented – and I stand behind it, even when AI wrote much of it.',
     ],
     timelineTitle: 'Experience',
     timeline: [
@@ -587,7 +720,15 @@ export const en: Content = {
       },
       {
         q: 'What happens to our data when you use AI?',
-        a: 'Only business AI services that do not train on your data, or tools inside your environment. No production personal data. More in the article on working with AI.',
+        a: 'Only business AI services that do not train on your data, or tools inside your environment. No production personal data. More in the article on what the AI agent got wrong.',
+      },
+      {
+        q: 'What if the result is not as agreed?',
+        a: 'Then you do not pay. Before we start, we agree in writing on exactly what I will deliver and how we will know it is done. If I do not deliver, I refund any deposit – the risk is mine.',
+      },
+      {
+        q: 'Can we do it without AI?',
+        a: 'We can, but it will be slower and more expensive – and in the long run it is a step backwards. I would rather help you adopt AI safely: with data protection and reviewed output.',
       },
       {
         q: 'Are you also looking for a permanent position?',

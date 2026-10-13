@@ -17,7 +17,7 @@ import { ContactForm } from '../shared/contact-form';
         <div class="hero__text">
           <span class="pill"><span class="pill__dot" aria-hidden="true"></span>{{ t.common.availability }}</span>
           <span class="kicker">{{ h.kicker }}</span>
-          <h1 class="display">{{ h.title }}</h1>
+          <h1 class="display">{{ h.titleStart }} <span class="highlight">{{ h.titleHighlight }}</span></h1>
           <p class="lead">{{ h.lead }}</p>
           <div class="actions">
             <a class="btn btn--primary" [routerLink]="i18n.link('contact')">{{ t.common.bookCall }}</a>
@@ -42,15 +42,17 @@ import { ContactForm } from '../shared/contact-form';
       </div>
     </section>
 
-    <!-- Je to pro vás? -->
-    <section class="section section--tight-bottom">
-      <div class="container stack">
+    <!-- 01 Je to pro vás? -->
+    <section class="section">
+      <div class="container stack stack--lg">
         <header class="section-head">
-          <span class="eyebrow">{{ h.fit.eyebrow }}</span>
+          <span class="eyebrow eyebrow--num" data-num="01">{{ h.fit.eyebrow }}</span>
           <h2>{{ h.fit.title }}</h2>
         </header>
         <div class="grid">
-          @for (item of h.fit.items; track $index) { <div class="card">{{ item }}</div> }
+          @for (item of h.fit.items; track $index) {
+            <div class="card card--quote">{{ item }}</div>
+          }
           <div class="card card--accent">
             <span>{{ h.fit.ctaText }}</span>
             <a [routerLink]="i18n.link('contact')">{{ h.fit.ctaLink }}</a>
@@ -59,12 +61,12 @@ import { ContactForm } from '../shared/contact-form';
       </div>
     </section>
 
-    <!-- Služby -->
-    <section class="section" id="sluzby">
-      <div class="container stack">
+    <!-- 02 Služby -->
+    <section class="section section--surface" id="sluzby">
+      <div class="container stack stack--lg">
         <header class="section-head section-head--split">
           <div>
-            <span class="eyebrow">{{ h.services.eyebrow }}</span>
+            <span class="eyebrow eyebrow--num" data-num="02">{{ h.services.eyebrow }}</span>
             <h2>{{ h.services.title }}</h2>
           </div>
           <a class="link-strong" [routerLink]="i18n.link('services')">{{ h.services.all }}</a>
@@ -81,83 +83,90 @@ import { ContactForm } from '../shared/contact-form';
       </div>
     </section>
 
-    <!-- Práce s AI -->
-    <section class="band" id="ai">
+    <!-- 03 Postaveno s AI (ukázky) -->
+    <section class="band" id="ukazky">
       <div class="container stack stack--lg">
-        <header class="section-head section-head--wide">
-          <span class="eyebrow eyebrow--band">{{ h.ai.eyebrow }}</span>
-          <h2 class="band__title">{{ h.ai.title }}</h2>
-          <p class="band__lead">{{ h.ai.lead }}</p>
-        </header>
-        <div class="grid grid--3">
-          <div class="band-card">
-            <h3>{{ h.ai.fastTitle }}</h3>
-            <ul>@for (x of h.ai.fast; track x) { <li>{{ x }}</li> }</ul>
-          </div>
-          <div class="band-card">
-            <h3>{{ h.ai.humanTitle }}</h3>
-            <ul>@for (x of h.ai.human; track x) { <li>{{ x }}</li> }</ul>
-          </div>
-          <div class="band-card band-card--filled">
-            <span class="band-card__label">{{ h.ai.statLabel }}</span>
-            <span class="band-card__stat">{{ h.ai.statValue }}</span>
-            <span>{{ h.ai.statText }}</span>
+        <div class="band__head">
+          <header class="section-head section-head--wide">
+            <span class="eyebrow eyebrow--band eyebrow--num" data-num="03">{{ h.built.eyebrow }}</span>
+            <h2 class="band__title">{{ h.built.title }}</h2>
+            <p class="band__lead">{{ h.built.lead }}</p>
+          </header>
+          <div class="band-stat">
+            <span class="band-stat__label">{{ h.built.statLabel }}</span>
+            <span class="band-stat__value">{{ h.built.statValue }}</span>
+            <span class="band-stat__text">{{ h.built.statText }}</span>
           </div>
         </div>
-        <div class="band__foot">
-          <span>{{ h.ai.data }}</span>
-          <a [routerLink]="i18n.link('ai')">{{ h.ai.articleLink }}</a>
-        </div>
-      </div>
-    </section>
 
-    <!-- Ukázky -->
-    <section class="section" id="ukazky">
-      <div class="container stack">
-        <header class="section-head">
-          <span class="eyebrow">{{ h.showcase.eyebrow }}</span>
-          <h2>{{ h.showcase.title }}</h2>
-        </header>
         <div class="showcase">
-          <article class="card card--flush showcase__main">
-            <div class="shot" role="img" [attr.aria-label]="t.common.screenshot">{{ t.common.screenshot }}</div>
-            <div class="card__body">
+          <article class="band-card band-card--main showcase__main">
+            <div class="shot shot--band" role="img" [attr.aria-label]="t.common.screenshot">{{ t.common.screenshot }}</div>
+            <div class="band-card__body">
               <div class="title-row">
-                <h3 class="h3-lg">{{ h.showcase.jobScoutTitle }}</h3>
-                <span class="pill pill--small">{{ t.common.live }}</span>
+                <h3 class="h3-lg">{{ h.built.jobScoutTitle }}</h3>
+                <span class="pill pill--small pill--band">{{ t.common.live }}</span>
               </div>
-              <p class="muted">{{ h.showcase.jobScoutText }}</p>
-              <ul class="tags" role="list">
-                @for (tag of h.showcase.jobScoutTags; track tag) { <li class="tag tag--small">{{ tag }}</li> }
+              <p>{{ h.built.jobScoutText }}</p>
+              <ul class="tags tags--band" role="list">
+                @for (tag of h.built.jobScoutTags; track tag) { <li class="tag tag--small">{{ tag }}</li> }
               </ul>
-              <div class="links">
-                <a [href]="site.jobScoutDemo" target="_blank" rel="noopener">{{ h.showcase.demo }}</a>
-                <a [routerLink]="i18n.link('jobScout')">{{ h.showcase.study }}</a>
-                <a [href]="site.jobScoutRepo" target="_blank" rel="noopener">{{ h.showcase.github }}</a>
+              <div class="links links--band">
+                <a [href]="site.jobScoutDemo" target="_blank" rel="noopener">{{ h.built.demo }}</a>
+                <a [routerLink]="i18n.link('jobScout')">{{ h.built.study }}</a>
+                <a [href]="site.jobScoutRepo" target="_blank" rel="noopener">{{ h.built.github }}</a>
               </div>
             </div>
           </article>
           <div class="showcase__side">
-            <article class="card">
+            <article class="band-card">
               <span class="pill pill--small pill--warn">{{ t.common.soon }}</span>
-              <h3>{{ h.showcase.delphiTitle }}</h3>
-              <p class="muted">{{ h.showcase.delphiText }}</p>
+              <h3>{{ h.built.delphiTitle }}</h3>
+              <p>{{ h.built.delphiText }}</p>
             </article>
-            <article class="card">
-              <span class="pill pill--small pill--neutral">{{ t.common.openSource }}</span>
-              <h3>{{ h.showcase.webTitle }}</h3>
-              <p class="muted">{{ h.showcase.webText }}</p>
+            <article class="band-card">
+              <span class="pill pill--small pill--band-neutral">{{ t.common.openSource }}</span>
+              <h3>{{ h.built.webTitle }}</h3>
+              <p>{{ h.built.webText }}</p>
             </article>
           </div>
+        </div>
+
+        <div class="band__foot">
+          <span>{{ h.built.data }}</span>
+          <a [routerLink]="i18n.articleLink('co-ai-agent-pokazil')">{{ h.built.articleLink }}</a>
         </div>
       </div>
     </section>
 
-    <!-- Reference -->
-    <section class="section section--ruled" id="reference">
+    <!-- 04 Články -->
+    <section class="section">
+      <div class="container stack stack--lg">
+        <header class="section-head section-head--split">
+          <div>
+            <span class="eyebrow eyebrow--num" data-num="04">{{ h.articles.eyebrow }}</span>
+            <h2>{{ h.articles.title }}</h2>
+          </div>
+          <a class="link-strong" [routerLink]="i18n.link('articles')">{{ h.articles.all }}</a>
+        </header>
+        <div class="grid grid--2">
+          @for (a of t.articles.items; track a.slug) {
+            <a class="card card--link card--article" [routerLink]="i18n.articleLink(a.slug)">
+              <span class="card__num">{{ a.date }} · {{ a.readTime }}</span>
+              <h3>{{ a.title }}</h3>
+              <p>{{ a.perex }}</p>
+              <span class="link-strong">{{ t.common.readArticle }}</span>
+            </a>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Reference -->
+    <section class="section section--surface" id="reference">
       <div class="container split">
         <header class="split__aside stack stack--sm">
-          <span class="eyebrow">{{ h.references.eyebrow }}</span>
+          <span class="eyebrow eyebrow--num" data-num="05">{{ h.references.eyebrow }}</span>
           <h2>{{ h.references.title }}</h2>
           <p class="muted">{{ h.references.lead }}</p>
           <a class="link-strong" [routerLink]="i18n.link('references')">{{ h.references.all }}</a>
@@ -173,11 +182,11 @@ import { ContactForm } from '../shared/contact-form';
       </div>
     </section>
 
-    <!-- Jak pracuji + formy spolupráce -->
-    <section class="section section--surface">
+    <!-- 06 Jak pracuji + formy spolupráce -->
+    <section class="section">
       <div class="container split split--even">
         <div class="stack">
-          <span class="eyebrow">{{ h.process.eyebrow }}</span>
+          <span class="eyebrow eyebrow--num" data-num="06">{{ h.process.eyebrow }}</span>
           <h2>{{ h.process.title }}</h2>
           <ol class="steps" role="list">
             @for (s of h.process.steps; track $index) {
@@ -199,7 +208,7 @@ import { ContactForm } from '../shared/contact-form';
     </section>
 
     <!-- Kontakt -->
-    <section class="section" id="kontakt">
+    <section class="section section--contact" id="kontakt">
       <div class="container split split--even">
         <div class="stack">
           <h2 class="h2-xl">{{ h.contact.title }}</h2>

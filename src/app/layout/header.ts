@@ -2,16 +2,17 @@ import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { I18n } from '../i18n/i18n.service';
 import { ThemeService } from '../core/theme.service';
+import { Logo } from '../shared/logo';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, Logo],
   template: `
     @let t = i18n.t();
     <header class="site-header">
       <div class="container site-header__inner">
-        <a class="brand" [routerLink]="i18n.link('home')" (click)="open.set(false)">
-          <span class="brand__mark" aria-hidden="true">SM</span>
+        <a class="brand" [routerLink]="i18n.link('home')" (click)="open.set(false)" [attr.aria-label]="t.nav.home">
+          <app-logo variant="prompt" />
           <span class="brand__name">Stanislav Matzke</span>
         </a>
 
@@ -48,8 +49,8 @@ import { ThemeService } from '../core/theme.service';
 
         <nav id="hlavni-menu" class="site-nav" [class.site-nav--open]="open()" [attr.aria-label]="t.nav.menu">
           <a [routerLink]="i18n.link('services')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.services }}</a>
-          <a [routerLink]="i18n.link('ai')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.ai }}</a>
           <a [routerLink]="i18n.link('jobScout')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.showcase }}</a>
+          <a [routerLink]="i18n.link('articles')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.articles }}</a>
           <a [routerLink]="i18n.link('references')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.references }}</a>
           <a [routerLink]="i18n.link('about')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.about }}</a>
           <a class="btn btn--primary btn--small" [routerLink]="i18n.link('contact')" (click)="open.set(false)">{{ t.nav.cta }}</a>

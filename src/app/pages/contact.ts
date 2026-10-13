@@ -8,7 +8,7 @@ import { ContactForm } from '../shared/contact-form';
   imports: [ContactForm],
   template: `
     @let c = i18n.t().contact;
-    <section class="page-head">
+    <section class="page-head page-head--pattern">
       <div class="container split split--even">
         <div class="stack">
           <span class="eyebrow">{{ c.eyebrow }}</span>

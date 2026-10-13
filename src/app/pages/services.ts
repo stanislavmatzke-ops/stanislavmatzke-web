@@ -7,11 +7,20 @@ import { CtaBand } from '../shared/cta-band';
   imports: [CtaBand],
   template: `
     @let s = i18n.t().services;
-    <section class="page-head">
+    <section class="page-head page-head--pattern">
       <div class="container stack stack--sm">
         <span class="eyebrow">{{ s.eyebrow }}</span>
         <h1>{{ s.title }}</h1>
         <p class="lead">{{ s.lead }}</p>
+        <aside class="guarantee">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6z" /><path d="m8.8 12 2.2 2.2 4.4-4.4" />
+          </svg>
+          <div>
+            <strong>{{ s.guarantee.title }}</strong>
+            <p>{{ s.guarantee.text }}</p>
+          </div>
+        </aside>
       </div>
     </section>
 
