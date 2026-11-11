@@ -22,7 +22,7 @@ export class SeoService {
 
       let m = t.meta[page];
       if (page === 'article' && article) {
-        m = { title: `${article.title} – Stanislav Matzke`, description: article.perex };
+        m = { title: `${article.title} – Stanislav Matzke`, description: article.description ?? article.perex };
       }
       const missing = page === 'notFound' || (page === 'article' && !article);
       if (page === 'article' && !article) m = t.meta.notFound;

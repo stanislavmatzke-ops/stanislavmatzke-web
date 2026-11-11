@@ -1132,6 +1132,33 @@ p {
   flex-direction: column;
   gap: 10px;
 }
+.prose-ol {
+  margin: 0 0 22px;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: prose-ol;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.prose-ol > li {
+  counter-increment: prose-ol;
+  position: relative;
+  padding-left: 44px;
+}
+.prose-ol > li::before {
+  content: counter(prose-ol, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--accent);
+}
+.prose a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
 .lesson {
   margin: 8px 0 24px;
   background: var(--soft);

@@ -37,13 +37,17 @@ export interface Entry {
   text?: string;
 }
 
-/** Blok souvislého textu (článek, případová studie, zásady). */
+/**
+ * Blok souvislého textu (článek, případová studie, zásady).
+ * V textu odstavců, seznamů a poučení funguje **tučně** a [odkaz na článek](slug) – viz shared/inline.ts.
+ */
 export interface Block {
   kind:
     | 'h2'
     | 'h3'
     | 'p'
     | 'ul'
+    | 'ol'
     | 'lesson'
     | 'quote'
     | 'source'
@@ -78,6 +82,11 @@ export interface Article {
   perex: string;
   date: string;
   readTime: string;
+  /** Meta description pro vyhledávače, pokud se má lišit od perexu. */
+  description?: string;
+  /** Vlastní závěrečná výzva článku; jinak společná pro všechny články. */
+  ctaTitle?: string;
+  ctaText?: string;
   blocks: Block[];
 }
 

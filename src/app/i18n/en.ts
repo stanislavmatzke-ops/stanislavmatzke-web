@@ -322,6 +322,81 @@ export const en: Content = {
     ctaText: 'Let’s discuss it on a free call.',
     items: [
       {
+        slug: 'kam-mizi-vyvojarska-prace',
+        title: 'Where developer work is going – and what is replacing it',
+        perex:
+          'Openings for “senior developers” are disappearing fast, and I don’t think they will come back. Today AI writes the code. But the work isn’t disappearing – it is moving one floor up: to specification, architecture and verification. Who will do it, and what is the role called?',
+        date: '11 November 2026',
+        readTime: '6 min read',
+        description:
+          'Senior developer roles are disappearing and won’t come back. AI writes the code, but the work isn’t going away – it is moving to specification, architecture and verification. The roles replacing the classic developer.',
+        ctaTitle: 'Thinking about bringing AI into your development or your systems?',
+        ctaText: 'I’d be glad to talk it through with you.',
+        blocks: [
+          {
+            kind: 'p',
+            text: 'For fifteen years I wrote enterprise software. For the last few months I have been writing it differently: I specify, design and review – and an agent writes the code. One experienced person with AI can now build a greenfield application in days, not months. I wrote about it in [Development speed: what changed in just a few years](rychlost-vyvoje).',
+          },
+          {
+            kind: 'p',
+            text: 'Now the other side of the same coin is showing. Look at the job portals: under “.NET developer” you will find only a handful of openings – and roughly half of them are really tech lead or architecture roles. The classic “I get a ticket, I write the code” is disappearing.',
+          },
+          { kind: 'h2', text: 'Code as typesetting in a print shop' },
+          {
+            kind: 'p',
+            text: 'Books used to be copied by hand. Then came the printing press, and typesetting became a technical intermediate step that readers never think about. The same is happening to code. It will keep existing, but it is no longer what companies pay for.',
+          },
+          {
+            kind: 'p',
+            text: 'They pay for something else: for software that does what it should, is secure, can be operated – and has someone who stands behind it. AI cannot guarantee that on its own. Not because it writes bad code, but because it doesn’t know the context – the data, the history of the system, what must not break and why. Those are exactly the mistakes I described in [What the AI agent got wrong](co-ai-agent-pokazil).',
+          },
+          { kind: 'h2', text: 'What is replacing the developer' },
+          {
+            kind: 'p',
+            text: 'When I put the job ads from the last few weeks side by side, I don’t see one new role, but four:',
+          },
+          {
+            kind: 'ol',
+            items: [
+              '**Engineering lead for AI-native development.** Changes the way a company builds software: introduces coding agents, sets standards, checkpoints and traceability of what AI produced. Measures lead time and quality, not lines of code.',
+              '**Hands-on solution / AI architect.** Designs systems where AI is part of the product – document search, agents, connections to company data. The more code a machine writes, the more the decisions about the whole matter.',
+              '**Product tech lead with agents.** Owns the product from requirements to operations. Leads a small team of people – and agents on top. Instead of writing code, they specify, decide and verify. The team has three to five people, not fifteen.',
+              '**AI agent operator.** Watches how agents behave in production: output quality, costs, security and rules.',
+            ],
+          },
+          {
+            kind: 'p',
+            text: 'They have one thing in common: a person turns a business intent into a verified result. There are three levers for it – **specification** (what and why), **architecture** (how it fits together) and **verification** (how we know it works).',
+          },
+          {
+            kind: 'lesson',
+            text: 'The developer as “the person who writes code” is ending. The developer as “the person who vouches that the software works” is turning into something between an architect, a tech lead and a conductor of agents.',
+          },
+          { kind: 'h2', text: 'Less software, or more?' },
+          {
+            kind: 'p',
+            text: 'Cheaper development doesn’t mean that everything that can be built is worth something. An application nobody uses and nobody pays for stays worthless, even if it was built in an afternoon.',
+          },
+          {
+            kind: 'p',
+            text: 'Inside companies it is different. They have huge backlogs of things that were never done only because they were too expensive – above all modernising old systems, integrations and automation. Those now pay off. So there will be more software, but fewer people needed to build it. And those who can run the whole process will be in demand.',
+          },
+          { kind: 'h2', text: 'What follows from this' },
+          {
+            kind: 'p',
+            text: '**For developers:** don’t wait for the market to “come back”. Bring forward what AI can’t do – domain knowledge, architecture, leading people, ownership of the result – and learn to work with agents in practice, not just read about them.',
+          },
+          {
+            kind: 'p',
+            text: '**For companies:** don’t measure AI by how much code it generates, but by how quickly and reliably you get from an idea to a working solution. And have someone who designs this new way of working and brings it into your teams.',
+          },
+          {
+            kind: 'p',
+            text: 'My own choice is clear: a tech lead and architect who builds software with AI. Not because I stopped enjoying programming. But because that is where the decisions are being made now.',
+          },
+        ],
+      },
+      {
         slug: 'rychlost-vyvoje',
         title: 'Development speed: what changed in just a few years',
         perex:

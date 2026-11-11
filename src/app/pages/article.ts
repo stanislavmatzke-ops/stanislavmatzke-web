@@ -23,7 +23,7 @@ import { CtaBand } from '../shared/cta-band';
           <app-blocks [blocks]="a.blocks" [lessonLabel]="t.common.lesson" />
         </div>
       </article>
-      <app-cta-band [title]="t.articles.ctaTitle" [text]="t.articles.ctaText" />
+      <app-cta-band [title]="a.ctaTitle ?? t.articles.ctaTitle" [text]="a.ctaText ?? t.articles.ctaText" />
     } @else {
       <section class="page-head page-head--center">
         <div class="container container--narrow stack">

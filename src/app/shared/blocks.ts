@@ -1,24 +1,32 @@
 import { Component, inject, input } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Block } from '../i18n/types';
 import { I18n } from '../i18n/i18n.service';
+import { parseInline } from './inline';
 
 /** Vykreslí souvislý text (článek, případová studie, zásady) včetně vizuálních bloků. */
 @Component({
   selector: 'app-blocks',
-  imports: [RouterLink],
+  imports: [RouterLink, NgTemplateOutlet],
   template: `
+    <ng-template #rich let-text>@for (s of inline(text); track $index) {@switch (s.kind) {@case ('bold') {<strong>{{ s.text }}</strong>}@case ('link') {<a [routerLink]="i18n.articleLink(s.slug ?? '')">{{ s.text }}</a>}@default {<ng-container>{{ s.text }}</ng-container>}}}</ng-template>
     @for (b of blocks(); track $index) {
       @switch (b.kind) {
         @case ('h2') { <h2>{{ b.text }}</h2> }
         @case ('h3') { <h3>{{ b.text }}</h3> }
-        @case ('p') { <p>{{ b.text }}</p> }
+        @case ('p') { <p><ng-container *ngTemplateOutlet="rich; context: { $implicit: b.text ?? '' }" /></p> }
         @case ('ul') {
           <ul>
-            @for (item of b.items ?? []; track $index) { <li>{{ item }}</li> }
+            @for (item of b.items ?? []; track $index) { <li><ng-container *ngTemplateOutlet="rich; context: { $implicit: item }" /></li> }
           </ul>
         }
-        @case ('lesson') { <aside class="lesson"><span class="lesson__label">{{ lessonLabel() }}</span>{{ b.text }}</aside> }
+        @case ('ol') {
+          <ol class="prose-ol">
+            @for (item of b.items ?? []; track $index) { <li><ng-container *ngTemplateOutlet="rich; context: { $implicit: item }" /></li> }
+          </ol>
+        }
+        @case ('lesson') { <aside class="lesson"><span class="lesson__label">{{ lessonLabel() }}</span><span><ng-container *ngTemplateOutlet="rich; context: { $implicit: b.text ?? '' }" /></span></aside> }
         @case ('quote') { <blockquote>{{ b.text }}</blockquote> }
         @case ('source') { <p class="source"><a [href]="b.href" rel="noopener" target="_blank">{{ b.text }} ↗</a></p> }
         @case ('link') { <p class="prose__more"><a [routerLink]="i18n.articleLink(b.article ?? '')">{{ b.text }}</a></p> }
@@ -103,4 +111,5 @@ export class Blocks {
   protected readonly i18n = inject(I18n);
   readonly blocks = input.required<Block[]>();
   readonly lessonLabel = input('Ponaučení');
+  protected readonly inline = parseInline;
 }

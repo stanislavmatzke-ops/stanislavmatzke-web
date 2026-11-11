@@ -159,7 +159,7 @@ import { ContactForm } from '../shared/contact-form';
           <a class="link-strong" [routerLink]="i18n.link('articles')">{{ h.articles.all }}</a>
         </header>
         <div class="grid grid--2">
-          @for (a of t.articles.items; track a.slug) {
+          @for (a of t.articles.items.slice(0, 2); track a.slug) {
             <a class="card card--link card--article" [routerLink]="i18n.articleLink(a.slug)">
               <span class="card__num">{{ a.date }} · {{ a.readTime }}</span>
               <h3>{{ a.title }}</h3>
