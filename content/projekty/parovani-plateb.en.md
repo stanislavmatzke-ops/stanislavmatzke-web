@@ -82,7 +82,7 @@ The next steps followed the *strangler fig* pattern: the new system gradually gr
 
 The .NET port was byte-identical to the old module on 1,300 payments on the very first run. The golden master also made possible a refactoring everyone fears when money is involved: switching from `double` to `decimal` without a single change in output. Proven, not estimated.
 
-Only then did I fix the old system’s bugs. Every fix changes some results, and a test made sure each change was intentional: if a result changed and it wasn’t clear why, the build failed. It caught the agent twice. The result: **on the same data, no payment ended up on the wrong invoice any more.**
+Only then did I fix the old system’s bugs. Every fix changes some results, and a test made sure each change was intentional: if a result changed and it wasn’t clear why, the build failed. The result: **on the same data, no payment ended up on the wrong invoice any more.**
 
 ## Where AI decides and where it doesn’t
 

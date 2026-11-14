@@ -82,7 +82,7 @@ Další kroky šly podle vzoru *strangler fig*: nový systém postupně obrůst�
 
 Port do .NET byl bajtově shodný se starým modulem na 1 300 platbách hned napoprvé. Díky golden masteru šel udělat i refaktoring, kterého se u peněz každý bojí: přechod z `double` na `decimal` bez jediné změny výstupu. Dokázaný, ne odhadnutý.
 
-Teprve potom jsem opravoval chyby starého systému. Každá oprava změní některé výsledky a test hlídal, aby každá změna byla záměrná: když se výsledek změnil a nebylo jasné proč, build spadl. Agenta tím chytil dvakrát. Výsledek: **na stejných datech už žádná platba neskončila u špatné faktury.**
+Teprve potom jsem opravoval chyby starého systému. Každá oprava změní některé výsledky a test hlídal, aby každá změna byla záměrná: když se výsledek změnil a nebylo jasné proč, build spadl. Výsledek: **na stejných datech už žádná platba neskončila u špatné faktury.**
 
 ## Kde AI rozhoduje a kde ne
 
