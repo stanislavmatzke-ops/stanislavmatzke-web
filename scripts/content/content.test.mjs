@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { after, describe, test } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { feedXml, sitemapXml, staticWebAppConfig } from './emit.mjs';
+import { feedXml, generatedTs, sitemapXml, staticWebAppConfig } from './emit.mjs';
 import { loadContent } from './load.mjs';
 import { parseBody, parseHeader, parseValue } from './markdown.mjs';
 
@@ -279,6 +279,13 @@ describe('content folder', () => {
     assert.deepEqual(swa.routes.at(0), { route: '/en', rewrite: '/en/index.html' });
     assert.ok(swa.routes.some((r) => r.route === '/en/faq' && r.rewrite === '/en/faq/index.html'));
     assert.deepEqual(swa.routes.at(-1), { route: '/img/*' });
+
+    // Texts are split into their own modules (loaded per page), the main file keeps only metadata.
+    const ts = generatedTs(model);
+    assert.deepEqual(Object.keys(ts).sort(), ['bodies/article-cs-a.ts', 'bodies/article-en-a.ts', 'bodies/page-cs-faq.ts', 'bodies/page-en-faq.ts', 'content.generated.ts']);
+    assert.doesNotMatch(ts['content.generated.ts'], /"blocks"/);
+    assert.ok(ts['content.generated.ts'].includes("'article:cs:a': () => import('./bodies/article-cs-a')"));
+    assert.match(ts['bodies/page-en-faq.ts'], /"kind": "h2"/);
   });
 
   test('drafts are left out of the production build, and links to them fail', () => {

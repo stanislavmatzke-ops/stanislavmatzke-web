@@ -1,4 +1,6 @@
-import { Routes } from '@angular/router';
+import { inject } from '@angular/core';
+import { ResolveFn, Routes } from '@angular/router';
+import { I18n } from './i18n/i18n.service';
 import { AREA_SEGMENT, Lang, PageKey, PATHS } from './i18n/types';
 import { HomePage } from './pages/home';
 import { ServicesPage } from './pages/services';
@@ -27,6 +29,12 @@ const components: Record<PageKey, Routes[number]['component']> = {
   faq: ContentPageView,
 };
 
+/** Před zobrazením článku, studie nebo stránky z markdownu načte její text (samostatný chunk). */
+const body: ResolveFn<boolean> = async (route) => {
+  await inject(I18n).loadBody(I18n.bodyKey(route.data['page'], route.data['lang'], route.paramMap.get('slug')));
+  return true;
+};
+
 const prefixed = (lang: Lang, path: string) => (lang === 'en' ? (path ? `en/${path}` : 'en') : path);
 
 /**
@@ -39,6 +47,7 @@ function routesFor(lang: Lang): Routes {
     pathMatch: 'full',
     component: components[page],
     data: { lang, page },
+    ...(components[page] === ContentPageView ? { resolve: { body } } : {}),
   }));
   pages.push(
     {
@@ -50,11 +59,13 @@ function routesFor(lang: Lang): Routes {
       path: prefixed(lang, `${PATHS[lang].articles}/:slug`),
       component: ArticlePage,
       data: { lang, page: 'article' },
+      resolve: { body },
     },
     {
       path: prefixed(lang, `${PATHS[lang].projects}/:slug`),
       component: StudyPage,
       data: { lang, page: 'study' },
+      resolve: { body },
     },
   );
   return pages;

@@ -4,6 +4,17 @@ import { I18n } from '../i18n/i18n.service';
 import { SITE } from '../core/site';
 import { ContactForm } from '../shared/contact-form';
 
+interface Showcase {
+  title: string;
+  text: string;
+  tags: string[];
+  image: string;
+  alt: string;
+  study: string;
+  demo: string;
+  repo: string;
+}
+
 @Component({
   selector: 'app-home',
   imports: [RouterLink, ContactForm],
@@ -103,36 +114,37 @@ import { ContactForm } from '../shared/contact-form';
         </div>
 
         <div class="showcase">
+          @let main = showcase().main;
           <article class="band-card band-card--main showcase__main">
-            <a class="shot-img" [routerLink]="i18n.studyLink('job-scout')">
-              <img src="img/job-scout-cover.webp" [alt]="jobScoutAlt()" width="1600" height="1000" loading="lazy" />
+            <a class="shot-img" [routerLink]="main.study">
+              <img [src]="main.image" [alt]="main.alt" width="1600" height="1000" loading="lazy" />
             </a>
             <div class="band-card__body">
               <div class="title-row">
-                <h3 class="h3-lg">{{ h.built.jobScoutTitle }}</h3>
+                <h3 class="h3-lg">{{ main.title }}</h3>
                 <span class="pill pill--small pill--band">{{ t.common.live }}</span>
               </div>
-              <p>{{ h.built.jobScoutText }}</p>
+              <p>{{ main.text }}</p>
               <ul class="tags tags--band" role="list">
-                @for (tag of h.built.jobScoutTags; track tag) { <li class="tag tag--small">{{ tag }}</li> }
+                @for (tag of main.tags; track tag) { <li class="tag tag--small">{{ tag }}</li> }
               </ul>
               <div class="links links--band">
-                <a [href]="site.jobScoutDemo" target="_blank" rel="noopener">{{ h.built.demo }}</a>
-                <a [routerLink]="i18n.studyLink('job-scout')">{{ h.built.study }}</a>
+                <a [href]="main.demo" target="_blank" rel="noopener">{{ h.built.demo }}</a>
+                <a [routerLink]="main.study">{{ h.built.study }}</a>
                 <a [routerLink]="i18n.link('projects')">{{ t.nav.showcase }} →</a>
-                <a [href]="site.jobScoutRepo" target="_blank" rel="noopener">{{ h.built.github }}</a>
+                <a [href]="main.repo" target="_blank" rel="noopener">{{ h.built.github }}</a>
               </div>
             </div>
           </article>
           <div class="showcase__side">
-            @if (paymentMatching(); as pm) {
+            @if (showcase().side; as side) {
               <article class="band-card">
                 <span class="pill pill--small pill--band">{{ t.common.live }}</span>
-                <h3>{{ pm.title }}</h3>
-                <p>{{ pm.text }}</p>
+                <h3>{{ side.title }}</h3>
+                <p>{{ side.text }}</p>
                 <div class="links links--band">
-                  <a [routerLink]="i18n.studyLink('parovani-plateb')">{{ h.built.study }}</a>
-                  <a [href]="site.paymentMatchingDemo" target="_blank" rel="noopener">{{ h.built.demo }}</a>
+                  <a [routerLink]="side.study">{{ h.built.study }}</a>
+                  <a [href]="side.demo" target="_blank" rel="noopener">{{ h.built.demo }}</a>
                 </div>
               </article>
             }
@@ -242,11 +254,39 @@ import { ContactForm } from '../shared/contact-form';
 export class HomePage {
   protected readonly i18n = inject(I18n);
   protected readonly site = SITE;
-  protected readonly jobScoutAlt = computed(() => this.i18n.studies().find((s) => s.id === 'job-scout')?.image.alt ?? 'Job Scout');
-  /** Karta Párování plateb (texty z Projektů); bez studie v buildu (koncept) se nezobrazí. */
-  protected readonly paymentMatching = computed(() =>
-    this.i18n.studyLink('parovani-plateb') ? this.i18n.t().projects.items.find((i) => i.id === 'parovani-plateb') : undefined,
-  );
+  /**
+   * Ukázky v pásu „Postaveno s AI“: hlavní karta Párování plateb (texty z Projektů), vedle Job Scout.
+   * Bez studie Párování plateb v buildu (koncept) je hlavní karta Job Scout jako dřív.
+   */
+  protected readonly showcase = computed(() => {
+    const t = this.i18n.t();
+    const studies = this.i18n.studies();
+    const jsStudy = this.i18n.studyLink('job-scout') ?? this.i18n.link('projects');
+    const jobScout: Showcase = {
+      title: t.home.built.jobScoutTitle,
+      text: t.home.built.jobScoutText,
+      tags: t.home.built.jobScoutTags,
+      image: 'img/job-scout-cover.webp',
+      alt: studies.find((s) => s.id === 'job-scout')?.image.alt ?? 'Job Scout',
+      study: jsStudy,
+      demo: SITE.jobScoutDemo,
+      repo: SITE.jobScoutRepo,
+    };
+    const pmStudy = this.i18n.studyLink('parovani-plateb');
+    const pm = t.projects.items.find((i) => i.id === 'parovani-plateb');
+    if (!pmStudy || !pm) return { main: jobScout, side: null };
+    const paymentMatching: Showcase = {
+      title: pm.title,
+      text: pm.text,
+      tags: pm.tags,
+      image: pm.image,
+      alt: studies.find((s) => s.id === 'parovani-plateb')?.image.alt ?? pm.title,
+      study: pmStudy,
+      demo: SITE.paymentMatchingDemo,
+      repo: SITE.paymentMatchingRepo,
+    };
+    return { main: paymentMatching, side: jobScout };
+  });
   protected pad(n: number): string {
     return n.toString().padStart(2, '0');
   }

@@ -73,7 +73,7 @@ Před `ng build` / `ng serve` převede `scripts/build-content.mjs` (čistý Node
 
 | Vygenerovaný soubor (není v gitu) | Co |
 | --- | --- |
-| `src/app/content/content.generated.ts` | články, studie, stránky a oblasti jako typovaná data (`Article`, `CaseStudy`, `Block`…) |
+| `src/app/content/content.generated.ts`, `src/app/content/bodies/` | články, studie, stránky a oblasti jako typovaná data; text každého je samostatný modul načtený až pro jeho stránku, takže hlavní balík s dalšími články neroste |
 | `public/sitemap.xml` | všechny stránky s hreflang a `lastmod` |
 | `public/clanky/feed.xml`, `public/en/articles/feed.xml` | RSS článků |
 | `public/staticwebapp.config.json` | `staticwebapp.config.base.json` + přesměrování pro každou předgenerovanou stránku |

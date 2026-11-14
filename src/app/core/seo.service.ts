@@ -49,11 +49,12 @@ export class SeoService {
       this.doc.documentElement.lang = lang;
 
       // Obrázek pro náhled odkazu (LinkedIn, Facebook, Slack…): u článku a studie z hlavičky (og_image),
-      // u Projektů Job Scout, jinak obecný s portrétem.
+      // u Projektů první projekt (Párování plateb, bez jeho studie v buildu Job Scout), jinak obecný s portrétem.
+      const projectsImage = this.i18n.studyLink('parovani-plateb') ? 'payment-matching-og' : 'job-scout-og';
       const ogImage =
         article || study
           ? ORIGIN + (article ?? study)!.ogImage
-          : `${ORIGIN}/img/${page === 'projects' ? 'job-scout-og' : 'og-default'}${lang === 'en' ? '-en' : ''}.jpg`;
+          : `${ORIGIN}/img/${page === 'projects' ? projectsImage : 'og-default'}${lang === 'en' ? '-en' : ''}.jpg`;
       this.meta.updateTag({ property: 'og:image', content: ogImage });
       this.meta.updateTag({ property: 'og:image:width', content: '1200' });
       this.meta.updateTag({ property: 'og:image:height', content: '630' });

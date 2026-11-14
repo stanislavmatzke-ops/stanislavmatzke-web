@@ -73,7 +73,7 @@ Before `ng build` / `ng serve`, `scripts/build-content.mjs` (plain Node, no depe
 
 | Generated file (not in git) | What |
 | --- | --- |
-| `src/app/content/content.generated.ts` | articles, case studies, pages and areas as typed data (`Article`, `CaseStudy`, `Block`…) |
+| `src/app/content/content.generated.ts`, `src/app/content/bodies/` | articles, case studies, pages and areas as typed data; the text of each one is a separate module loaded only for its page, so the main bundle does not grow with every article |
 | `public/sitemap.xml` | every page with hreflang and `lastmod` |
 | `public/clanky/feed.xml`, `public/en/articles/feed.xml` | RSS feeds of the articles |
 | `public/staticwebapp.config.json` | `staticwebapp.config.base.json` + a rewrite for every prerendered page |

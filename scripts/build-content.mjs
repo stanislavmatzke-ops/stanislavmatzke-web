@@ -1,5 +1,5 @@
 // Converts the editor's markdown in content/ into what the Angular build needs:
-//   src/app/content/content.generated.ts   typed articles, case studies, pages and areas
+//   src/app/content/                         typed articles, case studies, pages and areas (texts in bodies/)
 //   public/sitemap.xml                       every prerendered page with hreflang and lastmod
 //   public/clanky/feed.xml, public/en/articles/feed.xml   RSS
 //   public/staticwebapp.config.json         staticwebapp.config.base.json + rewrites for every page
@@ -10,7 +10,7 @@
 //   CONTENT_DRAFTS=1 has the same effect as --drafts.
 //
 // Any problem in the content stops the build with "file:line: what is wrong".
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { feedXml, generatedTs, sitemapXml, staticWebAppConfig } from './content/emit.mjs';
@@ -42,7 +42,8 @@ const write = (rel, text) => {
 };
 const base = JSON.parse(readFileSync(join(root, 'staticwebapp.config.base.json'), 'utf8'));
 
-write('src/app/content/content.generated.ts', generatedTs(model));
+rmSync(join(root, 'src/app/content'), { recursive: true, force: true });
+for (const [rel, text] of Object.entries(generatedTs(model))) write(`src/app/content/${rel}`, text);
 write('public/sitemap.xml', sitemapXml(model, paths));
 write(`public/${paths.cs.articles}/feed.xml`, feedXml(model, paths, 'cs'));
 write(`public/en/${paths.en.articles}/feed.xml`, feedXml(model, paths, 'en'));

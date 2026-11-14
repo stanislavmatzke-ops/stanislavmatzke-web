@@ -21,7 +21,7 @@ api/obj/
 api/local.settings.json
 
 # Generated from content/ by scripts/build-content.mjs (npm start / npm run build)
-src/app/content/content.generated.ts
+src/app/content/
 public/sitemap.xml
 public/staticwebapp.config.json
 public/clanky/feed.xml

@@ -71,7 +71,7 @@ export const cs = {
   } satisfies Record<string, Meta>,
 
   common: {
-    availability: 'Volné kapacity od listopadu 2026',
+    availability: 'Volné kapacity od prosince 2026',
     location: 'Praha / hybrid · projekty, IČO i dlouhodobě',
     bookCall: 'Domluvit nezávazný hovor',
     writeMe: 'Napište mi',
@@ -244,7 +244,7 @@ export const cs = {
           'nasazení v cloudu (Azure) nebo u vás, CI/CD, monitoring a provoz',
         ],
         outcome: 'Analýza → návrh → vývoj po etapách s ukázkou každé etapy → nasazení a provoz. Kód a dokumentace patří vám.',
-        experience: 'Čtyři roky interního vývoje ve VZP ČR (modernizace aplikací, vedení týmu), systémy pro banky a finanční firmy, Job Scout a další aplikace na míru – viz Projekty.',
+        experience: 'Čtyři roky interního vývoje ve VZP ČR (modernizace aplikací, vedení týmu), systémy pro banky a finanční firmy, Job Scout, Párování plateb s AI a další aplikace na míru – viz Projekty.',
         firstStep: 'Úvodní analýza a návrh první etapy.',
       },
       {
@@ -286,7 +286,7 @@ export const cs = {
           'měření kvality, ochrana proti prompt injection a zneužití, hlídání nákladů',
         ],
         outcome: 'Případy použití, architekturu, rizika a odhad nákladů na provoz – nebo rovnou funkční řešení.',
-        experience: 'Job Scout – AI agent v provozu, s evidencí každého volání, jeho ceny a s limity proti zneužití.',
+        experience: 'Job Scout – AI agent v provozu, s evidencí každého volání, jeho ceny a s limity proti zneužití. Párování plateb s AI – model rozhoduje jen nejasné platby, každou jeho odpověď ověřuje kód a evaly v CI hlídají přesnost.',
         firstStep: 'Návrh zapojení AI za 1–2 týdny.',
       },
       {

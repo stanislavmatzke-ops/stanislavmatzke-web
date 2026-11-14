@@ -18,7 +18,7 @@ import { CtaBand } from '../shared/cta-band';
         </div>
       </section>
       <div class="container container--narrow prose section section--flush-top">
-        <app-blocks [blocks]="p.blocks" [lessonLabel]="t.common.lesson" />
+        <app-blocks [blocks]="i18n.body()" [lessonLabel]="t.common.lesson" />
       </div>
       <app-cta-band [title]="t.articles.ctaTitle" [text]="t.articles.ctaText" />
     } @else {

@@ -71,7 +71,10 @@ export interface Meta {
   description: string;
 }
 
-/** Společné údaje textů z markdownu (content/). Data jsou ISO 8601 (YYYY-MM-DD). */
+/**
+ * Společné údaje textů z markdownu (content/). Data jsou ISO 8601 (YYYY-MM-DD).
+ * Samotný text (bloky) je v samostatném modulu, načte se až pro danou stránku – viz I18n.loadBody().
+ */
 interface ContentItem {
   slug: string;
   title: string;
@@ -84,7 +87,6 @@ interface ContentItem {
   updated?: string;
   /** stav: koncept – jen v npm start a npm run build:drafts. */
   draft: boolean;
-  blocks: Block[];
 }
 
 export interface Article extends ContentItem {

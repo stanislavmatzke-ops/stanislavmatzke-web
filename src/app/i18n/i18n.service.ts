@@ -3,8 +3,8 @@ import { ActivatedRouteSnapshot, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { cs, Content } from './cs';
 import { en } from './en';
-import { AREA_SEGMENT, AnyPage, Area, CONTENT_PAGE_KEYS, Lang, PageKey, PATHS } from './types';
-import { AREAS, ARTICLES, PAGES, STUDIES } from '../content/content.generated';
+import { AREA_SEGMENT, AnyPage, Area, Block, CONTENT_PAGE_KEYS, Lang, PageKey, PATHS } from './types';
+import { AREAS, ARTICLES, BODIES, PAGES, STUDIES } from '../content/content.generated';
 import { formatDate, readTime } from './format';
 
 /** Aktuální jazyk a stránka podle adresy; texty v `t()`, obsah z markdownu (content/) přes computed signály. */
@@ -36,6 +36,32 @@ export class I18n {
     const page = this.page();
     return CONTENT_PAGE_KEYS.includes(page as PageKey) ? (PAGES[page as PageKey]?.[this.lang()] ?? null) : null;
   });
+
+  /** Načtené texty (bloky) podle klíče 'article:cs:<slug>', 'study:en:<slug>', 'page:cs:<klíč>'. */
+  private readonly bodies = signal<Record<string, Block[]>>({});
+
+  /** Text otevřeného článku, studie nebo stránky z markdownu (načtený resolverem routy). */
+  readonly body = computed<Block[]>(() => {
+    const key = I18n.bodyKey(this.page(), this.lang(), this.slug());
+    return (key && this.bodies()[key]) || [];
+  });
+
+  /** Klíč textu pro stránku, nebo null, když stránka žádný text z markdownu nemá. */
+  static bodyKey(page: AnyPage, lang: Lang, slug: string | null): string | null {
+    if (page === 'article' || page === 'study') return slug ? `${page}:${lang}:${slug}` : null;
+    return CONTENT_PAGE_KEYS.includes(page as PageKey) ? `page:${lang}:${page}` : null;
+  }
+
+  /**
+   * Načte text stránky (samostatný chunk přes import()). Volá ho resolver routy, takže předgenerování
+   * i první vykreslení v prohlížeči počká, až je text k dispozici. Neexistující klíč = nic (stránka ukáže 404).
+   */
+  async loadBody(key: string | null): Promise<void> {
+    const load = key ? BODIES[key] : undefined;
+    if (!key || !load || this.bodies()[key]) return;
+    const blocks = await load();
+    this.bodies.update((b) => ({ ...b, [key]: blocks }));
+  }
 
   constructor() {
     this.router.events.pipe(filter((e) => e instanceof NavigationEnd)).subscribe(() => {

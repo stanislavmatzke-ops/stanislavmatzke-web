@@ -69,7 +69,7 @@ export const en: Content = {
   },
 
   common: {
-    availability: 'Available from November 2026',
+    availability: 'Available from December 2026',
     location: 'Prague / hybrid · projects, contracting or long-term',
     bookCall: 'Book a free call',
     writeMe: 'Get in touch',
@@ -242,7 +242,7 @@ export const en: Content = {
           'deployment to the cloud (Azure) or on-premises, CI/CD, monitoring and operations',
         ],
         outcome: 'Analysis → design → development in stages with a demo of each stage → deployment and operations. The code and documentation belong to you.',
-        experience: 'Four years of in-house development at VZP ČR (application modernisation, team lead), systems for banks and financial companies, Job Scout and other custom applications – see Projects.',
+        experience: 'Four years of in-house development at VZP ČR (application modernisation, team lead), systems for banks and financial companies, Job Scout, Payment matching with AI and other custom applications – see Projects.',
         firstStep: 'An initial analysis and design of the first stage.',
       },
       {
@@ -284,7 +284,7 @@ export const en: Content = {
           'quality measurement, protection against prompt injection and abuse, cost control',
         ],
         outcome: 'Use cases, architecture, risks and an estimate of running costs – or a working solution straight away.',
-        experience: 'Job Scout – an AI agent in production, with every call and its cost recorded and limits against abuse.',
+        experience: 'Job Scout – an AI agent in production, with every call and its cost recorded and limits against abuse. Payment matching with AI – the model decides only the unclear payments, code checks every answer it gives and evals in CI guard the accuracy.',
         firstStep: 'An AI adoption proposal in 1–2 weeks.',
       },
       {
