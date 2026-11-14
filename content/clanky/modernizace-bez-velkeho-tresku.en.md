@@ -4,7 +4,7 @@ slug: modernizace-bez-velkeho-tresku
 jazyk: en
 url: /en/articles/modernizace-bez-velkeho-tresku
 titulek: "Modernisation without a big bang: a new engine in the same body"
-perex: "An old system in Delphi or Oracle Forms works, it’s just that nobody wants to maintain it any more. Rewriting it in one go is risky and expensive. There is another way: first capture faithfully what the system does, then move it to a new engine piece by piece. And AI changes the maths completely."
+perex: "An old system in Delphi or Oracle Forms works, it’s just that nobody wants to maintain it any more. Rewriting it in one go is risky and expensive. There is another way: first capture faithfully what the system does, then move it to a new engine piece by piece. And AI makes the most expensive step much cheaper: understanding what the old system really does."
 meta_description: "How to modernise an old system (Delphi, Oracle, PL/SQL) step by step and without downtime: understanding with AI, a golden master, a faithful port piece by piece, deliberate changes. What AI made cheaper and what stays with people."
 oblast: modernizace
 datum_publikace: 2026-11-14
@@ -21,7 +21,7 @@ preklad: [CS: /clanky/modernizace-bez-velkeho-tresku, EN: /en/articles/moderniza
 
 *Articles · 14 November 2026 · 6 min read*
 
-An old system in Delphi or Oracle Forms works, it’s just that nobody wants to maintain it any more. Rewriting it in one go is risky and expensive. There is another way: first capture faithfully what the system does, then move it to a new engine piece by piece. And AI changes the maths completely.
+An old system in Delphi or Oracle Forms works, it’s just that nobody wants to maintain it any more. Rewriting it in one go is risky and expensive. There is another way: first capture faithfully what the system does, then move it to a new engine piece by piece. And AI makes the most expensive step much cheaper: understanding what the old system really does.
 
 For fifteen years I worked on enterprise systems in banking, insurance and logistics. Along the way I also worked with Delphi, Oracle PL/SQL and Oracle Forms. Such systems have three things in common. They work. They contain years of business rules that are written down nowhere else. And the people who understand them are getting fewer.
 

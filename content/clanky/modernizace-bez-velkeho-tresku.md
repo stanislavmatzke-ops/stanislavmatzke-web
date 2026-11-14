@@ -4,7 +4,7 @@ slug: modernizace-bez-velkeho-tresku
 jazyk: cs
 url: /clanky/modernizace-bez-velkeho-tresku
 titulek: "Modernizace bez velkého třesku: jiný motor ve stejné karoserii"
-perex: "Starý systém v Delphi nebo Oracle Forms funguje, jen ho už nikdo nechce udržovat. Přepsat ho najednou je riskantní a drahé. Jde to i jinak: nejdřív věrně zachytit, co systém dělá, a pak ho po částech přesunout na nový motor. A AI z toho dělá úplně jinou kalkulaci."
+perex: "Starý systém v Delphi nebo Oracle Forms funguje, jen ho už nikdo nechce udržovat. Přepsat ho najednou je riskantní a drahé. Jde to i jinak: nejdřív věrně zachytit, co systém dělá, a pak ho po částech přesunout na nový motor. A AI výrazně zlevňuje nejdražší krok: pochopit, co starý systém doopravdy dělá."
 meta_description: "Jak modernizovat starý systém (Delphi, Oracle, PL/SQL) postupně a bez výpadků: porozumění s AI, golden master, věrný převod po částech, vědomé změny. Co AI zlevnila a co zůstává na lidech."
 oblast: modernizace
 datum_publikace: 2026-11-14
@@ -21,7 +21,7 @@ preklad: [CS: /clanky/modernizace-bez-velkeho-tresku, EN: /en/articles/moderniza
 
 *Články · 14. listopadu 2026 · 6 minut čtení*
 
-Starý systém v Delphi nebo Oracle Forms funguje, jen ho už nikdo nechce udržovat. Přepsat ho najednou je riskantní a drahé. Jde to i jinak: nejdřív věrně zachytit, co systém dělá, a pak ho po částech přesunout na nový motor. A AI z toho dělá úplně jinou kalkulaci.
+Starý systém v Delphi nebo Oracle Forms funguje, jen ho už nikdo nechce udržovat. Přepsat ho najednou je riskantní a drahé. Jde to i jinak: nejdřív věrně zachytit, co systém dělá, a pak ho po částech přesunout na nový motor. A AI výrazně zlevňuje nejdražší krok: pochopit, co starý systém doopravdy dělá.
 
 Patnáct let jsem pracoval na podnikových systémech v bankách, pojišťovnictví a logistice. Pracoval jsem přitom i s Delphi, Oracle PL/SQL a Oracle Forms. Takové systémy mají společné tři věci. Fungují. Obsahují roky obchodních pravidel, která nikde jinde sepsaná nejsou. A lidí, kteří jim rozumějí, ubývá.
 
