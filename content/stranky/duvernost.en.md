@@ -38,7 +38,7 @@ Like a craftsman who brings his own tools. You have two options:
 - **1 · My commercial account (default)**  
   A separate workspace for each client with its own key and spending limit. I can document usage exactly, and the key is revoked when the engagement ends.
 - **2 · Your own Azure**  
-  For the cautious: the model runs in your Azure subscription in a European region. You hold the contract with Microsoft, data never leaves your tenant, and when we are done you simply remove my access. It also becomes the foundation of your own company AI.
+  For the cautious: the model runs in your Azure subscription in a European region. You hold the contract with Microsoft, neither the code nor any data leaves your tenant, and when we are done you simply remove my access. It also becomes the foundation of your own company AI.
 
 ## Only code goes to AI, never your customers’ data
 

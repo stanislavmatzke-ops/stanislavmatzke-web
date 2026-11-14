@@ -38,7 +38,7 @@ Jako řemeslník, který si nosí vlastní nářadí. Máte dvě možnosti:
 - **1 · Můj komerční účet (výchozí)**  
   Pro každého klienta samostatný pracovní prostor s vlastním klíčem a limitem útraty. Spotřebu přesně doložím a po skončení zakázky klíč zruším.
 - **2 · Váš vlastní Azure**  
-  Pro opatrné: model běží ve vašem předplatném Azure v evropském regionu. Smlouvu s Microsoftem máte vy, data neopustí váš tenant a po skončení mi jen odeberete přístup. Zároveň je to základ vaší vlastní firemní AI.
+  Pro opatrné: model běží ve vašem předplatném Azure v evropském regionu. Smlouvu s Microsoftem máte vy, kód ani případná data neopustí váš tenant a po skončení mi jen odeberete přístup. Zároveň je to základ vaší vlastní firemní AI.
 
 ## K AI jde jen kód, nikdy data vašich zákazníků
 
