@@ -9,17 +9,17 @@ meta_description: "Code review in the age of AI agents: data on AI code quality,
 oblast: ai-ve-vyvoji
 datum_publikace: 2026-11-14
 datum_aktualizace:
-doba_cteni: 6
+doba_cteni: 7
 og_image: /img/og-default-en.jpg
 souvisejici: [co-ai-agent-pokazil, kam-mizi-vyvojarska-prace, modernizace-bez-velkeho-tresku]
 cta: { titulek: "Bringing AI into development and wondering how to keep it in check?", text: "Let’s discuss it on a free call." }
-stav: koncept
+stav: publikovano
 preklad: [CS: /clanky/necti-kazdy-radek, EN: /en/articles/necti-kazdy-radek]
 ---
 
 # Don’t read every line: code review in the age of AI agents
 
-*Articles · 14 November 2026 · 6 min read*
+*Articles · 14 November 2026 · 7 min read*
 
 When AI writes the code, nobody can read it line by line any more. Experienced people are right that AI code has more bugs. They are wrong that the only defence is reading it. Where review is moving, and what stays human.
 
@@ -38,14 +38,6 @@ Performance is a weak spot. A model learns from the average code on the internet
 
 <!-- blok: zdroj -->
 [EffiBench (NeurIPS 2024) ↗](https://huggingface.co/papers/2402.02037)
-
-And people overestimate what AI gives them. In a randomised trial by METR, 16 experienced developers did 246 real tasks on their own large projects. With AI they were 19 % slower, even though they believed they were 20 % faster. That applies to early-2025 tools and to people who knew their projects inside out. METR itself said in 2026 that with newer agentic tools developers are likely faster now. The warning still stands, though: a feeling is not a measurement.
-
-<!-- blok: zdroj -->
-[METR: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity ↗](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/)
-
-<!-- blok: zdroj -->
-[METR: study update (2026) ↗](https://metr.org/blog/2026-02-24-uplift-update/)
 
 ## Where the expert is wrong
 
@@ -77,7 +69,7 @@ While building [Payment matching with AI](/en/projects/payment-matching), I wrot
 - **A library that logged what it shouldn’t**  
   caught by a test that looks for data in the telemetry
 
-The agent didn’t write code that wouldn’t compile. It wrote code that was plausible and wrong in ways that only data, another operating system or a parallel run would show. A person reading it easily misses such bugs, because the code *looks* right. A mechanism doesn’t. A different kind of mistake – logic not thought through, which tests won’t catch – is described in [What the AI agent got wrong](/en/articles/co-ai-agent-pokazil). There, it was a person using the app who helped.
+The agent’s code always compiled and looked right at first glance. The bugs only showed up where reading doesn’t reach: on specific data, on another operating system or when tests ran in parallel. A person reading the code easily misses them, because it *looks* right. A mechanism doesn’t. A different kind of mistake – logic not thought through, which tests won’t catch – is described in [What the AI agent got wrong](/en/articles/co-ai-agent-pokazil). There, it was a person using the app who helped.
 
 ## Review by risk
 
@@ -100,4 +92,4 @@ For teams bringing AI into development, the most expensive mistake is to leave r
 
 Instead, it pays to invest in what replaces review: tests against real behaviour, evals, measurements and clear rules for agents. And to move experienced people to where they are irreplaceable: the brief, the architecture, the risky parts and the question of what “correct” actually means. How this changes a developer’s role is the subject of [Where developer work is going](/en/articles/kam-mizi-vyvojarska-prace).
 
-That team leader was right about *what* to look for. I just wouldn’t ask him to look for it by eye.
+**An experienced team leader knows better than anyone what to look for and where to focus. He just shouldn’t be looking for it by eye.**

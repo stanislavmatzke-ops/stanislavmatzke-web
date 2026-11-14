@@ -73,7 +73,9 @@ export class SeoService {
         this.setJsonLd(null);
         return;
       }
-      this.meta.removeTag('name="robots"');
+      // Skrytá stránka (skryta: true): mimo vyhledávače; hreflang jen mezi jejími dvěma jazyky.
+      if (contentPage?.hidden) this.meta.updateTag({ name: 'robots', content: 'noindex, nofollow' });
+      else this.meta.removeTag('name="robots"');
       const url = (l: Lang) => ORIGIN + this.i18n.linkIn(l);
       this.setLink('canonical', url(lang));
       this.meta.updateTag({ property: 'og:url', content: url(lang) });

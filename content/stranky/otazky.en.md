@@ -8,13 +8,14 @@ perex: "What companies ask most often when they are planning to modernise a syst
 meta_description: "Answers to common questions: AI training on your code, company AI, where data goes, modernising Delphi and Oracle, who is responsible for AI-written code, how we work together and costs."
 datum_publikace: 2026-11-14
 datum_aktualizace:
-stav: koncept
+stav: publikovano
 preklad: [CS: /otazky, EN: /en/faq]
 ---
 
 # Questions and answers
 
 What companies ask most often when they are planning to modernise a system or develop with AI.
+
 
 ## Won’t the AI be trained on our code?
 
@@ -36,13 +37,25 @@ It can be done with an open-weight model on your hardware or mine. It is weaker 
 
 I am. AI is a tool. I review, test and stand behind every change just as if I had written it by hand. What to watch out for is described in [What the AI agent got wrong](/en/articles/co-ai-agent-pokazil).
 
+## Who owns the code?
+
+You do. Code, documentation and access are yours once paid, without restriction.
+
 ## Can an old system be modernised step by step, without a “big bang”?
 
 Yes, and it is usually the better way. First I capture how today’s system behaves, then I move it over piece by piece, and each piece must give the same results as the original. Users keep working in the meantime. The [Payment matching with AI](/en/projects/payment-matching) case study shows what this looks like on a real example from Delphi and Oracle PL/SQL.
 
-## How do we start, and what does the first analysis cost?
+## Do you work for large companies and public institutions?
 
-We start with a free call about what the system does and what is bothering you. Then I propose the scope of the analysis and a price based on the size of the system. You know the price up front, not after the work is done.
+Yes, I have spent most of my career working for banks, insurers and large organisations. I know their processes, security requirements and pace.
+
+## What does it cost, and how do we start?
+
+It depends on the scope. We start with a free call about what the system does and what is bothering you. Within two business days you then get a fixed-price proposal for a concrete deliverable. The easiest first step is a mini-diagnosis, from about CZK 10,000. For long-term work we agree on a day rate.
+
+## What if the result is not as agreed?
+
+Before we start, we agree in writing on what I will deliver, by when, for how much and how you will accept the result. I invoice for a delivered result that meets those criteria. If the brief changes along the way, we agree on the change before I start working on it.
 
 ## Do you also work without AI?
 
@@ -51,6 +64,14 @@ Yes, if you want it that way or your rules require it. But to be honest, without
 ## What does AI cost in a running application?
 
 It depends on how much the AI decides. With a good design, the cost of the model is small next to the cost of human work. In [Payment matching with AI](/en/projects/payment-matching) it comes to about $0.36 per 1,000 payments, because the model is called only where it can change something. I will prepare an estimate for your case as part of the analysis.
+
+## Do you work on-site or remotely?
+
+Mostly remotely; I am happy to come in for important meetings. I am based in Prague.
+
+## Is permanent employment also possible?
+
+For the right team and company, yes. Permanent employment is one form of working together, just like a long-term contract or a project.
 
 ## How do we work together?
 

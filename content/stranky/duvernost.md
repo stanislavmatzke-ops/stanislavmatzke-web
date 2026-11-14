@@ -8,7 +8,7 @@ perex: "Jak pracuji s vaším kódem a daty, když při vývoji používám AI. 
 meta_description: "Jak pracuji s kódem a daty klienta při vývoji s AI: jen komerční AI účty bez trénování na datech, k AI jde jen kód, testovací data, smlouva, možnost provozu ve vašem Azure v EU."
 datum_publikace: 2026-11-14
 datum_aktualizace:
-stav: koncept
+stav: publikovano
 preklad: [CS: /duvernost, EN: /en/confidentiality]
 ---
 

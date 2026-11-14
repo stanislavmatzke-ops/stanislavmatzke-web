@@ -2110,3 +2110,57 @@ p {
     align-items: flex-start;
   }
 }
+
+/* ---------- Doladění: pilíře Služeb, „Jak začít“, způsob práce na úvodu ---------- */
+
+.pillars {
+  list-style: none;
+  margin: 8px 0 4px;
+  padding: 0;
+  display: grid;
+  gap: 16px 32px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  max-width: 1040px;
+}
+.pillars li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 16px;
+  border-left: 3px solid var(--accent);
+}
+.pillars strong {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.pillars span {
+  color: var(--muted);
+}
+.service__practice p {
+  margin: 0;
+  font-size: 16px;
+}
+.service__practice a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+.service-start {
+  margin-top: 8px;
+  padding: 24px 28px;
+  border-radius: var(--radius);
+  background: var(--soft);
+  border: 1px solid var(--line);
+  max-width: 760px;
+}
+.service-start p {
+  margin: 8px 0 0;
+}
+.band__more {
+  display: inline-block;
+  margin-top: 4px;
+  font-weight: 600;
+  color: var(--band-accent);
+}

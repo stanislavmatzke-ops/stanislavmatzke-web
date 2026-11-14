@@ -311,6 +311,34 @@ describe('content folder', () => {
     assert.ok(problems.some((p) => /^content\/clanky\/a\.md:\d+: "doba_cteni" must be a whole number/.test(p)), problems.join('\n'));
   });
 
+  test('a hidden page is prerendered and rewritten but not in the sitemap; mailto: and tel: links are allowed', () => {
+    const hidden = (lang) =>
+      head({
+        typ: 'stranka',
+        slug: lang === 'en' ? 'for-employers' : 'pro-zamestnavatele',
+        jazyk: lang,
+        url: lang === 'en' ? '/en/for-employers' : '/pro-zamestnavatele',
+        titulek: '"Pro zaměstnavatele"',
+        perex: '"Perex."',
+        meta_description: '"Popis."',
+        datum_publikace: '2026-11-14',
+        skryta: 'true          # mimo menu',
+        zmeneno_editorem: '2026-11-14',
+        stav: 'publikovano',
+        preklad: '[CS: /pro-zamestnavatele, EN: /en/for-employers]',
+      }) + '\n# Pro zaměstnavatele\n\nPerex.\n\n[E-mail](mailto:kontakt@example.com) · [Telefon](tel:+420123456789)\n';
+    const { model, problems } = site({
+      'content/stranky/pro-zamestnavatele.md': hidden('cs'),
+      'content/stranky/pro-zamestnavatele.en.md': hidden('en'),
+    })();
+    assert.deepEqual(problems, []);
+    assert.equal(model.pages.forEmployers.cs.hidden, true);
+    assert.doesNotMatch(sitemapXml(model, paths), /zamestnavatele|employers/);
+    const swa = JSON.parse(staticWebAppConfig({ routes: [] }, model, paths));
+    assert.ok(swa.routes.some((r) => r.route === '/pro-zamestnavatele'));
+    assert.ok(swa.routes.some((r) => r.route === '/en/for-employers'));
+  });
+
   test('a missing translation is an error', () => {
     const { problems } = site({ 'content/clanky/a.md': article('cs') })();
     assert.ok(problems.some((p) => /English version \(\/en\/articles\/a\) is missing/.test(p)), problems.join('\n'));

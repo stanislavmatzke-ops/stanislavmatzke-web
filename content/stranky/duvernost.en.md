@@ -8,7 +8,7 @@ perex: "How I handle your code and data when I use AI in development. In short: 
 meta_description: "How I handle client code and data when developing with AI: commercial AI accounts only, no training on your data, only code goes to AI, test data, a contract, and the option to run in your own Azure in the EU."
 datum_publikace: 2026-11-14
 datum_aktualizace:
-stav: koncept
+stav: publikovano
 preklad: [CS: /duvernost, EN: /en/confidentiality]
 ---
 

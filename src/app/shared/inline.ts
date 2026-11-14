@@ -5,10 +5,11 @@
  *   `code`                → <code>
  *   [text](/path)         → link to a page of this web (router link)
  *   [text](https://…)     → external link (new tab)
+ *   [text](mailto:…), [text](tel:…) → e-mail / phone link
  *   [text](slug)          → link to an article by its slug (older texts)
  */
 export interface InlineSegment {
-  kind: 'text' | 'bold' | 'em' | 'code' | 'link' | 'external';
+  kind: 'text' | 'bold' | 'em' | 'code' | 'link' | 'external' | 'contact';
   text: string;
   /** Router path (kind 'link'), URL (kind 'external') or an article slug (kind 'link' with slug). */
   href?: string;
@@ -32,7 +33,8 @@ export function parseInline(text: string): InlineSegment[] {
     else if (m[3] !== undefined) segments.push({ kind: 'code', text: m[3] });
     else {
       const href = m[5];
-      if (/^https?:\/\//.test(href)) segments.push({ kind: 'external', text: m[4], href });
+      if (/^(mailto|tel):/.test(href)) segments.push({ kind: 'contact', text: m[4], href });
+      else if (/^https?:\/\//.test(href)) segments.push({ kind: 'external', text: m[4], href });
       else if (href.startsWith('/')) segments.push({ kind: 'link', text: m[4], href });
       else segments.push({ kind: 'link', text: m[4], slug: href });
     }

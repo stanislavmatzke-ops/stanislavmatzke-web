@@ -138,7 +138,7 @@ export function loadContent({ root, contentDir, publicDir, paths, includeDrafts 
       });
     } else {
       const key = pageKeyFor(h.url, it.lang, paths);
-      (model.pages[key] ??= {})[it.lang] = { ...common, blocks: it.body.blocks };
+      (model.pages[key] ??= {})[it.lang] = { ...common, ...(h.skryta ? { hidden: true } : {}), blocks: it.body.blocks };
     }
   }
   const byDate = (a, b) => b.published.localeCompare(a.published) || a.slug.localeCompare(b.slug);
@@ -165,9 +165,9 @@ export function loadContent({ root, contentDir, publicDir, paths, includeDrafts 
       if (img.src && !existsSync(join(publicDir, img.src))) it.err(lineOf(it, img.src), `image ${img.src} is not in public/`);
     }
     for (const href of collectLinks([body.blocks, body.buttons ?? []])) {
-      if (/^https?:\/\//.test(href)) continue;
+      if (/^(https?:\/\/|mailto:|tel:)/.test(href)) continue;
       if (!href.startsWith('/')) {
-        it.err(1, `link "${href}" must be a path starting with / (e.g. /clanky/rychlost-vyvoje) or a full https:// address`);
+        it.err(1, `link "${href}" must be a path starting with / (e.g. /clanky/rychlost-vyvoje) , a full https:// address, mailto: or tel:`);
       } else if (!urls.has(href)) {
         const hint = skipped.some((s) => s.header.url === href) ? ' (it is a draft, left out of this build)' : '';
         it.err(lineOf(it, href), `link to ${href}: no such page${hint}`);
@@ -261,13 +261,14 @@ function loadAreas(path, rel, problems) {
 /**
  * Every prerendered address with its translation and last change. Used for the link check, the
  * sitemap and the Static Web Apps rewrites.
- * @returns {{ path: string, lang: 'cs'|'en', alt: { cs: string, en: string }, lastmod?: string }[]}
+ * Hidden pages (skryta: true) are prerendered and rewritten, but left out of the sitemap.
+ * @returns {{ path: string, lang: 'cs'|'en', alt: { cs: string, en: string }, lastmod?: string, hidden?: boolean }[]}
  */
 export function allUrls(model, paths) {
   const out = [];
   const url = (lang, p) => (lang === 'en' ? (p ? `/en/${p}` : '/en') : `/${p}`);
-  const add = (alt, lastmod) => {
-    for (const lang of ['cs', 'en']) out.push({ path: alt[lang], lang, alt, ...(lastmod ? { lastmod } : {}) });
+  const add = (alt, lastmod, hidden) => {
+    for (const lang of ['cs', 'en']) out.push({ path: alt[lang], lang, alt, ...(lastmod ? { lastmod } : {}), ...(hidden ? { hidden: true } : {}) });
   };
   const lastChange = (items) => items.map((i) => i.updated ?? i.published).sort().at(-1);
   const newest = lastChange([...model.articles.cs, ...model.studies.cs]);
@@ -276,7 +277,7 @@ export function allUrls(model, paths) {
     if (paths.contentPages.includes(key) && !model.pages[key]) continue;
     const page = model.pages[key]?.cs;
     const lastmod = page ? (page.updated ?? page.published) : key === 'articles' ? newest : undefined;
-    add({ cs: url('cs', paths.cs[key]), en: url('en', paths.en[key]) }, lastmod);
+    add({ cs: url('cs', paths.cs[key]), en: url('en', paths.en[key]) }, lastmod, page?.hidden);
   }
   model.articles.cs.forEach((a, i) => {
     add({ cs: url('cs', `${paths.cs.articles}/${a.slug}`), en: url('en', `${paths.en.articles}/${a.slug}`) }, a.updated ?? a.published);

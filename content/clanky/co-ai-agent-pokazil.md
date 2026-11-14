@@ -9,14 +9,15 @@ meta_description: "Aplikaci Job Scout psal AI agent, já jsem byl architekt a re
 og_title: "Co AI agent při vývoji pokazil – a proč na tom záleží – Stanislav Matzke"
 oblast: ai-ve-vyvoji
 datum_publikace: 2026-10-13
-datum_aktualizace:
-doba_cteni: 7
+datum_aktualizace: 2026-11-14
+doba_cteni: 8
 og_image: /img/job-scout-og.jpg
 souvisejici: [rychlost-vyvoje, kam-mizi-vyvojarska-prace]
 cta: { titulek: "Chcete vědět, co by AI udělala s vaším systémem?", text: "Probereme to na nezávazném hovoru." }
 stav: publikovano
 preklad: [CS: /clanky/co-ai-agent-pokazil, EN: /en/articles/co-ai-agent-pokazil]
 zrcadleno_z_webu: 2026-11-14
+zmeneno_editorem: 2026-11-14
 ---
 
 # Co AI agent při vývoji pokazil – a proč na tom záleží
@@ -117,6 +118,18 @@ Po spuštění jsme aplikaci prošli bod po bodu podle bezpečnostního checklis
 Jde to i bez ní. Ale upřímně: je to cesta zpátky. Kdo dnes vyvíjí pomaleji a dráž než konkurence, prohraje – firmy na trhu i lidé na pracovním trhu. Sám jsem se musel přizpůsobit a vím, že to jde.
 
 Řešením není se AI vyhýbat, ale používat ji vědomě: s důrazem na bezpečnost, ochranu dat a kontrolu výstupů. S tímhle přechodem vám rád pomůžu – stejně jako jsem ho zvládl já.
+
+## Jak to dopadlo podruhé
+
+U dalšího projektu, [Párování plateb s AI](/projekty/parovani-plateb), jsem pracoval jinak: podle specifikace, po fázích a s testy a evaly jako mantinely. Agent chyboval taky. V jednom pravidle se spletl o jedno místo, validace jednou pustila platbu na špatnou kombinaci faktur a prompt se lišil podle operačního systému. Rozdíl byl v tom, že tyhle chyby chytily testy a evaly dřív, než na nich cokoli stálo.
+
+Co testy nechytily, ukázalo až nasazení a první uživatel:
+
+- **Čtyři pasti v Azure:** nová databáze s jiným vlastníkem schématu, změna hesla, která tiše shodila běžící aplikaci, telemetrie, která sama zahodila data krátkého jobu, a změněný formát identity pro přihlašování bez hesla.
+- **Díra v nasazovací pipeline:** kontrolovala jen název větve, ne odkud kód pochází. Kdokoli by si mohl udělat kopii repozitáře, poslat změnu z větve pojmenované `main` a jeho kód by se nasadil do produkce. Našlo se to před zveřejněním kódu. CI/CD je kód se stejnými právy jako produkce.
+- **První hodina s uživatelem:** nový uživatel čekal na AI do druhého rána, což byl přímý důsledek bezpečnostního pravidla. A člověk ve frontě neviděl fakturu vedle platby, takže neměl z čeho rozhodnout.
+
+Vzorec z Job Scoutu tedy platí dál: logiku, provoz a pohled uživatele musí pohlídat člověk. Nové je, že rutinní chyby agenta už nehledám já, ale mechanismy, které jsem kolem něj postavil.
 
 <!-- blok: CTA pás -->
 > Chcete vědět, co by AI udělala s vaším systémem?  

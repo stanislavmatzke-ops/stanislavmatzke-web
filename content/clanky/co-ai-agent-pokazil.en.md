@@ -9,14 +9,15 @@ meta_description: "An AI agent wrote Job Scout; I was the architect and reviewer
 og_title: "What the AI agent got wrong – and why it matters – Stanislav Matzke"
 oblast: ai-ve-vyvoji
 datum_publikace: 2026-10-13
-datum_aktualizace:
-doba_cteni: 7
+datum_aktualizace: 2026-11-14
+doba_cteni: 8
 og_image: /img/job-scout-og-en.jpg
 souvisejici: [rychlost-vyvoje, kam-mizi-vyvojarska-prace]
 cta: { titulek: "Want to know what AI could do with your system?", text: "Let’s discuss it on a free call." }
 stav: publikovano
 preklad: [CS: /clanky/co-ai-agent-pokazil, EN: /en/articles/co-ai-agent-pokazil]
 zrcadleno_z_webu: 2026-11-14
+zmeneno_editorem: 2026-11-14
 ---
 
 # What the AI agent got wrong – and why it matters
@@ -117,6 +118,18 @@ After launch we went through the app point by point against a security checklist
 It can be done without it. But honestly: it is a step backwards. Whoever develops slower and more expensively than the competition will lose – companies in their markets and people in the job market. I had to adapt myself, and I know it can be done.
 
 The answer is not to avoid AI but to use it deliberately: with a focus on security, data protection and reviewing the output. I will gladly help you make that transition – just as I made it myself.
+
+## How it went the second time
+
+On the next project, [Payment matching with AI](/en/projects/payment-matching), I worked differently: from a specification, phase by phase, with tests and evals as guardrails. The agent made mistakes there too. It got one rule wrong by one position, the validation once let a payment through to a wrong combination of invoices, and a prompt differed by operating system. The difference was that tests and evals caught these mistakes before anything depended on them.
+
+What the tests didn’t catch, deployment and the first user revealed:
+
+- **Four traps in Azure:** a new database with a different schema owner, a password change that silently broke the running app, telemetry that dropped the data of a short job on its own, and a changed identity format for passwordless sign-in.
+- **A hole in the deployment pipeline:** it checked only the branch name, not where the code came from. Anyone could have copied the repository, sent a change from a branch called `main`, and their code would have been deployed to production. It was found before the code went public. CI/CD is code with the same rights as production.
+- **The first hour with a user:** a new user waited for the AI until the next morning – a direct consequence of a security rule. And a person in the queue couldn’t see the invoice next to the payment, so they had nothing to decide from.
+
+So the lesson from Job Scout still holds: logic, operations and the user’s view need a human. What is new is that I no longer hunt for the agent’s routine mistakes myself – the mechanisms I built around it do.
 
 <!-- blok: CTA pás -->
 > Want to know what AI could do with your system?  

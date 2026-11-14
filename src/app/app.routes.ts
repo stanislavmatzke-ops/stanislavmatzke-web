@@ -27,6 +27,7 @@ const components: Record<PageKey, Routes[number]['component']> = {
   privacy: PrivacyPage,
   confidentiality: ContentPageView,
   faq: ContentPageView,
+  forEmployers: ContentPageView,
 };
 
 /** Před zobrazením článku, studie nebo stránky z markdownu načte její text (samostatný chunk). */

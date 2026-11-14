@@ -8,13 +8,14 @@ perex: "Na co se firmy nejčastěji ptají, když řeší modernizaci systému n
 meta_description: "Odpovědi na časté otázky: trénování AI na kódu, firemní AI, kam jdou data, modernizace Delphi a Oracle, kdo ručí za kód od AI, spolupráce a náklady."
 datum_publikace: 2026-11-14
 datum_aktualizace:
-stav: koncept
+stav: publikovano
 preklad: [CS: /otazky, EN: /en/faq]
 ---
 
 # Otázky a odpovědi
 
 Na co se firmy nejčastěji ptají, když řeší modernizaci systému nebo vývoj s AI.
+
 
 ## Nebude se AI trénovat na našem kódu?
 
@@ -36,13 +37,25 @@ Jde to s modelem s otevřenými vahami na vašem nebo mém hardwaru. Je slabší
 
 Já. AI je nástroj. Každou změnu projdu, otestuji a ručím za ni stejně, jako kdybych ji psal ručně. Na co si dávat pozor, popisuji v článku [Co AI agent při vývoji pokazil](/clanky/co-ai-agent-pokazil).
 
+## Komu patří kód?
+
+Vám. Kód, dokumentace i přístupy jsou po zaplacení vaše, bez omezení.
+
 ## Dá se starý systém modernizovat postupně, bez „velkého třesku“?
 
 Ano, a obvykle je to lepší cesta. Nejdřív zachytím, jak se dnešní systém chová, pak převádím po částech a každá část musí dát stejné výsledky jako původní. Uživatelé mezitím pracují dál. Jak to vypadá na konkrétním příkladu z Delphi a Oracle PL/SQL, ukazuje případová studie [Párování plateb s AI](/projekty/parovani-plateb).
 
-## Jak začít a kolik stojí první analýza?
+## Pracujete i pro velké firmy a státní instituce?
 
-Začínáme nezávazným hovorem, kde si řekneme, co systém dělá a co vás trápí. Potom navrhnu rozsah analýzy a cenu podle velikosti systému. Cenu znáte předem, ne až po práci.
+Ano, většinu kariéry jsem pracoval právě pro banky, pojišťovny a velké organizace. Znám jejich procesy, bezpečnostní požadavky i tempo.
+
+## Kolik to stojí a jak začít?
+
+Záleží na rozsahu. Začínáme nezávazným hovorem, kde si řekneme, co systém dělá a co vás trápí. Do dvou pracovních dnů pak dostanete nabídku s pevnou cenou za konkrétní výstup. Nejsnazší první krok je mini-diagnóza, orientačně od 10 000 Kč. U dlouhodobé spolupráce se domluvíme na denní sazbě.
+
+## Co když výsledek nebude podle dohody?
+
+Před začátkem se písemně domluvíme, co dodám, do kdy, za kolik a podle čeho výsledek převezmete. Fakturuji dodaný výsledek, který tato kritéria splní. Když se v průběhu změní zadání, domluvíme změnu dřív, než na ní začnu pracovat.
 
 ## Pracujete i bez AI?
 
@@ -51,6 +64,14 @@ Ano, pokud to tak chcete nebo pokud to vyžadují vaše pravidla. Upřímně ale
 ## Kolik stojí AI v provozu aplikace?
 
 Záleží na tom, kolik toho AI rozhoduje. Při dobrém návrhu bývá cena za model malá vedle ceny lidské práce. V [Párování plateb s AI](/projekty/parovani-plateb) vychází zhruba na $0,36 za 1 000 plateb, protože model se volá jen tam, kde může něco změnit. Odhad pro váš případ připravím v rámci analýzy.
+
+## Pracujete na místě, nebo na dálku?
+
+Převážně na dálku, na důležité schůzky rád přijedu. Jsem z Prahy.
+
+## Je možný i hlavní pracovní poměr?
+
+Pro správný tým a firmu ano. Hlavní pracovní poměr je jedna z forem spolupráce, stejně jako dlouhodobý kontrakt nebo projekt.
 
 ## Jak probíhá spolupráce?
 

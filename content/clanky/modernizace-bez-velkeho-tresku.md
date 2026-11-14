@@ -9,17 +9,17 @@ meta_description: "Jak modernizovat starý systém (Delphi, Oracle, PL/SQL) post
 oblast: modernizace
 datum_publikace: 2026-11-14
 datum_aktualizace:
-doba_cteni: 4
+doba_cteni: 6
 og_image: /img/og-default.jpg
 souvisejici: [rychlost-vyvoje, necti-kazdy-radek]
 cta: { titulek: "Máte starý systém, na který se roky nesahá?", text: "Spočítáme, co by modernizace stála dnes. Nezávazně." }
-stav: koncept
+stav: publikovano
 preklad: [CS: /clanky/modernizace-bez-velkeho-tresku, EN: /en/articles/modernizace-bez-velkeho-tresku]
 ---
 
 # Modernizace bez velkého třesku: jiný motor ve stejné karoserii
 
-*Články · 14. listopadu 2026 · 4 minut čtení*
+*Články · 14. listopadu 2026 · 6 minut čtení*
 
 Starý systém v Delphi nebo Oracle Forms funguje, jen ho už nikdo nechce udržovat. Přepsat ho najednou je riskantní a drahé. Jde to i jinak: nejdřív věrně zachytit, co systém dělá, a pak ho po částech přesunout na nový motor. A AI z toho dělá úplně jinou kalkulaci.
 
@@ -60,7 +60,7 @@ Tenhle postup není nový. Nový je jeho cena. Nejdražší byl vždycky krok 1,
 
 Vyzkoušel jsem to na referenčním projektu [Párování plateb s AI](/projekty/parovani-plateb). Modul v Delphi a PL/SQL dostal AI agent, který neměl žádný kontext a nesměl kód spouštět, a měl z něj sepsat pravidla. Našel všechna, která tam byla, a navíc sedm skutečných chyb, o kterých nevěděl ani autor. Například že databázová funkce uřízne číslo faktury a platba pak sedne na jinou fakturu.
 
-AI ale není neomylná. Jedno pravidlo popsala o jedničku vedle a odhalil to až golden master. Proto platí pořadí autorit: **běžící kód > čtení kódu > dokument.** AI je výborný začátek analýzy, poslední slovo má test proti skutečnému chování.
+AI ale není neomylná. Jedno pravidlo popsala o jedničku vedle a odhalil to až golden master. Proto platí pořadí autorit: **jak se systém skutečně chová > co je napsané v kódu > co tvrdí dokumentace.** AI je výborný začátek analýzy, poslední slovo má test proti skutečnému chování.
 
 Kroky 2 a 3 zlevnila AI také. Převod do .NET byl v tom projektu bajtově shodný se starým modulem hned napoprvé a celý projekt od analýzy po nasazení trval zhruba dva a půl dne místo měsíců. Podrobnosti jsou v případové studii.
 

@@ -9,14 +9,15 @@ meta_description: "Patnáct let se vývoj software zrychloval pomalu. Pak přiš
 og_title: "Rychlost vývoje: co se za pár let změnilo – Stanislav Matzke"
 oblast: ai-ve-vyvoji
 datum_publikace: 2026-10-13
-datum_aktualizace:
-doba_cteni: 6
+datum_aktualizace: 2026-11-14
+doba_cteni: 7
 og_image: /img/og-default.jpg
 souvisejici: [co-ai-agent-pokazil, kam-mizi-vyvojarska-prace]
 cta: { titulek: "Chcete vědět, co by AI udělala s vaším systémem?", text: "Probereme to na nezávazném hovoru." }
 stav: publikovano
 preklad: [CS: /clanky/rychlost-vyvoje, EN: /en/articles/rychlost-vyvoje]
 zrcadleno_z_webu: 2026-11-14
+zmeneno_editorem: 2026-11-14
 ---
 
 # Rychlost vývoje: co se za pár let změnilo
@@ -47,7 +48,19 @@ Konkrétní příklad: aplikaci Job Scout – backend v .NET 10, stahování nab
 
 *Stejný rozsah, stejné nároky na kvalitu: testy, bezpečnost, dokumentace, nasazení.*
 
+Druhý, novější příklad je [Párování plateb s AI](/projekty/parovani-plateb): modernizace starého modulu v Delphi a PL/SQL do .NET 10, AI párování plateb s evaly, server pro AI agenty, veřejná aplikace a otevřený kód. Zabralo to zhruba dva a půl dne. Můj odhad pro tým bez AI je čtyři až pět lidí na čtyři až šest měsíců.
+
 Sám jsem to zažil i dřív: když jsem po letech v Javě přešel na .NET, byl jsem díky AI plně produktivní během pár dnů. Dnes už nejde jen o rychlejší psaní kódu, ale o to, že jeden člověk zvládne celé workflow – od návrhu po provoz.
+
+## Nezáleží jen na nástroji, ale na způsobu práce
+
+Mezi oběma projekty se nezměnil jen nástroj, ale hlavně způsob, jakým s ním pracuji.
+
+U Job Scoutu agent připravoval kód a já ho v IDE procházel řádek po řádku, přepisoval a upravoval. Bylo to rychlé, ale úzké hrdlo jsem byl já a moje čtení.
+
+U Párování plateb jsem nejdřív napsal specifikaci a plán a agent pak pracoval samostatně po fázích. Já jsem schvaloval plán a výsledek každé fáze, ale každý řádek jsem nečetl. Kvalitu hlídaly testy proti chování starého systému, evaly v CI, nezávislé review a zapsaná rozhodnutí. Výsledek byl rychlejší a zároveň lépe zkontrolovaný.
+
+Je to posun od „AI píše, já čtu“ k „AI pracuje v mantinelech, které jsem navrhl“. Proč to funguje, popisuji v článku [Nečti každý řádek](/clanky/necti-kazdy-radek).
 
 ## Co to znamená pro modernizaci starých systémů
 
@@ -64,7 +77,7 @@ Sám jsem to zažil i dřív: když jsem po letech v Javě přešel na .NET, byl
 <!-- blok: ponaučení -->
 > **Ponaučení**
 >
-> Projekt, který jste před dvěma lety odložili jako příliš drahý, stojí za to přepočítat. Cena se mezitím změnila víc než za předchozích deset let.
+> Projekt, který jste před dvěma lety odložili jako příliš drahý, stojí za to přepočítat. Cena se mezitím změnila víc než za předchozích deset let. Rychlost ale přináší AI, jistotu přinášejí mantinely, které kolem ní postavíte.
 
 ## Kde je teď úzké hrdlo
 

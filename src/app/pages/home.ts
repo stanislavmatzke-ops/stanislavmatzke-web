@@ -26,7 +26,6 @@ interface Showcase {
     <section class="hero">
       <div class="container hero__inner">
         <div class="hero__text">
-          <span class="pill"><span class="pill__dot" aria-hidden="true"></span>{{ t.common.availability }}</span>
           <span class="kicker">{{ h.kicker }}</span>
           <h1 class="display">{{ h.titleStart }} <span class="highlight">{{ h.titleHighlight }}</span></h1>
           <p class="lead">{{ h.lead }}</p>
@@ -105,6 +104,8 @@ interface Showcase {
             <span class="eyebrow eyebrow--band eyebrow--num" data-num="03">{{ h.built.eyebrow }}</span>
             <h2 class="band__title">{{ h.built.title }}</h2>
             <p class="band__lead">{{ h.built.lead }}</p>
+            <p class="band__lead">{{ h.built.method }}</p>
+            <a class="band__more" [routerLink]="i18n.articleLink('necti-kazdy-radek')">{{ h.built.methodLink }}</a>
           </header>
         </div>
 

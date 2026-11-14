@@ -9,17 +9,17 @@ meta_description: "How to modernise an old system (Delphi, Oracle, PL/SQL) step 
 oblast: modernizace
 datum_publikace: 2026-11-14
 datum_aktualizace:
-doba_cteni: 5
+doba_cteni: 6
 og_image: /img/og-default-en.jpg
 souvisejici: [rychlost-vyvoje, necti-kazdy-radek]
 cta: { titulek: "Have a system nobody has touched in years?", text: "Let’s work out what modernising it would cost today. No obligation." }
-stav: koncept
+stav: publikovano
 preklad: [CS: /clanky/modernizace-bez-velkeho-tresku, EN: /en/articles/modernizace-bez-velkeho-tresku]
 ---
 
 # Modernisation without a big bang: a new engine in the same body
 
-*Articles · 14 November 2026 · 5 min read*
+*Articles · 14 November 2026 · 6 min read*
 
 An old system in Delphi or Oracle Forms works, it’s just that nobody wants to maintain it any more. Rewriting it in one go is risky and expensive. There is another way: first capture faithfully what the system does, then move it to a new engine piece by piece. And AI changes the maths completely.
 
@@ -60,7 +60,7 @@ This approach isn’t new. What is new is its cost. The most expensive part was 
 
 I tried it on a reference project, [Payment matching with AI](/en/projects/payment-matching). An AI agent with no context and no permission to run the code was given a module in Delphi and PL/SQL and asked to write down its rules. It found every one of them, plus seven real bugs that even the author didn’t know about. For example, a database function that cuts off the invoice number, so the payment lands on a different invoice.
 
-But AI isn’t infallible. It got one rule off by one, and only the golden master revealed it. Hence the order of authority: **running code > reading code > documents.** AI is an excellent start to an analysis, but the last word belongs to a test against real behaviour.
+But AI isn’t infallible. It got one rule off by one, and only the golden master revealed it. Hence the order of authority: **how the system really behaves > what the code says > what the documentation claims.** AI is an excellent start to an analysis, but the last word belongs to a test against real behaviour.
 
 AI made steps 2 and 3 cheaper too. In that project, the .NET port was byte-identical to the old module on the very first run, and the whole project, from analysis to deployment, took about two and a half days instead of months. The details are in the case study.
 

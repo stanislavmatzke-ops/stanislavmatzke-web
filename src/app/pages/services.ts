@@ -1,17 +1,23 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { I18n } from '../i18n/i18n.service';
+import { Blocks } from '../shared/blocks';
 import { CtaBand } from '../shared/cta-band';
 
 @Component({
   selector: 'app-services',
-  imports: [CtaBand, RouterLink],
+  imports: [Blocks, CtaBand, RouterLink],
   template: `
     @let s = i18n.t().services;
     <section class="page-head page-head--pattern">
       <div class="container stack stack--sm">
         <span class="eyebrow">{{ s.eyebrow }}</span>
         <h1>{{ s.title }}</h1>
+        <ol class="pillars" role="list">
+          @for (p of s.pillars; track p.title) {
+            <li><strong>{{ p.title }}</strong> <span>{{ p.text }}</span></li>
+          }
+        </ol>
         <p class="lead">{{ s.lead }}</p>
         <aside class="guarantee">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -45,9 +51,16 @@ import { CtaBand } from '../shared/cta-band';
                 }
                 <div><dt>{{ s.labels.firstStep }}</dt><dd>{{ item.firstStep }}</dd></div>
               </dl>
+              @if (item.practice) {
+                <div class="service__practice"><app-blocks [blocks]="[{ kind: 'p', text: item.practice }]" /></div>
+              }
             </div>
           </article>
         }
+        <aside class="service-start">
+          <h2 class="h3">{{ s.start.title }}</h2>
+          <p>{{ s.start.text }}</p>
+        </aside>
         @if (i18n.hasPage('faq')) {
           <p class="faq-link"><a class="link-strong" [routerLink]="i18n.link('faq')">{{ i18n.t().common.faqLink }}</a></p>
         }

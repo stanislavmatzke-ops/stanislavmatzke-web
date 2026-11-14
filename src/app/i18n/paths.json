@@ -9,7 +9,8 @@
     "contact": "kontakt",
     "privacy": "ochrana-osobnich-udaju",
     "confidentiality": "duvernost",
-    "faq": "otazky"
+    "faq": "otazky",
+    "forEmployers": "pro-zamestnavatele"
   },
   "en": {
     "home": "",
@@ -21,8 +22,9 @@
     "contact": "contact",
     "privacy": "privacy",
     "confidentiality": "confidentiality",
-    "faq": "faq"
+    "faq": "faq",
+    "forEmployers": "for-employers"
   },
-  "contentPages": ["confidentiality", "faq"],
+  "contentPages": ["confidentiality", "faq", "forEmployers"],
   "areaSegment": { "cs": "tema", "en": "topic" }
 }

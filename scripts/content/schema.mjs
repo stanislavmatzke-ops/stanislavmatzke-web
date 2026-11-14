@@ -61,8 +61,11 @@ export const FIELDS = {
         ? null
         : 'must be [CS: /path, EN: /en/path]',
   },
+  /** Hidden page: not in the menu, footer or sitemap, robots noindex, nofollow (e.g. /pro-zamestnavatele). */
+  skryta: { need: [], forbid: ['clanek', 'pripadova-studie'], check: (v) => (typeof v === 'boolean' ? null : 'must be true or false') },
   /** Editor's bookkeeping, not used by the web. */
   zrcadleno_z_webu: { need: [], check: (v) => (isRealDate(v) ? null : 'must be a date YYYY-MM-DD or empty') },
+  zmeneno_editorem: { need: [], check: (v) => (isRealDate(v) ? null : 'must be a date YYYY-MM-DD or empty') },
 };
 
 function nonEmptyString(v) {

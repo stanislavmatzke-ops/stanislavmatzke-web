@@ -10,7 +10,7 @@ import { parseInline } from './inline';
   selector: 'app-blocks',
   imports: [RouterLink, NgTemplateOutlet],
   template: `
-    <ng-template #rich let-text>@for (s of inline(text); track $index) {@switch (s.kind) {@case ('bold') {<strong>{{ s.text }}</strong>}@case ('em') {<em>{{ s.text }}</em>}@case ('code') {<code>{{ s.text }}</code>}@case ('link') {<a [routerLink]="s.href ?? i18n.articleLink(s.slug ?? '')">{{ s.text }}</a>}@case ('external') {<a [href]="s.href" rel="noopener" target="_blank">{{ s.text }}</a>}@default {<ng-container>{{ s.text }}</ng-container>}}}</ng-template>
+    <ng-template #rich let-text>@for (s of inline(text); track $index) {@switch (s.kind) {@case ('bold') {<strong>{{ s.text }}</strong>}@case ('em') {<em>{{ s.text }}</em>}@case ('code') {<code>{{ s.text }}</code>}@case ('link') {<a [routerLink]="s.href ?? i18n.articleLink(s.slug ?? '')">{{ s.text }}</a>}@case ('external') {<a [href]="s.href" rel="noopener" target="_blank">{{ s.text }}</a>}@case ('contact') {<a [href]="s.href">{{ s.text }}</a>}@default {<ng-container>{{ s.text }}</ng-container>}}}</ng-template>
     @for (b of blocks(); track $index) {
       @switch (b.kind) {
         @case ('h2') { <h2>{{ b.text }}</h2> }

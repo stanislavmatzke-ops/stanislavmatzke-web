@@ -91,6 +91,7 @@ function parseScalar(s) {
   }
   const bare = s.replace(/\s+#.*$/, '').trim();
   if (/^-?\d+$/.test(bare)) return Number(bare);
+  if (bare === 'true' || bare === 'false') return bare === 'true';
   return bare === '' ? null : bare;
 }
 

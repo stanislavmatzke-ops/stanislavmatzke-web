@@ -117,7 +117,10 @@ export interface CaseStudy extends ContentItem {
   stats: Entry[];
 }
 
-export type ContentPage = ContentItem;
+export interface ContentPage extends ContentItem {
+  /** skryta: true – mimo menu, patičku a sitemap, robots noindex, nofollow (stránka pro zaměstnavatele). */
+  hidden?: boolean;
+}
 
 export interface Area {
   /** Neměnné id = český slug. */

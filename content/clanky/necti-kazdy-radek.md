@@ -9,17 +9,17 @@ meta_description: "Code review v éře AI agentů: data o kvalitě AI kódu, pro
 oblast: ai-ve-vyvoji
 datum_publikace: 2026-11-14
 datum_aktualizace:
-doba_cteni: 5
+doba_cteni: 7
 og_image: /img/og-default.jpg
 souvisejici: [co-ai-agent-pokazil, kam-mizi-vyvojarska-prace, modernizace-bez-velkeho-tresku]
 cta: { titulek: "Zavádíte AI do vývoje a řešíte, jak ji kontrolovat?", text: "Probereme to na nezávazném hovoru." }
-stav: koncept
+stav: publikovano
 preklad: [CS: /clanky/necti-kazdy-radek, EN: /en/articles/necti-kazdy-radek]
 ---
 
 # Nečti každý řádek: code review v éře AI agentů
 
-*Články · 14. listopadu 2026 · 5 minut čtení*
+*Články · 14. listopadu 2026 · 7 minut čtení*
 
 Když kód píše AI, nikdo už ho nestihne přečíst řádek po řádku. Zkušení lidé mají pravdu, že AI kód má víc chyb. Nemají ale pravdu, že jediná obrana je číst ho očima. Kam se review posouvá a co v něm zůstává lidské.
 
@@ -38,14 +38,6 @@ Výkon je slabé místo. Model se učí na průměrném kódu z internetu a sáh
 
 <!-- blok: zdroj -->
 [EffiBench (NeurIPS 2024) ↗](https://huggingface.co/papers/2402.02037)
-
-A lidé přínos AI přeceňují. V randomizovaném pokusu organizace METR dělalo 16 zkušených vývojářů 246 skutečných úkolů na vlastních velkých projektech. S AI byli o 19 % pomalejší, i když si mysleli, že jsou o 20 % rychlejší. Platí to pro nástroje z jara 2025 a pro lidi, kteří své projekty znali do detailu. Sám METR v roce 2026 uvedl, že s novějšími agentními nástroji jsou vývojáři nejspíš rychlejší. Varování ale platí dál: pocit není měření.
-
-<!-- blok: zdroj -->
-[METR: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity ↗](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/)
-
-<!-- blok: zdroj -->
-[METR: aktualizace studie (2026) ↗](https://metr.org/blog/2026-02-24-uplift-update/)
 
 ## Kde pravdu nemá
 
@@ -77,7 +69,7 @@ Při stavbě aplikace [Párování plateb s AI](/projekty/parovani-plateb) jsem 
 - **Knihovna, která zapisovala, co neměla**  
   chytil ji test, který hledá data v telemetrii
 
-Agent nepsal kód, který by se nepřeložil. Psal kód věrohodný a špatný způsobem, který ukážou až data, jiný operační systém nebo paralelní běh. Takové chyby člověk při čtení snadno přehlédne, protože kód *vypadá* správně. Mechanismus je nepřehlédne. Jiný typ chyb, nedomyšlenou logiku, kterou testy nechytí, jsem popsal v článku [Co AI agent při vývoji pokazil](/clanky/co-ai-agent-pokazil). Tam naopak pomohl člověk, který aplikaci prošel jako uživatel.
+Agentův kód se vždycky přeložil a na první pohled vypadal správně. Chyby se ukázaly až tam, kam při čtení nevidíte: na konkrétních datech, na jiném operačním systému nebo při souběžném běhu testů. Člověk je při čtení snadno přehlédne, protože kód *vypadá* správně. Mechanismus je nepřehlédne. Jiný typ chyb, nedomyšlenou logiku, kterou testy nechytí, jsem popsal v článku [Co AI agent při vývoji pokazil](/clanky/co-ai-agent-pokazil). Tam naopak pomohl člověk, který aplikaci prošel jako uživatel.
 
 ## Review podle rizika
 
@@ -100,4 +92,4 @@ Pro týmy, které AI do vývoje zavádějí, je nejdražší chybou nechat revie
 
 Místo toho stojí za to investovat do toho, co review nahrazuje: testů proti skutečnému chování, evalů, měření a jasných pravidel pro agenty. A zkušené lidi posunout tam, kde jsou nenahraditelní: k zadání, architektuře, rizikovým místům a k otázce, co je vlastně „správně“. O tom, jak se tím mění role vývojáře, píšu v článku [Kam mizí vývojářská práce](/clanky/kam-mizi-vyvojarska-prace).
 
-Ten team leader měl pravdu v tom, *co* hledat. Jen bych to po něm nechtěl hledat očima.
+**Zkušený team leader ví líp než kdokoli, co hledat a na co se zaměřit. Jen by to neměl hledat očima.**

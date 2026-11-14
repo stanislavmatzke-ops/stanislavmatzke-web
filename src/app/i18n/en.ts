@@ -70,7 +70,6 @@ export const en: Content = {
 
   common: {
     faqLink: 'Frequently asked questions →',
-    availability: 'Available from December 2026',
     location: 'Prague / hybrid · projects, contracting or long-term',
     bookCall: 'Book a free call',
     writeMe: 'Get in touch',
@@ -91,7 +90,7 @@ export const en: Content = {
       'I combine know-how from building enterprise systems from the ground up with what AI can do today. I design the solution, build it, deploy it and keep it running – fast, securely and owning the result. The proof is in projects you can try yourself.',
     ctaSecondary: 'See the projects',
     tags: ['.NET', 'Java', 'Oracle PL/SQL', 'Azure', 'Angular', 'AI agents & LLMs'],
-    logosLabel: 'I have worked for',
+    logosLabel: 'I have worked for – directly and through vendors',
     logos: ['VZP ČR', 'Raiffeisenbank', 'MONETA Money Bank', 'SAB Finance', 'ARBES', 'Vodafone', 'IFS'],
 
     fit: {
@@ -134,6 +133,8 @@ export const en: Content = {
       title: 'What used to take a team months, one experienced person now delivers in days.',
       lead:
         'Showcase projects I built with AI agents – from design through code and tests to deployment on Azure. Not “slide-deck” prototypes, but applications that run and that you can try.',
+      method: 'It’s not only about speed. I built Job Scout with an agent and read its code line by line. Payment matching was built from a specification: the agent worked on its own, phase by phase, and quality was guarded by tests and evals, not by my eyes. The result was faster and better checked.',
+      methodLink: 'Why I don’t read every line →',
       jobScoutTitle: 'Job Scout',
       jobScoutText:
         'A smart assistant for your job search: every morning it reviews new offers, scores them against your CV, drafts cover letters and sends a summary by e-mail. AI pre-selects, a human decides.',
@@ -202,11 +203,19 @@ export const en: Content = {
   services: {
     eyebrow: 'Services',
     title: 'How I can help',
-    lead:
-      'I cover the whole workflow – from design and analysis through development to deployment and operations. Faster and cheaper than before thanks to AI, with a focus on security and quality. I price individually after the intro call, always for the result.',
+    pillars: [
+      { title: 'Understand.', text: 'The goal, the system’s surroundings and the rules the old system quietly follows.' },
+      { title: 'Design.', text: 'The architecture, the decisions and an approach the team and the AI agents can sustain.' },
+      { title: 'Verify.', text: 'Tests, evals and measurements, not “the AI checked it”.' },
+    ],
+    lead: 'I cover the whole workflow – from design and analysis through development to deployment and operations. Faster and cheaper than before thanks to AI, with quality control that comes from tests and measurements, not impressions. I price individually after the intro call, always for the result.',
     guarantee: {
-      title: 'You pay for results, not effort',
-      text: 'Before we start, we agree on exactly what I will deliver, by when and for how much. Then it is up to me to deliver it. If I do not deliver the agreed result, you pay nothing – and I refund any deposit. The risk is mine, not yours.',
+      title: 'You pay for an agreed result',
+      text: 'Before we start, we agree on what I will deliver, by when, for how much and how you will accept the result. I invoice for a delivered result that meets those criteria. If the brief changes along the way, we agree on the change before I start working on it.',
+    },
+    start: {
+      title: 'How to start',
+      text: 'The easiest start is a mini-diagnosis: within a week you know what state your system is in, where the risks are and what I recommend. From about CZK 10,000. If you then order the analysis, the diagnosis fee is deducted.',
     },
     labels: {
       forWhom: 'Who it is for',
@@ -240,7 +249,7 @@ export const en: Content = {
           'deployment to the cloud (Azure) or on-premises, CI/CD, monitoring and operations',
         ],
         outcome: 'Analysis → design → development in stages with a demo of each stage → deployment and operations. The code and documentation belong to you.',
-        experience: 'Four years of in-house development at VZP ČR (application modernisation, team lead), systems for banks and financial companies, Job Scout, Payment matching with AI and other custom applications – see Projects.',
+        experience: 'Five years of in-house development at VZP ČR (application modernisation, team lead), systems for banks and financial companies, Job Scout, Payment matching with AI and other custom applications – see Projects.',
         firstStep: 'An initial analysis and design of the first stage.',
       },
       {
@@ -256,6 +265,7 @@ export const en: Content = {
         outcome: 'A clear plan for the system – what to keep, what to modernise, in which order and for how much.',
         experience: 'I spent years building systems in Delphi and PL/SQL (MONETA, Raiffeisenbank, ARBES); today I design solutions in .NET and Azure. I understand both worlds.',
         firstStep: 'A diagnosis in one week. If you then order the analysis, the diagnosis fee is deducted.',
+        practice: 'What it looks like in practice: [Payment matching with AI case study](/en/projects/payment-matching) · [Modernisation without a big bang](/en/articles/modernizace-bez-velkeho-tresku)',
       },
       {
         id: 'integrace',
@@ -523,6 +533,7 @@ export const en: Content = {
       'My name is Stanislav Matzke and I have been designing and building enterprise systems for 15 years. I started on Delphi and Oracle systems for banks and financial companies, moved through .NET and Java to cloud solutions on Azure and to leading a team in the in-house IT of VZP.',
       'Recently I worked on a microservice platform for a network of smart parcel lockers, and I build my own applications – you can find some of them here on this website and on GitHub.',
       'That is why I understand both the old and the new world: I know why a system from 2005 is written the way it is, and I can move it safely to a modern architecture. In the last few years I have added AI – and it changed what one person can deliver. Today I cover the whole workflow from design through development and deployment to operations.',
+      'My work rests on three steps: understand, design, verify. I work with AI agents spec-driven: first a specification and a plan, then the agent phase by phase, with tests and evals as guardrails. So I don’t have to write or read the code line by line, but I stand behind what gets built.',
     ],
     howTitle: 'How I like to work',
     how: [
@@ -598,44 +609,6 @@ export const en: Content = {
         text: 'You have the right to access, rectification, erasure, restriction of processing, to object, and to lodge a complaint with the Czech Office for Personal Data Protection. Just write to me.',
       },
     ] as Block[],
-  },
-
-  /** Otázky přesunuté ze stránky Kontakt; dočasně na stránce Otázky a odpovědi pod otázkami editora. */
-  faqPage: {
-    extra: [
-      {
-        q: 'How much does it cost?',
-        a: 'It depends on the scope. After the intro call you will get a fixed-price proposal for a concrete deliverable within two business days. For long-term work we agree on a day rate.',
-      },
-      {
-        q: 'Do you work for large companies and public institutions?',
-        a: 'Yes, I have spent most of my career working for banks, insurers and large organisations. I know their processes, security requirements and pace.',
-      },
-      {
-        q: 'Who owns the code?',
-        a: 'You do – code, documentation and access, without restriction once paid.',
-      },
-      {
-        q: 'Do you work on-site or remotely?',
-        a: 'Mostly remotely; I am happy to come in for important meetings. I am based in Prague.',
-      },
-      {
-        q: 'What happens to our data when you use AI?',
-        a: 'Only business AI services that do not train on your data, or tools inside your environment. No production personal data. More in the article on what the AI agent got wrong.',
-      },
-      {
-        q: 'What if the result is not as agreed?',
-        a: 'Then you do not pay. Before we start, we agree in writing on exactly what I will deliver and how we will know it is done. If I do not deliver, I refund any deposit – the risk is mine.',
-      },
-      {
-        q: 'Can we do it without AI?',
-        a: 'We can, but it will be slower and more expensive – and in the long run it is a step backwards. I would rather help you adopt AI safely: with data protection and reviewed output.',
-      },
-      {
-        q: 'Are you also looking for a permanent position?',
-        a: 'For the right team and company, yes. Otherwise I prefer projects and long-term contracting.',
-      },
-    ],
   },
 
   footer: {

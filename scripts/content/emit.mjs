@@ -63,7 +63,7 @@ ${loaders}
 const xml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 export function sitemapXml(model, paths) {
-  const urls = allUrls(model, paths);
+  const urls = allUrls(model, paths).filter((u) => !u.hidden);
   const body = urls
     .map((u) => {
       const lines = [`    <loc>${xml(ORIGIN + u.path)}</loc>`];

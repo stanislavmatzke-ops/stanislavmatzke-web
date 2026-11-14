@@ -72,7 +72,6 @@ export const cs = {
 
   common: {
     faqLink: 'Časté otázky →',
-    availability: 'Volné kapacity od prosince 2026',
     location: 'Praha / hybrid · projekty, IČO i dlouhodobě',
     bookCall: 'Domluvit nezávazný hovor',
     writeMe: 'Napište mi',
@@ -93,7 +92,7 @@ export const cs = {
       'Propojuji know-how z vývoje podnikových systémů od píky s tím, co dnes umí AI. Navrhnu řešení, postavím ho, nasadím a postarám se o provoz – rychle, bezpečně a s odpovědností za výsledek. Důkazem jsou projekty, které si můžete vyzkoušet.',
     ctaSecondary: 'Ukázky projektů',
     tags: ['.NET', 'Java', 'Oracle PL/SQL', 'Azure', 'Angular', 'AI agenti a LLM'],
-    logosLabel: 'Pracoval jsem pro',
+    logosLabel: 'Pracoval jsem pro – přímo i přes dodavatele',
     logos: ['VZP ČR', 'Raiffeisenbank', 'MONETA Money Bank', 'SAB Finance', 'ARBES', 'Vodafone', 'IFS'],
 
     fit: {
@@ -136,6 +135,8 @@ export const cs = {
       title: 'Co dřív zabralo měsíce týmu, dnes zvládne jeden zkušený člověk za dny.',
       lead:
         'Ukázkové projekty, které jsem postavil s AI agenty – od návrhu přes kód a testy po nasazení v Azure. Ne prototypy „na slajdy“, ale aplikace, které běží a můžete si je vyzkoušet.',
+      method: 'Rozdíl není jen v rychlosti. Job Scout jsem psal s agentem a jeho kód jsem četl řádek po řádku. Párování plateb už vzniklo podle specifikace: agent pracoval samostatně po fázích a kvalitu hlídaly testy a evaly, ne moje oči. Výsledek byl rychlejší a lépe zkontrolovaný.',
+      methodLink: 'Proč nečtu každý řádek →',
       jobScoutTitle: 'Job Scout',
       jobScoutText:
         'Chytrý pomocník pro hledání práce: každé ráno projde nové nabídky, ohodnotí je podle životopisu, připraví návrhy dopisů a pošle souhrn e-mailem. AI předvybírá, člověk rozhoduje.',
@@ -204,11 +205,19 @@ export const cs = {
   services: {
     eyebrow: 'Služby',
     title: 'S čím vám mohu pomoci',
-    lead:
-      'Pokryju celé workflow – od návrhu a analýzy přes vývoj po nasazení a provoz. Díky AI rychleji a levněji než dřív, s důrazem na bezpečnost a kvalitu. Cenu stanovuji individuálně po úvodním hovoru, vždy za výsledek.',
+    pillars: [
+      { title: 'Porozumím.', text: 'Cíl, okolí systému a pravidla, která starý systém tiše dodržuje.' },
+      { title: 'Navrhnu.', text: 'Architekturu, rozhodnutí a postup, který tým i AI agenti udrží.' },
+      { title: 'Ověřím.', text: 'Testy, evaly a měření, ne „AI to zkontrolovala“.' },
+    ],
+    lead: 'Pokryju celé workflow – od návrhu a analýzy přes vývoj po nasazení a provoz. Díky AI rychleji a levněji než dřív, s kontrolou kvality, kterou dávají testy a měření, ne dojem. Cenu stanovuji individuálně po úvodním hovoru, vždy za výsledek.',
     guarantee: {
-      title: 'Platíte za výsledek, ne za snahu',
-      text: 'Před začátkem se domluvíme, co přesně dodám, do kdy a za kolik. Pak je na mně, abych to splnil. Pokud dohodnutý výsledek nedodám, nic neplatíte – a případnou zálohu vám vrátím. Riziko nesu já, ne vy.',
+      title: 'Platíte za odsouhlasený výsledek',
+      text: 'Před začátkem se domluvíme, co dodám, do kdy, za kolik a podle čeho výsledek převezmete. Fakturuji dodaný výsledek, který tato kritéria splní. Když se v průběhu změní zadání, domluvíme změnu dřív, než na ní začnu pracovat.',
+    },
+    start: {
+      title: 'Jak začít',
+      text: 'Nejsnazší začátek je mini-diagnóza: do týdne víte, v jakém stavu je váš systém, kde jsou rizika a co doporučuji. Orientačně od 10 000 Kč. Když pak objednáte analýzu, cena diagnózy se odečte.',
     },
     labels: {
       forWhom: 'Pro koho',
@@ -242,7 +251,7 @@ export const cs = {
           'nasazení v cloudu (Azure) nebo u vás, CI/CD, monitoring a provoz',
         ],
         outcome: 'Analýza → návrh → vývoj po etapách s ukázkou každé etapy → nasazení a provoz. Kód a dokumentace patří vám.',
-        experience: 'Čtyři roky interního vývoje ve VZP ČR (modernizace aplikací, vedení týmu), systémy pro banky a finanční firmy, Job Scout, Párování plateb s AI a další aplikace na míru – viz Projekty.',
+        experience: 'Pět let interního vývoje ve VZP ČR (modernizace aplikací, vedení týmu), systémy pro banky a finanční firmy, Job Scout, Párování plateb s AI a další aplikace na míru – viz Projekty.',
         firstStep: 'Úvodní analýza a návrh první etapy.',
       },
       {
@@ -258,6 +267,7 @@ export const cs = {
         outcome: 'Jasný plán, co se systémem dál – co ponechat, co modernizovat, v jakém pořadí a za kolik.',
         experience: 'Systémy v Delphi a PL/SQL jsem roky vyvíjel (MONETA, Raiffeisenbank, ARBES), dnes navrhuji řešení v .NET a Azure. Rozumím oběma světům.',
         firstStep: 'Diagnóza za týden. Když pak objednáte analýzu, cena diagnózy se odečte.',
+        practice: 'Jak to vypadá v praxi: [případová studie Párování plateb s AI](/projekty/parovani-plateb) · [Modernizace bez velkého třesku](/clanky/modernizace-bez-velkeho-tresku)',
       },
       {
         id: 'integrace',
@@ -525,6 +535,7 @@ export const cs = {
       'Jmenuji se Stanislav Matzke a 15 let navrhuji a vyvíjím podnikové systémy. Začínal jsem na systémech v Delphi a Oracle pro banky a finanční firmy, přes .NET a Javu jsem se dostal k cloudovým řešením v Azure a k vedení týmu v interním IT VZP.',
       'V poslední době jsem se podílel na vývoji mikroservisní platformy pro síť chytrých doručovacích boxů a stavím vlastní aplikace – některé z nich najdete tady na webu a na GitHubu.',
       'Díky tomu rozumím starému i novému světu: vím, proč je systém z roku 2005 napsaný tak, jak je, a umím ho bezpečně převést do moderní architektury. Posledních pár let k tomu přidávám AI – a změnilo to, co jeden člověk zvládne. Dnes pokryju celé workflow od návrhu přes vývoj a nasazení po provoz.',
+      'Moje práce stojí na třech krocích: porozumím, navrhnu, ověřím. S AI agenty pracuji spec-driven: nejdřív specifikace a plán, pak agent po fázích a mantinely z testů a evalů. Kód tedy nemusím psát ani číst řádek po řádku, ale za to, co vznikne, ručím.',
     ],
     howTitle: 'Jak rád pracuji',
     how: [
@@ -600,44 +611,6 @@ export const cs = {
         text: 'Máte právo na přístup k údajům, opravu, výmaz, omezení zpracování, vznesení námitky a podání stížnosti u Úřadu pro ochranu osobních údajů. Stačí mi napsat.',
       },
     ] as Block[],
-  },
-
-  /** Otázky přesunuté ze stránky Kontakt; dočasně na stránce Otázky a odpovědi pod otázkami editora. */
-  faqPage: {
-    extra: [
-      {
-        q: 'Kolik to stojí?',
-        a: 'Záleží na rozsahu. Po úvodním hovoru dostanete do dvou pracovních dnů nabídku s pevnou cenou za konkrétní výstup. U dlouhodobé spolupráce se domluvíme na denní sazbě.',
-      },
-      {
-        q: 'Pracujete i pro velké firmy a státní instituce?',
-        a: 'Ano, většinu kariéry jsem pracoval právě pro banky, pojišťovny a velké organizace. Znám jejich procesy, bezpečnostní požadavky i tempo.',
-      },
-      {
-        q: 'Komu patří kód?',
-        a: 'Vám – kód, dokumentace i přístupy, po zaplacení bez omezení.',
-      },
-      {
-        q: 'Pracujete na místě, nebo na dálku?',
-        a: 'Převážně na dálku, na důležité schůzky rád přijedu. Jsem z Prahy.',
-      },
-      {
-        q: 'Co se děje s našimi daty, když používáte AI?',
-        a: 'Jen firemní AI služby, které na datech netrénují, nebo nástroje ve vašem prostředí. Žádná produkční osobní data. Podrobně v článku o tom, co AI agent pokazil.',
-      },
-      {
-        q: 'Co když výsledek nebude podle dohody?',
-        a: 'Pak neplatíte. Před začátkem si písemně domluvíme, co přesně dodám a podle čeho poznáme, že je hotovo. Když to nesplním, případnou zálohu vracím – riziko nesu já.',
-      },
-      {
-        q: 'Můžeme to udělat bez AI?',
-        a: 'Můžeme, ale bude to pomalejší a dražší – a dlouhodobě je to cesta zpátky. Raději vám pomůžu AI zavést bezpečně: s ochranou dat a kontrolou výstupů.',
-      },
-      {
-        q: 'Hledáte i stálé místo?',
-        a: 'Pro správný tým a firmu ano. Jinak preferuji projekty a dlouhodobou spolupráci na IČO.',
-      },
-    ],
   },
 
   footer: {
