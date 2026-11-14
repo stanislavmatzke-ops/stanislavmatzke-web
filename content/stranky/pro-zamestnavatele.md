@@ -19,7 +19,7 @@ Pokud jste sem přišli z mé přihlášky, děkuji. Tady najdete odpovědi na o
 
 ## Co hledám
 
-Roli **tech leada, solution nebo AI architekta, engineering leada pro AI-native vývoj nebo AI engineera**, případně vedení vývoje se zaváděním AI do týmu. Preferuji dlouhodobou spolupráci, ideálně **hlavní pracovní poměr**. Dlouhodobý kontrakt na IČO je také možný.
+Roli **tech leada, solution nebo AI architekta, engineering leada pro AI-native vývoj nebo AI engineera**. Preferuji dlouhodobou spolupráci, ideálně **hlavní pracovní poměr**. Dlouhodobý kontrakt na IČO je také možný.
 
 Nastoupit můžu **od 1. 1. 2027**, po dohodě i dříve. Praha, hybridně.
 

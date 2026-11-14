@@ -19,7 +19,7 @@ If you came here from my application, thank you. Here you will find the answers 
 
 ## What I am looking for
 
-A role as a **tech lead, solution or AI architect, engineering lead for AI-native development or AI engineer**, or leading development while bringing AI into the team. I prefer a long-term relationship, ideally **permanent employment**. A long-term contract is also possible.
+A role as a **tech lead, solution or AI architect, engineering lead for AI-native development or AI engineer**. I prefer a long-term relationship, ideally **permanent employment**. A long-term contract is also possible.
 
 I can start **from 1 January 2027**, or earlier by agreement. Prague, hybrid.
 
