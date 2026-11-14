@@ -24,8 +24,10 @@ Requires Node.js 22.12 or newer.
 
 ```bash
 npm install
-npm start          # http://localhost:4200
-npm run build      # production build in dist/stanislavmatzke-web/browser
+npm start              # http://localhost:4200, including drafts (stav: koncept)
+npm run build          # production build in dist/stanislavmatzke-web/browser, drafts left out
+npm run build:drafts   # production build including drafts, to check it locally
+npm test               # tests of the content conversion (node:test, no dependencies)
 ```
 
 The contact form needs the API. To run both together, use the [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) and [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local):
@@ -42,22 +44,49 @@ In Azure the API reads `CONTACT_ACS_CONNECTION_STRING` (and optionally `CONTACT_
 
 | What | Where |
 | --- | --- |
-| Texts – Czech (source) | `src/app/i18n/cs.ts` |
-| Texts – English | `src/app/i18n/en.ts` |
-| URL paths in both languages | `src/app/i18n/types.ts` (`PATHS`) |
+| Articles, case studies, content pages (markdown) | `content/clanky/`, `content/projekty/`, `content/stranky/` |
+| Article areas (names, intros, slugs) | `content/stranky/oblasti.md` |
+| Content conversion (markdown → data, sitemap, RSS, rewrites) | `scripts/build-content.mjs`, `scripts/content/` |
+| Content format – header fields, block markers | `scripts/content/schema.mjs` |
+| UI texts – Czech (source) | `src/app/i18n/cs.ts` |
+| UI texts – English | `src/app/i18n/en.ts` |
+| URL paths in both languages | `src/app/i18n/paths.json` |
 | Contact and company details | `src/app/core/site.ts` |
-| Title, description, canonical, hreflang, Open Graph | `src/app/core/seo.service.ts` |
+| Title, description, canonical, hreflang, Open Graph, JSON-LD | `src/app/core/seo.service.ts` |
 | Pages | `src/app/pages/` |
 | Header, footer | `src/app/layout/` |
-| Shared components (article blocks, contact form, logo) | `src/app/shared/` |
+| Shared components (content blocks, article card, contact form, logo) | `src/app/shared/` |
 | Colours, typography, layout | `src/styles.css` |
-| Images, fonts, favicon, `robots.txt`, `sitemap.xml` | `public/` |
-| Hosting config – routing fallback, security headers, caching | `public/staticwebapp.config.json` |
+| Images, fonts, favicon, `robots.txt` | `public/` |
+| Hosting config – routing fallback, security headers, caching | `staticwebapp.config.base.json` |
 | Contact form API (.NET) | `api/` |
+
+## Content: how texts get to the web
+
+Articles, case studies and the pages *Confidentiality* and *FAQ* are markdown files with a YAML header, written by the editor. **Handing over a text = copying the file into `content/` and running the build.** Nobody rewrites it into TypeScript.
+
+- `content/clanky/<slug>.md` + `<slug>.en.md` – articles, `/clanky/<slug>` and `/en/articles/<slug>` (same slug in both languages)
+- `content/projekty/<slug>.md` + `.en.md` – case studies; the English slug may differ (`url` and `preklad` in the header decide), images go to `public/img/`
+- `content/stranky/` – pages written in markdown and `oblasti.md` (the table of article areas)
+
+Before `ng build` / `ng serve`, `scripts/build-content.mjs` (plain Node, no dependencies) converts the markdown into typed data and generates:
+
+| Generated file (not in git) | What |
+| --- | --- |
+| `src/app/content/content.generated.ts` | articles, case studies, pages and areas as typed data (`Article`, `CaseStudy`, `Block`…) |
+| `public/sitemap.xml` | every page with hreflang and `lastmod` |
+| `public/clanky/feed.xml`, `public/en/articles/feed.xml` | RSS feeds of the articles |
+| `public/staticwebapp.config.json` | `staticwebapp.config.base.json` + a rewrite for every prerendered page |
+
+The header fields and block markers are defined in one place, `scripts/content/schema.mjs`. Any problem – an unknown header field, a missing translation, an unknown block, a link to a page that does not exist, a missing image – **stops the build** with `file:line: what is wrong`. Type checking needs the generated file, so run `npm start`, `npm run build` or `npm run content` after a fresh clone.
+
+**Drafts:** items with `stav: koncept` are shown by `npm start` and `npm run build:drafts` but left out of `npm run build` – the production build in CI never publishes a draft. A draft page also disappears from the menu and footer, and a published text that links to a draft fails the build.
 
 ## Adding a page or an article
 
-Prerendered pages are listed in three places that must stay in sync: `src/app/app.routes.server.ts` (generated from `PATHS` and the article list automatically), `public/sitemap.xml` and the `routes` rewrites in `public/staticwebapp.config.json`.
+- **An article or a case study:** add the markdown files to `content/` and run the build. Routes, prerendering, sitemap, RSS and Static Web Apps rewrites all follow from the content – the old "three places" are now handled by the build.
+- **A new content page** (like `/duvernost`): add its key and paths to `src/app/i18n/paths.json` (`cs`, `en` and `contentPages`), map the key to `ContentPageView` in `src/app/app.routes.ts`, and add the markdown to `content/stranky/`.
+- **A new page with its own template:** add it to `paths.json` and `app.routes.ts`, and its texts to `cs.ts` / `en.ts`. Sitemap and rewrites are generated from `paths.json`.
 
 ## Pages
 
@@ -65,13 +94,17 @@ Prerendered pages are listed in three places that must stay in sync: `src/app/ap
 | --- | --- |
 | `/` | `/en` |
 | `/sluzby` | `/en/services` |
-| `/projekty` | `/en/projects` |
-| `/projekty/job-scout` | `/en/projects/job-scout` |
-| `/clanky`, `/clanky/:slug` | `/en/articles`, `/en/articles/:slug` |
+| `/projekty`, `/projekty/<slug>` | `/en/projects`, `/en/projects/<slug>` |
+| `/clanky`, `/clanky/<slug>` | `/en/articles`, `/en/articles/<slug>` |
+| `/clanky/tema/<area>` | `/en/articles/topic/<area>` |
+| `/duvernost` | `/en/confidentiality` |
+| `/otazky` | `/en/faq` |
 | `/reference` | `/en/references` |
 | `/o-mne` | `/en/about` |
 | `/kontakt` | `/en/contact` |
 | `/ochrana-osobnich-udaju` | `/en/privacy` |
+
+Feeds: `/clanky/feed.xml`, `/en/articles/feed.xml`.
 
 ## Security and privacy
 
