@@ -80,6 +80,8 @@ Před `ng build` / `ng serve` převede `scripts/build-content.mjs` (čistý Node
 
 Pole hlavičky a značky bloků jsou definované na jednom místě, `scripts/content/schema.mjs`. Jakýkoli problém – neznámé pole hlavičky, chybějící překlad, neznámý blok, odkaz na neexistující stránku, chybějící obrázek – **zastaví build** hláškou `soubor:řádek: co je špatně`. Typová kontrola potřebuje vygenerovaný soubor, takže po čerstvém klonu spusťte `npm start`, `npm run build` nebo `npm run content`.
 
+**Stránka Otázky:** každý nadpis `##` v `content/stranky/otazky(.en).md` je otázka zobrazená sbaleně (`<details>`, bez JavaScriptu), bloky pod ním jsou odpověď. Text před první otázkou se zobrazí normálně a poslední odstavec stránky je závěr mimo otázky.
+
 **Skryté stránky:** stránka se `skryta: true` v hlavičce (např. `/pro-zamestnavatele`) je předgenerovaná a funguje přímý odkaz, ale není v menu, patičce ani sitemapě a má `robots: noindex, nofollow`.
 
 **Koncepty:** položky se `stav: koncept` ukáže `npm start` a `npm run build:drafts`, ale `npm run build` je vynechá – produkční build v CI koncept nikdy nezveřejní. Stránka v konceptu zmizí i z menu a patičky a zveřejněný text, který na koncept odkazuje, build zastaví.

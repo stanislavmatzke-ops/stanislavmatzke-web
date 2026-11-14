@@ -80,6 +80,8 @@ Before `ng build` / `ng serve`, `scripts/build-content.mjs` (plain Node, no depe
 
 The header fields and block markers are defined in one place, `scripts/content/schema.mjs`. Any problem – an unknown header field, a missing translation, an unknown block, a link to a page that does not exist, a missing image – **stops the build** with `file:line: what is wrong`. Type checking needs the generated file, so run `npm start`, `npm run build` or `npm run content` after a fresh clone.
 
+**FAQ page:** every `##` heading in `content/stranky/otazky(.en).md` is a question shown collapsed (`<details>`, no JavaScript); the blocks under it are the answer. Text before the first question is shown as it is, and the last paragraph of the page is a closing line outside the questions.
+
 **Hidden pages:** a page with `skryta: true` in its header (e.g. `/pro-zamestnavatele`) is prerendered and reachable by its link, but it is not in the menu, footer or sitemap and has `robots: noindex, nofollow`.
 
 **Drafts:** items with `stav: koncept` are shown by `npm start` and `npm run build:drafts` but left out of `npm run build` – the production build in CI never publishes a draft. A draft page also disappears from the menu and footer, and a published text that links to a draft fails the build.

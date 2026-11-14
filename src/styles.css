@@ -2164,3 +2164,50 @@ p {
   font-weight: 600;
   color: var(--band-accent);
 }
+
+/* Otázky a odpovědi: rozbalovací seznam (<details>, bez JavaScriptu) */
+.faq--page {
+  margin-block: 8px 32px;
+}
+.faq--page details {
+  padding-block: 0;
+}
+.faq--page summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 18px;
+  list-style: none;
+}
+.faq--page summary::-webkit-details-marker {
+  display: none;
+}
+.faq--page summary::after {
+  content: '+';
+  flex: none;
+  font-family: var(--mono);
+  font-size: 22px;
+  line-height: 1;
+  color: var(--accent);
+}
+.faq--page details[open] > summary::after {
+  content: '−';
+}
+.faq--page summary:hover h2,
+.faq--page summary:focus-visible h2 {
+  color: var(--accent);
+}
+.prose .faq--page summary h2 {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.faq__answer {
+  padding-bottom: 16px;
+}
+.faq__answer > :first-child {
+  margin-top: 0;
+}
