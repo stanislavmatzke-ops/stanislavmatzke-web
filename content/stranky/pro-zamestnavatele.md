@@ -4,7 +4,7 @@ slug: pro-zamestnavatele
 jazyk: cs
 url: /pro-zamestnavatele
 titulek: "Pro zaměstnavatele"
-perex: "Pokud jste sem přišli z mé přihlášky, děkuji. Tady najdete odpovědi na otázky, které se mi při výběrových řízeních často kladou."
+perex: "Pokud jste sem přišli z mé přihlášky, děkuji. Tady najdete odpovědi na otázky."
 meta_description: "Co hledám, jak pracuji a co přinesu: tech lead, solution / AI architekt, hlavní pracovní poměr, Praha / hybrid."
 datum_publikace: 2026-11-14
 datum_aktualizace:
@@ -15,11 +15,11 @@ preklad: [CS: /pro-zamestnavatele, EN: /en/for-employers]
 
 # Pro zaměstnavatele
 
-Pokud jste sem přišli z mé přihlášky, děkuji. Tady najdete odpovědi na otázky, které se mi při výběrových řízeních často kladou.
+Pokud jste sem přišli z mé přihlášky, děkuji. Tady najdete odpovědi na otázky.
 
 ## Co hledám
 
-Roli **tech leada, solution nebo AI architekta**, případně vedení vývoje se zaváděním AI do týmu. Preferuji dlouhodobou spolupráci, ideálně **hlavní pracovní poměr**. Dlouhodobý kontrakt na IČO je také možný.
+Roli **tech leada, solution nebo AI architekta, engineering leada pro AI-native vývoj nebo AI engineera**, případně vedení vývoje se zaváděním AI do týmu. Preferuji dlouhodobou spolupráci, ideálně **hlavní pracovní poměr**. Dlouhodobý kontrakt na IČO je také možný.
 
 Nastoupit můžu **od 1. 1. 2027**, po dohodě i dříve. Praha, hybridně.
 

@@ -4,7 +4,7 @@ slug: for-employers
 jazyk: en
 url: /en/for-employers
 titulek: "For employers"
-perex: "If you came here from my application, thank you. Here you will find answers to the questions I am often asked in hiring processes."
+perex: "If you came here from my application, thank you. Here you will find the answers to your questions."
 meta_description: "What I am looking for, how I work and what I bring: tech lead, solution / AI architect, permanent employment, Prague / hybrid."
 datum_publikace: 2026-11-14
 datum_aktualizace:
@@ -15,11 +15,11 @@ preklad: [CS: /pro-zamestnavatele, EN: /en/for-employers]
 
 # For employers
 
-If you came here from my application, thank you. Here you will find answers to the questions I am often asked in hiring processes.
+If you came here from my application, thank you. Here you will find the answers to your questions.
 
 ## What I am looking for
 
-A role as a **tech lead, solution or AI architect**, or leading development while bringing AI into the team. I prefer a long-term relationship, ideally **permanent employment**. A long-term contract is also possible.
+A role as a **tech lead, solution or AI architect, engineering lead for AI-native development or AI engineer**, or leading development while bringing AI into the team. I prefer a long-term relationship, ideally **permanent employment**. A long-term contract is also possible.
 
 I can start **from 1 January 2027**, or earlier by agreement. Prague, hybrid.
 
