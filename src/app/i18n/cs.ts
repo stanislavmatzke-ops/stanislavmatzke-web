@@ -193,7 +193,7 @@ export const cs = {
         { title: 'Dlouhodobě na IČO', text: 'architekt nebo tech lead ve vašem týmu' },
         { title: 'Hlavní pracovní poměr', text: 'pro správný tým a firmu' },
       ],
-      note: 'Cenu stanovuji individuálně po úvodním hovoru – za výsledek, ne za vykázané hodiny.',
+      note: 'Úvodní hovor je zdarma. Vstupním krokem je mini-diagnóza, orientačně od 10 000 Kč – když pak objednáte analýzu, cena diagnózy se odečte. Další práci naceňuji individuálně, za výsledek, ne za vykázané hodiny.',
     },
 
     contact: {

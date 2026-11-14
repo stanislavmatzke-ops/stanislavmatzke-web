@@ -191,7 +191,7 @@ export const en: Content = {
         { title: 'Long-term contract', text: 'architect or tech lead in your team' },
         { title: 'Employment', text: 'for the right team and company' },
       ],
-      note: 'I price individually after the intro call – for the result, not for logged hours.',
+      note: 'The intro call is free. The first step is a mini-diagnosis, from about CZK 10,000 – if you then order the analysis, the diagnosis fee is deducted. I price further work individually, for the result, not for logged hours.',
     },
 
     contact: {
