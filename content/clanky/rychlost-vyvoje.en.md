@@ -5,24 +5,23 @@ jazyk: en
 url: /en/articles/rychlost-vyvoje
 titulek: "Development speed: what changed in just a few years"
 perex: "For fifteen years software development got faster slowly. Then AI arrived and within a few years – and even more so in recent months – what one experienced person can deliver changed. What it means for new projects and for modernising old systems."
-meta_description: "For fifteen years software development got faster slowly. Then AI arrived and within a few years – and even more so in recent months – what one experienced person can deliver changed. What it means for new projects and for modernising old systems."
+meta_description: "How AI changed development speed: two projects built in days instead of months, why the way you work with AI agents matters too, and what it means for modernising old systems."
 og_title: "Development speed: what changed in just a few years – Stanislav Matzke"
 oblast: ai-ve-vyvoji
 datum_publikace: 2026-10-13
 datum_aktualizace: 2026-11-14
-doba_cteni: 7
+doba_cteni: 6
 og_image: /img/og-default-en.jpg
-souvisejici: [co-ai-agent-pokazil, kam-mizi-vyvojarska-prace]
+souvisejici: [necti-kazdy-radek, co-ai-agent-pokazil, modernizace-bez-velkeho-tresku]
 cta: { titulek: "Want to know what AI could do with your system?", text: "Let’s discuss it on a free call." }
 stav: publikovano
 preklad: [CS: /clanky/rychlost-vyvoje, EN: /en/articles/rychlost-vyvoje]
-zrcadleno_z_webu: 2026-11-14
 zmeneno_editorem: 2026-11-14
 ---
 
 # Development speed: what changed in just a few years
 
-*Articles · October 2026 · 6 min read*
+*Articles · 13 October 2026 · updated 14 November 2026*
 
 For fifteen years software development got faster slowly. Then AI arrived and within a few years – and even more so in recent months – what one experienced person can deliver changed. What it means for new projects and for modernising old systems.
 
@@ -40,27 +39,34 @@ I have been building enterprise systems since 2011. Plenty of tools and trends c
 
 ## What it means in practice
 
-A concrete example: I built Job Scout – a .NET 10 backend, job-ad scraping, an AI pipeline, sign-in via Microsoft and Google, user management, Angular, 600+ tests, CI, 21 recorded architecture decisions and deployment on Azure – in about three days of intensive work.
+Two projects I built with an AI agent, both of which you can try, show it best. The bigger one, [Payment matching with AI](/en/projects/payment-matching), modernises an old Delphi and PL/SQL module to .NET 10 with AI that matches bank payments to invoices – including evals, deployment on Azure and public code.
 
 <!-- blok: srovnání -->
-- **2–3 months** – a team of three without AI (estimate)
-- **~3 days** – one experienced person with an AI agent
+- **4–6 months** – a team of 4–5 people without AI (my estimate)
+- **~2.5 days** – one experienced person with an AI agent
 
 *Same scope, same quality bar: tests, security, documentation, deployment.*
 
-A second, more recent example is [Payment matching with AI](/en/projects/payment-matching): modernising an old Delphi and PL/SQL module to .NET 10, AI payment matching with evals, a server for AI agents, a public app and open code. It took about two and a half days. My estimate for a team without AI is four to five people for four to six months.
+| | [Job Scout](/en/projects/job-scout) | [Payment matching with AI](/en/projects/payment-matching) |
+|---|---|---|
+| What it is | a web app with AI for job hunting | Delphi → .NET 10 modernisation and AI payment matching |
+| Estimate without AI | 3 people, 2–3 months | 4–5 people, 4–6 months |
+| With an AI agent | ~3 days | ~2.5 days |
+| How I worked | the agent wrote, I read every line | specification, agent phase by phase, tests and evals |
 
 I had experienced it before: when I moved to .NET after years of Java, AI made me fully productive within days. Today it is no longer just about writing code faster – one person can cover the whole workflow, from design to operations.
 
-## It’s not just the tool, it’s the way of working
+## Speed comes not just from the tool, but from the way of working
 
-Between the two projects, it wasn’t just the tool that changed, but above all the way I work with it.
+By my estimate, Payment matching was a considerably bigger project than Job Scout, and yet it was finished faster. It wasn’t just a better tool. The way I work with it changed.
 
-On Job Scout, the agent prepared the code and I went through it line by line in the IDE, rewriting and adjusting it. It was fast, but the bottleneck was me and my reading.
+<!-- blok: srovnání -->
+- **AI writes, I read** – Job Scout: the agent prepared the code, I went through it line by line in the IDE and adjusted it
+- **AI works within guardrails** – Payment matching: a specification and a plan, the agent working on its own phase by phase, tests and evals guarding quality
 
-On Payment matching, I first wrote a specification and a plan, and then the agent worked on its own, phase by phase. I approved the plan and the result of each phase, but I didn’t read every line. Quality was guarded by tests against the old system’s behaviour, evals in CI, independent review and recorded decisions. The result was faster and better checked at the same time.
+*On the first project, the bottleneck was me and my reading. On the second, I approved the plan and the result of each phase.*
 
-It is a shift from “AI writes, I read” to “AI works within guardrails I designed”. Why this works is the subject of [Don’t read every line](/en/articles/necti-kazdy-radek).
+On Payment matching I didn’t read every line. Quality was guarded by tests against the old system’s behaviour, evals in CI, independent review and recorded decisions. The result was faster and better checked at the same time: the mistakes the agent made were caught by mechanisms before anything depended on them. What those mistakes were is described in [What the AI agent got wrong](/en/articles/co-ai-agent-pokazil), and why to review this way in [Don’t read every line](/en/articles/necti-kazdy-radek).
 
 ## What it means for modernising old systems
 
@@ -74,20 +80,13 @@ It is a shift from “AI writes, I read” to “AI works within guardrails I de
 - **04 · Module by module**  
   Much cheaper than before – systems nobody touched for years are worth recalculating.
 
+This is exactly how Payment matching was built. I describe the approach in general in [Modernisation without a big bang](/en/articles/modernizace-bez-velkeho-tresku).
+
 <!-- blok: ponaučení -->
 > **Lesson**
 >
-> A project you shelved two years ago as too expensive is worth recalculating. The price has changed more since then than in the previous ten years. But while AI brings the speed, the certainty comes from the guardrails you build around it.
+> A project you shelved two years ago as too expensive is worth recalculating. The price has changed more since then than in the previous ten years. AI brings the speed; the certainty comes from the guardrails you build around it.
 
 ## Where the bottleneck is now
 
-Writing code is no longer the slowest part. The bottleneck is decisions: what to build, how to design it, who may see what, what it will cost to run and what happens when something fails. AI speeds up those who know what they are doing. Without experience you quickly get a lot of code nobody understands.
-
-<!-- blok: odkaz -->
-[What I ran into in practice when building with an AI agent →](/en/articles/co-ai-agent-pokazil)
-
-<!-- blok: CTA pás -->
-> Want to know what AI could do with your system?  
-> Let’s discuss it on a free call.
->
-> [Book a free call](/en/contact)
+Writing code is no longer the slowest part. The bottleneck is decisions and verification: what to build, how to design it, who may see what, what it will cost to run, what happens when something fails, and how we know it works. AI speeds up those who know what they are doing. Without experience you quickly get a lot of code nobody understands.

@@ -4,87 +4,70 @@ slug: co-ai-agent-pokazil
 jazyk: cs
 url: /clanky/co-ai-agent-pokazil
 titulek: "Co AI agent při vývoji pokazil – a proč na tom záleží"
-perex: "Aplikaci Job Scout psal AI agent, já jsem byl architekt a reviewer – zadával jsem, kontroloval, testoval a nasazoval. Klasické bezpečnostní chyby agent nedělal. Ty, které udělal, byly zrádnější: kód správně, testy zelené, logika nedomyšlená."
-meta_description: "Aplikaci Job Scout psal AI agent, já jsem byl architekt a reviewer – zadával jsem, kontroloval, testoval a nasazoval. Klasické bezpečnostní chyby agent nedělal. Ty, které udělal, byly zrádnější: kód správně, testy zelené, logika nedomyšlená."
+perex: "Dvě aplikace, Job Scout a Párování plateb, psal AI agent. Já byl architekt a kontrola. Klasické bezpečnostní chyby agent nedělal. Ty, které udělal, byly zrádnější: kód správně, testy zelené, logika nedomyšlená. Kde AI chybuje, jak jsem na to přišel a jak to ohlídat."
+meta_description: "Co AI agent pokazil při vývoji dvou aplikací: nedomyšlená logika, chyby, které ukážou až data, a pasti při nasazení. Jak jsem na ně přišel a jak je ohlídat testy, evaly a lidským okem."
 og_title: "Co AI agent při vývoji pokazil – a proč na tom záleží – Stanislav Matzke"
 oblast: ai-ve-vyvoji
 datum_publikace: 2026-10-13
 datum_aktualizace: 2026-11-14
 doba_cteni: 8
 og_image: /img/job-scout-og.jpg
-souvisejici: [rychlost-vyvoje, kam-mizi-vyvojarska-prace]
+souvisejici: [necti-kazdy-radek, rychlost-vyvoje, modernizace-bez-velkeho-tresku]
 cta: { titulek: "Chcete vědět, co by AI udělala s vaším systémem?", text: "Probereme to na nezávazném hovoru." }
 stav: publikovano
 preklad: [CS: /clanky/co-ai-agent-pokazil, EN: /en/articles/co-ai-agent-pokazil]
-zrcadleno_z_webu: 2026-11-14
 zmeneno_editorem: 2026-11-14
 ---
 
 # Co AI agent při vývoji pokazil – a proč na tom záleží
 
-*Články · Říjen 2026 · 7 minut čtení*
+*Články · 13. října 2026 · aktualizováno 14. listopadu 2026*
 
-Aplikaci Job Scout psal AI agent, já jsem byl architekt a reviewer – zadával jsem, kontroloval, testoval a nasazoval. Klasické bezpečnostní chyby agent nedělal. Ty, které udělal, byly zrádnější: kód správně, testy zelené, logika nedomyšlená.
+Dvě aplikace, Job Scout a Párování plateb, psal AI agent. Já byl architekt a kontrola. Klasické bezpečnostní chyby agent nedělal. Ty, které udělal, byly zrádnější: kód správně, testy zelené, logika nedomyšlená. Kde AI chybuje, jak jsem na to přišel a jak to ohlídat.
 
-<!-- blok: projekt -->
-> ![Job Scout – ukázka aplikace](img/job-scout-cover.webp)
->
-> **O jakém projektu je řeč**
->
-> Job Scout je webová aplikace, která každé ráno projde nové nabídky práce, ohodnotí je podle životopisu a k nejlepším připraví návrh průvodního dopisu. Běží naostro v Azure a vyzkoušet si ji může každý.
->
-> - ~3 dny intenzivní práce jednoho člověka s AI agentem
-> - přihlášení Microsoft / Google, víc uživatelů, schvalování přístupu
-> - .NET 10, Angular, Claude API, Azure, přes 600 testů
->
-> [Případová studie Job Scout →](/projekty/job-scout)
+Oba projekty běží veřejně a dají se vyzkoušet. [Job Scout](/projekty/job-scout) každé ráno hodnotí nabídky práce podle životopisu. [Párování plateb s AI](/projekty/parovani-plateb) modernizuje starý systém v Delphi a páruje bankovní platby s fakturami. U Job Scoutu jsem kód od agenta četl řádek po řádku. U Párování plateb už jsem schvaloval plány a kvalitu hlídaly testy a evaly. Chyby agenta se ale v obou projektech dělily do stejných tří skupin.
 
 ## Nejdřív to dobré: hloupé chyby už (skoro) nedělá
 
-Typické strašáky „vibe codingu“ se v Job Scoutu neobjevily. Agent sám od sebe:
+Typické strašáky „vibe codingu“ se neobjevily ani jednou. Agent sám od sebe držel hesla a API klíče mimo repozitář, validoval vstupy, nepsal ručně skládané SQL, chránil se proti prompt injection a napsal stovky automatických testů. Chyby, které udělal, byly jiného druhu: takové, které žádný linter ani bezpečnostní scanner nenajde.
 
-- držel hesla a API klíče mimo repozitář,
-- validoval vstupy a nepsal ručně skládané SQL,
-- napsal přes 600 automatických testů a testy, které hlídají vrstvy aplikace,
-- přidal ochranu proti prompt injection.
+## 1. Nedomyšlená logika
 
-Chyby, které udělal, byly jiného druhu: kód byl správně, testy zelené – ale logika nedomyšlená. Přesně ty, které žádný linter ani bezpečnostní scanner nenajde.
+Tohle jsou chyby, kde agent udělal přesně to, co měl zadané, jen nikdo nedomyslel důsledky.
 
-## Příběh 1: Kdokoli s přístupem mohl „vyžrat“ AI tokeny
+**Kdokoli mohl „vyžrat“ AI tokeny.** V Job Scoutu přibyla tlačítka „Ohodnotit“ a „Napsat nový návrh dopisu“, každé z nich je placené volání AI. Agent je naprogramoval podle zadání. Nikdo se ale nezeptal, co když někdo klikne tisíckrát. Přišel jsem na to den po spuštění, když jsem si aplikaci sám proklikal. Oprava zabrala jedno dopoledne: limity na kliknutí, denní „záchranná brzda“ s e-mailem správci a měsíční limit u poskytovatele AI. OWASP tohle riziko u aplikací s AI vede jako *Unbounded Consumption*: útok na peněženku je stejně reálný jako únik dat.
 
-Ranní běh měl od začátku pevné limity. Pak jsme přidali tlačítka „Ohodnotit“ a „Napsat nový návrh dopisu“ – každé z nich je placené volání AI. Agent je naprogramoval přesně podle zadání.
+**Zamítnutý uživatel se dostal dovnitř.** Přístup do Job Scoutu schvaluje správce. Agent pro „Zamítnout žádost“ použil existující stav „pozastavený účet“, jenže pozastavený uživatel smí vidět svá data. Testy prošly, protože testovaly přesně to, co agent napsal. Nikdo netestoval, že zamítnutý žadatel nemá vidět nic. Našel jsem to ručním testem: zamítl jsem testovací účet a ten se normálně přihlásil.
 
-<!-- blok: fakta -->
-- **Chyba:** Nikdo se nezeptal „co když někdo klikne tisíckrát?“. Stačilo změnit jedno písmeno v poznámkách a profil se znovu analyzoval; dopis šlo přepisovat donekonečna.
-- **Jak jsem na to přišel:** Den po spuštění, když jsem aplikaci poslal prvním lidem a sám si ji proklikal. Přišel na to člověk, ne AI.
-- **Oprava (jedno dopoledne):** Limity na kliknutí v klouzavém okně 24 hodin, denní „záchranná brzda“ s e-mailem správci, zámek proti dvojkliku a měsíční limit u poskytovatele AI.
+U Párování plateb byla podobná chyba v nákladech, jen opačně. Agent omezil počet volání AI na jeden sandbox tak přísně, že noví uživatelé čekali na AI několik dní. Skutečnou pojistkou proti vysokému účtu je globální strop a počet nových účtů za den. Na to přijde člověk, který přemýšlí, jak by aplikaci zneužil, ne agent, který plní zadání.
 
-<!-- blok: ponaučení -->
-> **Ponaučení**
->
-> U aplikací s AI je „útok na peněženku“ stejně reálné riziko jako únik dat (OWASP ho pro LLM aplikace vede jako Unbounded Consumption). AI dodá, co zadáte – otázku „kolik nás to může stát, když se to zneužije“ musí položit člověk.
+## 2. Chyby, které ukážou až data
 
-## Příběh 2: Zamítnutý uživatel se dostal do aplikace
+Druhá skupina: kód se přeloží a na první pohled vypadá správně. Chyba se ukáže až na konkrétních datech, na jiném operačním systému nebo při souběžném běhu.
 
-Přístup do Job Scoutu schvaluje správce. Agent implementoval „Zamítnout žádost“ – a použil k tomu existující stav „pozastavený účet“. Na první pohled logické.
+| Chyba | Projekt | Co ji chytilo |
+|---|---|---|
+| Validace pustila eurovou platbu na kombinaci dvou jiných faktur téhož odběratele | Párování plateb | test, který zkusí všechny možné odpovědi, ne vzorek |
+| Kód nepoznal, když platbě sedí dvě faktury stejně dobře | Párování plateb | eval v CI, build zčervenal |
+| Pravidlo vytažené ze starého kódu bylo o jedno místo vedle | Párování plateb | test proti skutečnému chování starého systému |
+| Text pro model se lišil podle operačního systému | Párování plateb | CI na Linuxu během minuty |
+| Dvě části (build a nasazení), každá správně, dohromady nefungovaly | Job Scout | první nasazení po změně dokumentace |
 
-<!-- blok: fakta -->
-- **Chyba:** Pozastavený uživatel je pořád členem a smí si prohlížet svá data. Zamítnutý žadatel tak po přihlášení prošel dovnitř.
-- **Proč to testy nechytily:** Testovaly přesně to, co agent napsal. Nikdo netestoval, že zamítnutý žadatel nemá vidět vůbec nic.
-- **Jak jsem na to přišel:** Ručním testem v produkci: zamítl jsem testovací účet a ten se normálně přihlásil. Zamítnutí je teď samostatná akce.
+Tyhle chyby by člověk při čtení snadno přehlédl, protože kód *vypadá* správně. U Job Scoutu jsem je ještě hledal očima. U Párování plateb je chytaly mechanismy dřív, než na nich cokoli stálo. Proč na to stačí testy a evaly a nemusím číst každý řádek, popisuji v článku [Nečti každý řádek](/clanky/necti-kazdy-radek).
 
-<!-- blok: ponaučení -->
-> **Ponaučení**
->
-> Autorizace je místo, kde „skoro správně“ znamená „špatně“. Review přístupových pravidel a ruční test „zkusím se tam dostat“ nenahradí žádný automat.
+## 3. Provoz a první uživatel
 
-## Bonus: dvě části, které spolu nemluvily
+Třetí skupinu nenajde žádný test, protože vzniká až ve skutečném prostředí.
 
-Agent napsal workflow, které po každém commitu postaví Docker image – a rozumně vynechá commity, kde se mění jen dokumentace. Jindy napsal nasazovací skript, který nasadí image podle posledního commitu. Každá část sama o sobě správně. Dohromady: po změně README chtěl skript nasadit image, který nikdy nevznikl. Chyba ne v kódu, ale ve spojení dvou rozhodnutí z různých dnů.
+- **Pasti v Azure:** nová databáze s jiným vlastníkem schématu, změna hesla, která tiše shodila běžící aplikaci, a telemetrie, která sama zahodila data krátkého jobu.
+- **Díra v nasazovací pipeline:** kontrolovala jen název větve, ne odkud kód pochází. Kdokoli by si mohl udělat kopii repozitáře a poslat změnu, která by se nasadila do produkce. Našlo se to před zveřejněním kódu. CI/CD je kód se stejnými právy jako produkce.
+- **První hodina s uživatelem:** nový uživatel čekal na AI do druhého rána a člověk ve frontě neviděl fakturu vedle platby, takže neměl z čeho rozhodnout.
 
-## Kontrola podle seznamu: tady je AI silná
+V obou projektech platilo totéž: nejcennější zpětná vazba přišla do 24 hodin od prvního skutečného použití.
 
-Po spuštění jsme aplikaci prošli bod po bodu podle bezpečnostního checklistu pro „vibe coding“. Kontrolu dělal opět agent – a když dostane jasný seznam, je důkladný. Našel i další díru, kterou předtím sám vytvořil: o přístup mohl kdokoli požádat stokrát a správci by přišlo sto e-mailů.
+## Jak to ohlídat
+
+Po spuštění Job Scoutu jsme aplikaci prošli bod po bodu podle bezpečnostního checklistu pro „vibe coding“. Kontrolu dělal opět agent, a když dostane jasný seznam, je důkladný. Našel i další díru, kterou předtím sám vytvořil: o přístup mohl kdokoli požádat stokrát a správci by přišlo sto e-mailů.
 
 <!-- blok: karty -->
 - **Vstupy a injekce**  
@@ -99,40 +82,20 @@ Po spuštění jsme aplikaci prošli bod po bodu podle bezpečnostního checklis
 <!-- blok: zdroj -->
 [O2 CyberNews: Vibe coding – funkční kód není automaticky bezpečný ↗](https://o2cybernews.cz/clanky/vibe-coding-funkcni-kod-neni-automaticky-bezpecny)
 
+Ke každé skupině chyb patří jiná obrana:
+
+1. **Nedomyšlenou logiku** pohlídá člověk. Musí se zeptat „kolik nás to může stát, když se to zneužije“ a „kdo se kam nesmí dostat“ a k tomu napsat testy na to, co se stát *nesmí*. Agent testuje to, co napsal.
+2. **Chyby v datech** pohlídají mechanismy: testy proti chování starého systému, testy všech možných odpovědí, evaly v CI a běh na víc platformách.
+3. **Provoz** pohlídá plán: nasazení jako samostatná fáze se smoke testy, limity a hlídání nákladů od prvního dne a brzké puštění malé skupině lidí.
+
+<!-- blok: ponaučení -->
+> **Ponaučení**
+>
+> AI dodá, co zadáte. Otázky „kolik nás to může stát“ a „kdo se kam nesmí dostat“ musí položit člověk. Zbytek chyb chytí mechanismy, pokud je postavíte dřív než aplikaci.
+
 ## Co z toho plyne pro firmy
 
-- AI se rychle zlepšuje – klasické bezpečnostní chyby dnes dobrý agent s jasnými pravidly sám od sebe nedělá. To ale neznamená, že je kód hotový.
-- Hlídat je potřeba logiku, ne syntaxi: kdo smí co vidět, co se stane při zneužití, kolik to stojí, jak spolu části fungují dohromady.
-- Zelené testy nestačí – agent testuje to, co napsal. Testy na „co by se stát nemělo“ musí vymyslet člověk.
-- Rychlá zpětná vazba z provozu odhalila obě hlavní chyby do 24 hodin. Pustit aplikaci brzy malé skupině lidí a mít limity a monitoring nákladů od prvního dne se vyplatilo.
-
-## Jak s AI zacházím u zákazníků
-
-- AI používám k orientaci ve velkém kódu, vytěžení byznys pravidel, návrhu testů a dokumentace. Závěry, architekturu a doporučení dělám já.
-- Jen firemní verze AI služeb, které smluvně netrénují na datech zákazníka. Když máte vlastní schválené nástroje (třeba Azure OpenAI ve vašem tenantu), použiju je.
-- Pracuji na kopii kódu a s anonymizovanými nebo testovacími daty, nikdy s produkčními osobními údaji. Po skončení zakázky vše smažu a potvrdím to písemně.
-- AI nikdy nedávám klíče a hesla. Každou změnu, kterou agent udělá, projdu, schválím a ručím za ni.
-
-## A co když AI nechcete?
-
-Jde to i bez ní. Ale upřímně: je to cesta zpátky. Kdo dnes vyvíjí pomaleji a dráž než konkurence, prohraje – firmy na trhu i lidé na pracovním trhu. Sám jsem se musel přizpůsobit a vím, že to jde.
-
-Řešením není se AI vyhýbat, ale používat ji vědomě: s důrazem na bezpečnost, ochranu dat a kontrolu výstupů. S tímhle přechodem vám rád pomůžu – stejně jako jsem ho zvládl já.
-
-## Jak to dopadlo podruhé
-
-U dalšího projektu, [Párování plateb s AI](/projekty/parovani-plateb), jsem pracoval jinak: podle specifikace, po fázích a s testy a evaly jako mantinely. Agent chyboval taky. V jednom pravidle se spletl o jedno místo, validace jednou pustila platbu na špatnou kombinaci faktur a prompt se lišil podle operačního systému. Rozdíl byl v tom, že tyhle chyby chytily testy a evaly dřív, než na nich cokoli stálo.
-
-Co testy nechytily, ukázalo až nasazení a první uživatel:
-
-- **Čtyři pasti v Azure:** nová databáze s jiným vlastníkem schématu, změna hesla, která tiše shodila běžící aplikaci, telemetrie, která sama zahodila data krátkého jobu, a změněný formát identity pro přihlašování bez hesla.
-- **Díra v nasazovací pipeline:** kontrolovala jen název větve, ne odkud kód pochází. Kdokoli by si mohl udělat kopii repozitáře, poslat změnu z větve pojmenované `main` a jeho kód by se nasadil do produkce. Našlo se to před zveřejněním kódu. CI/CD je kód se stejnými právy jako produkce.
-- **První hodina s uživatelem:** nový uživatel čekal na AI do druhého rána, což byl přímý důsledek bezpečnostního pravidla. A člověk ve frontě neviděl fakturu vedle platby, takže neměl z čeho rozhodnout.
-
-Vzorec z Job Scoutu tedy platí dál: logiku, provoz a pohled uživatele musí pohlídat člověk. Nové je, že rutinní chyby agenta už nehledám já, ale mechanismy, které jsem kolem něj postavil.
-
-<!-- blok: CTA pás -->
-> Chcete vědět, co by AI udělala s vaším systémem?  
-> Probereme to na nezávazném hovoru.
->
-> [Domluvit nezávazný hovor](/kontakt)
+- AI se rychle zlepšuje a klasické bezpečnostní chyby dnes dobrý agent s jasnými pravidly nedělá. To ale neznamená, že je kód hotový.
+- Hlídat je potřeba logiku, ne syntaxi: kdo smí co vidět, co se stane při zneužití, kolik to stojí a jak spolu části fungují.
+- Zelené testy nestačí, pokud je psal jen agent. Testy na „co se stát nesmí“ musí vymyslet člověk.
+- Řešením není se AI vyhýbat, ale používat ji vědomě. Jak u zakázek chráním kód a data, popisuji na stránce [Důvěrnost a ochrana dat](/duvernost).

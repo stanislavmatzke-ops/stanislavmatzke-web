@@ -5,24 +5,23 @@ jazyk: cs
 url: /clanky/rychlost-vyvoje
 titulek: "Rychlost vývoje: co se za pár let změnilo"
 perex: "Patnáct let se vývoj software zrychloval pomalu. Pak přišla AI a během pár let – v posledních měsících ještě výrazněji – se změnilo, co jeden zkušený člověk zvládne. Co to znamená pro nové projekty i pro modernizaci starých systémů."
-meta_description: "Patnáct let se vývoj software zrychloval pomalu. Pak přišla AI a během pár let – v posledních měsících ještě výrazněji – se změnilo, co jeden zkušený člověk zvládne. Co to znamená pro nové projekty i pro modernizaci starých systémů."
+meta_description: "Jak AI změnila rychlost vývoje: dva projekty postavené za dny místo měsíců, proč rozhoduje i způsob práce s AI agenty a co to znamená pro modernizaci starých systémů."
 og_title: "Rychlost vývoje: co se za pár let změnilo – Stanislav Matzke"
 oblast: ai-ve-vyvoji
 datum_publikace: 2026-10-13
 datum_aktualizace: 2026-11-14
-doba_cteni: 7
+doba_cteni: 6
 og_image: /img/og-default.jpg
-souvisejici: [co-ai-agent-pokazil, kam-mizi-vyvojarska-prace]
+souvisejici: [necti-kazdy-radek, co-ai-agent-pokazil, modernizace-bez-velkeho-tresku]
 cta: { titulek: "Chcete vědět, co by AI udělala s vaším systémem?", text: "Probereme to na nezávazném hovoru." }
 stav: publikovano
 preklad: [CS: /clanky/rychlost-vyvoje, EN: /en/articles/rychlost-vyvoje]
-zrcadleno_z_webu: 2026-11-14
 zmeneno_editorem: 2026-11-14
 ---
 
 # Rychlost vývoje: co se za pár let změnilo
 
-*Články · Říjen 2026 · 6 minut čtení*
+*Články · 13. října 2026 · aktualizováno 14. listopadu 2026*
 
 Patnáct let se vývoj software zrychloval pomalu. Pak přišla AI a během pár let – v posledních měsících ještě výrazněji – se změnilo, co jeden zkušený člověk zvládne. Co to znamená pro nové projekty i pro modernizaci starých systémů.
 
@@ -40,27 +39,34 @@ Vývoji podnikových systémů se věnuji od roku 2011. Za tu dobu se vystřída
 
 ## Co to znamená v praxi
 
-Konkrétní příklad: aplikaci Job Scout – backend v .NET 10, stahování nabídek, AI pipeline, přihlášení přes Microsoft a Google, správa uživatelů, Angular, přes 600 testů, CI, 21 zapsaných architektonických rozhodnutí a nasazení v Azure – jsem postavil zhruba za tři dny intenzivní práce.
+Nejlíp to ukazují dva projekty, které jsem postavil s AI agentem a které si můžete vyzkoušet. Větší z nich, [Párování plateb s AI](/projekty/parovani-plateb), je modernizace starého modulu v Delphi a PL/SQL do .NET 10 s AI, která páruje bankovní platby s fakturami. Včetně evalů, nasazení v Azure a veřejného kódu.
 
 <!-- blok: srovnání -->
-- **2–3 měsíce** – tříčlenný tým bez AI (odhad)
-- **~3 dny** – jeden zkušený člověk s AI agentem
+- **4–6 měsíců** – tým 4–5 lidí bez AI (můj odhad)
+- **~2,5 dne** – jeden zkušený člověk s AI agentem
 
 *Stejný rozsah, stejné nároky na kvalitu: testy, bezpečnost, dokumentace, nasazení.*
 
-Druhý, novější příklad je [Párování plateb s AI](/projekty/parovani-plateb): modernizace starého modulu v Delphi a PL/SQL do .NET 10, AI párování plateb s evaly, server pro AI agenty, veřejná aplikace a otevřený kód. Zabralo to zhruba dva a půl dne. Můj odhad pro tým bez AI je čtyři až pět lidí na čtyři až šest měsíců.
+| | [Job Scout](/projekty/job-scout) | [Párování plateb s AI](/projekty/parovani-plateb) |
+|---|---|---|
+| Co to je | webová aplikace s AI pro hledání práce | modernizace Delphi → .NET 10 a AI párování plateb |
+| Odhad bez AI | 3 lidé, 2–3 měsíce | 4–5 lidí, 4–6 měsíců |
+| S AI agentem | ~3 dny | ~2,5 dne |
+| Jak jsem pracoval | agent psal, já četl každý řádek | specifikace, agent po fázích, testy a evaly |
 
 Sám jsem to zažil i dřív: když jsem po letech v Javě přešel na .NET, byl jsem díky AI plně produktivní během pár dnů. Dnes už nejde jen o rychlejší psaní kódu, ale o to, že jeden člověk zvládne celé workflow – od návrhu po provoz.
 
-## Nezáleží jen na nástroji, ale na způsobu práce
+## Rychlost nedělá jen nástroj, ale způsob práce
 
-Mezi oběma projekty se nezměnil jen nástroj, ale hlavně způsob, jakým s ním pracuji.
+Párování plateb bylo podle odhadu výrazně větší projekt než Job Scout, a přesto bylo hotové rychleji. Nebyl to jen lepší nástroj. Změnil se způsob, jakým s ním pracuji.
 
-U Job Scoutu agent připravoval kód a já ho v IDE procházel řádek po řádku, přepisoval a upravoval. Bylo to rychlé, ale úzké hrdlo jsem byl já a moje čtení.
+<!-- blok: srovnání -->
+- **AI píše, já čtu** – Job Scout: agent připravil kód, já ho v IDE procházel řádek po řádku a upravoval
+- **AI pracuje v mantinelech** – Párování plateb: specifikace a plán, agent samostatně po fázích, kvalitu hlídají testy a evaly
 
-U Párování plateb jsem nejdřív napsal specifikaci a plán a agent pak pracoval samostatně po fázích. Já jsem schvaloval plán a výsledek každé fáze, ale každý řádek jsem nečetl. Kvalitu hlídaly testy proti chování starého systému, evaly v CI, nezávislé review a zapsaná rozhodnutí. Výsledek byl rychlejší a zároveň lépe zkontrolovaný.
+*U prvního projektu jsem byl úzkým hrdlem já a moje čtení. U druhého jsem schvaloval plán a výsledek každé fáze.*
 
-Je to posun od „AI píše, já čtu“ k „AI pracuje v mantinelech, které jsem navrhl“. Proč to funguje, popisuji v článku [Nečti každý řádek](/clanky/necti-kazdy-radek).
+U Párování plateb jsem každý řádek nečetl. Kvalitu hlídaly testy proti chování starého systému, evaly v CI, nezávislé review a zapsaná rozhodnutí. Výsledek byl rychlejší a zároveň lépe zkontrolovaný: chyby, které agent udělal, chytily mechanismy dřív, než na nich cokoli stálo. Jaké chyby to byly, popisuji v článku [Co AI agent při vývoji pokazil](/clanky/co-ai-agent-pokazil) a proč takhle kontrolovat, v článku [Nečti každý řádek](/clanky/necti-kazdy-radek).
 
 ## Co to znamená pro modernizaci starých systémů
 
@@ -74,20 +80,13 @@ Je to posun od „AI píše, já čtu“ k „AI pracuje v mantinelech, které j
 - **04 · Převod po modulech**  
   Výrazně levnější než dřív – systémy, na které se roky nesahalo, stojí za přepočítání.
 
+Přesně tímhle postupem vzniklo Párování plateb. Obecně ho popisuji v článku [Modernizace bez velkého třesku](/clanky/modernizace-bez-velkeho-tresku).
+
 <!-- blok: ponaučení -->
 > **Ponaučení**
 >
-> Projekt, který jste před dvěma lety odložili jako příliš drahý, stojí za to přepočítat. Cena se mezitím změnila víc než za předchozích deset let. Rychlost ale přináší AI, jistotu přinášejí mantinely, které kolem ní postavíte.
+> Projekt, který jste před dvěma lety odložili jako příliš drahý, stojí za to přepočítat. Cena se mezitím změnila víc než za předchozích deset let. Rychlost přináší AI, jistotu mantinely, které kolem ní postavíte.
 
 ## Kde je teď úzké hrdlo
 
-Psaní kódu už není to nejpomalejší. Úzkým hrdlem jsou rozhodnutí: co stavět, jak to navrhnout, kdo smí co vidět, kolik to bude stát v provozu a co se stane, když něco selže. AI zrychluje toho, kdo ví, co dělá. Bez zkušenosti dostanete rychle hodně kódu, kterému nikdo nerozumí.
-
-<!-- blok: odkaz -->
-[Na co jsem při vývoji s AI agentem narazil v praxi →](/clanky/co-ai-agent-pokazil)
-
-<!-- blok: CTA pás -->
-> Chcete vědět, co by AI udělala s vaším systémem?  
-> Probereme to na nezávazném hovoru.
->
-> [Domluvit nezávazný hovor](/kontakt)
+Psaní kódu už není to nejpomalejší. Úzkým hrdlem jsou rozhodnutí a ověřování: co stavět, jak to navrhnout, kdo smí co vidět, kolik to bude stát v provozu, co se stane, když něco selže, a jak poznáme, že to funguje. AI zrychluje toho, kdo ví, co dělá. Bez zkušenosti dostanete rychle hodně kódu, kterému nikdo nerozumí.
