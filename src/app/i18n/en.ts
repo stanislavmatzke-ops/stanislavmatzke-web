@@ -70,7 +70,7 @@ export const en: Content = {
 
   common: {
     faqLink: 'Frequently asked questions →',
-    location: 'Prague / hybrid · projects, contracting or long-term',
+    location: 'Prague / hybrid · projects, contracting or permanent employment',
     bookCall: 'Book a free call',
     writeMe: 'Get in touch',
     soon: 'in progress',

@@ -72,7 +72,7 @@ export const cs = {
 
   common: {
     faqLink: 'Časté otázky →',
-    location: 'Praha / hybrid · projekty, IČO i dlouhodobě',
+    location: 'Praha / hybrid · projekty, IČO i HPP',
     bookCall: 'Domluvit nezávazný hovor',
     writeMe: 'Napište mi',
     soon: 'připravuji',
