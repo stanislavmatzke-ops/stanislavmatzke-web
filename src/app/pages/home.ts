@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { I18n } from '../i18n/i18n.service';
 import { SITE } from '../core/site';
@@ -104,8 +104,8 @@ import { ContactForm } from '../shared/contact-form';
 
         <div class="showcase">
           <article class="band-card band-card--main showcase__main">
-            <a class="shot-img" [routerLink]="i18n.link('jobScout')">
-              <img src="img/job-scout-cover.webp" [alt]="t.jobScout.imageAlt" width="1600" height="1000" loading="lazy" />
+            <a class="shot-img" [routerLink]="i18n.studyLink('job-scout')">
+              <img src="img/job-scout-cover.webp" [alt]="jobScoutAlt()" width="1600" height="1000" loading="lazy" />
             </a>
             <div class="band-card__body">
               <div class="title-row">
@@ -118,18 +118,24 @@ import { ContactForm } from '../shared/contact-form';
               </ul>
               <div class="links links--band">
                 <a [href]="site.jobScoutDemo" target="_blank" rel="noopener">{{ h.built.demo }}</a>
-                <a [routerLink]="i18n.link('jobScout')">{{ h.built.study }}</a>
+                <a [routerLink]="i18n.studyLink('job-scout')">{{ h.built.study }}</a>
                 <a [routerLink]="i18n.link('projects')">{{ t.nav.showcase }} →</a>
                 <a [href]="site.jobScoutRepo" target="_blank" rel="noopener">{{ h.built.github }}</a>
               </div>
             </div>
           </article>
           <div class="showcase__side">
-            <article class="band-card">
-              <span class="pill pill--small pill--warn">{{ t.common.soon }}</span>
-              <h3>{{ h.built.delphiTitle }}</h3>
-              <p>{{ h.built.delphiText }}</p>
-            </article>
+            @if (paymentMatching(); as pm) {
+              <article class="band-card">
+                <span class="pill pill--small pill--band">{{ t.common.live }}</span>
+                <h3>{{ pm.title }}</h3>
+                <p>{{ pm.text }}</p>
+                <div class="links links--band">
+                  <a [routerLink]="i18n.studyLink('parovani-plateb')">{{ h.built.study }}</a>
+                  <a [href]="site.paymentMatchingDemo" target="_blank" rel="noopener">{{ h.built.demo }}</a>
+                </div>
+              </article>
+            }
             <article class="band-card">
               <span class="pill pill--small pill--band-neutral">{{ t.common.openSource }}</span>
               <h3>{{ h.built.webTitle }}</h3>
@@ -158,10 +164,10 @@ import { ContactForm } from '../shared/contact-form';
           </div>
           <a class="link-strong" [routerLink]="i18n.link('articles')">{{ h.articles.all }}</a>
         </header>
-        <div class="grid grid--2">
-          @for (a of t.articles.items.slice(0, 2); track a.slug) {
+        <div class="grid grid--3">
+          @for (a of i18n.articles().slice(0, 3); track a.slug) {
             <a class="card card--link card--article" [routerLink]="i18n.articleLink(a.slug)">
-              <span class="card__num">{{ a.date }} · {{ a.readTime }}</span>
+              <span class="card__num">{{ i18n.date(a.published) }} · {{ i18n.areaById(a.area)?.name?.[i18n.lang()] }}</span>
               <h3>{{ a.title }}</h3>
               <p>{{ a.perex }}</p>
               <span class="link-strong">{{ t.common.readArticle }}</span>
@@ -236,6 +242,11 @@ import { ContactForm } from '../shared/contact-form';
 export class HomePage {
   protected readonly i18n = inject(I18n);
   protected readonly site = SITE;
+  protected readonly jobScoutAlt = computed(() => this.i18n.studies().find((s) => s.id === 'job-scout')?.image.alt ?? 'Job Scout');
+  /** Karta Párování plateb (texty z Projektů); bez studie v buildu (koncept) se nezobrazí. */
+  protected readonly paymentMatching = computed(() =>
+    this.i18n.studyLink('parovani-plateb') ? this.i18n.t().projects.items.find((i) => i.id === 'parovani-plateb') : undefined,
+  );
   protected pad(n: number): string {
     return n.toString().padStart(2, '0');
   }

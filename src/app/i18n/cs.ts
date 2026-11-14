@@ -1,4 +1,4 @@
-import { Article, Block, Meta, Reference } from './types';
+import { Block, Meta, Reference } from './types';
 
 /**
  * Zdrojový slovník – čeština. Angličtina (en.ts) má typ `typeof cs`,
@@ -9,6 +9,7 @@ export const cs = {
     services: 'Služby',
     showcase: 'Projekty',
     articles: 'Články',
+    confidentiality: 'Důvěrnost',
     references: 'Reference',
     about: 'O mně',
     contact: 'Kontakt',
@@ -44,12 +45,7 @@ export const cs = {
     },
     projects: {
       title: 'Projekty – Stanislav Matzke',
-      description: 'Ukázky toho, co dnes zvládne jeden zkušený člověk s AI: Job Scout, transformace Delphi → .NET a tento web.',
-    },
-    jobScout: {
-      title: 'Job Scout – případová studie – Stanislav Matzke',
-      description:
-        'Chytrý pomocník pro hledání práce: nabídky ohodnocené podle životopisu, návrhy dopisů, ranní e-mail. .NET 10, Angular, Claude API, Azure. Jeden člověk s AI za ~3 dny.',
+      description: 'Ukázky toho, co dnes zvládne jeden zkušený člověk s AI: Párování plateb s AI (od Delphi k AI-native aplikaci), Job Scout a tento web.',
     },
     references: {
       title: 'Reference – Stanislav Matzke',
@@ -149,9 +145,6 @@ export const cs = {
       demo: 'Vyzkoušet demo →',
       study: 'Případová studie →',
       github: 'GitHub →',
-      delphiTitle: 'Modernizace Delphi → .NET s AI',
-      delphiText:
-        'Ukázková migrace systému správy pohledávek: charakterizační testy, postupný převod logiky z PL/SQL, AI asistent nad daty.',
       webTitle: 'Tento web',
       webText: 'Angular, světlý i tmavý režim, čeština a angličtina, nasazení v Azure. Kód je veřejný na GitHubu.',
       data:
@@ -322,271 +315,14 @@ export const cs = {
     back: '← Všechny články',
     ctaTitle: 'Chcete vědět, co by AI udělala s vaším systémem?',
     ctaText: 'Probereme to na nezávazném hovoru.',
-    items: [
-      {
-        slug: 'kam-mizi-vyvojarska-prace',
-        title: 'Kam mizí vývojářská práce – a co přichází místo ní',
-        perex:
-          'Nabídek pro „senior vývojáře“ rychle ubývá a myslím, že se nevrátí. Kód dnes píše AI. Práce ale nemizí – přesouvá se o patro výš: ke specifikaci, architektuře a ověřování. Kdo to bude dělat a jak se ta role jmenuje?',
-        date: '11. listopadu 2026',
-        readTime: '6 minut čtení',
-        description:
-          'Pozic „senior developer“ ubývá a nevrátí se. Kód píše AI, ale práce nemizí – přesouvá se ke specifikaci, architektuře a ověřování. Jaké role nahrazují klasického vývojáře.',
-        ctaTitle: 'Řešíte, jak AI zavést do vývoje nebo do vašich systémů?',
-        ctaText: 'Rád to s vámi proberu.',
-        blocks: [
-          {
-            kind: 'p',
-            text: 'Patnáct let jsem psal podnikový software. Posledních pár měsíců ho píšu jinak: zadávám, navrhuji, kontroluji – a kód píše agent. Aplikaci na zelené louce dnes jeden zkušený člověk s AI postaví za dny, ne za měsíce. Psal jsem o tom v článku [Rychlost vývoje: co se za pár let změnilo](rychlost-vyvoje).',
-          },
-          {
-            kind: 'p',
-            text: 'Teď je vidět i druhá strana téže mince. Když se podíváte na pracovní portály, v kategorii „.NET vývojář“ najdete jen hrstku nabídek – a zhruba polovina z nich jsou ve skutečnosti tech lead nebo architektonické role. Klasické „dostanu tiket, napíšu kód“ mizí.',
-          },
-          { kind: 'h2', text: 'Kód jako sazba v tiskárně' },
-          {
-            kind: 'p',
-            text: 'Dřív se každá kniha musela přepsat ručně. Pak přišel knihtisk a sazba se stala technickým mezikrokem, o kterém čtenář vůbec neuvažuje. S kódem se děje totéž. Bude dál existovat, ale přestává být tím, za co firma platí.',
-          },
-          {
-            kind: 'p',
-            text: 'Platí se za něco jiného: za to, že software dělá to, co má, je bezpečný, dá se provozovat a někdo za něj ručí. Tohle AI sama nezajistí. Ne proto, že by psala špatný kód, ale proto, že nezná kontext – data, historii systému, co se nesmí pokazit a proč. Přesně takové chyby jsem popsal v článku [Co AI agent při vývoji pokazil](co-ai-agent-pokazil).',
-          },
-          { kind: 'h2', text: 'Co nahrazuje vývojáře' },
-          {
-            kind: 'p',
-            text: 'Když si položím vedle sebe inzeráty z posledních týdnů, nevychází mi jedna nová role, ale čtyři:',
-          },
-          {
-            kind: 'ol',
-            items: [
-              '**Engineering lead pro AI-native vývoj.** Mění způsob, jakým firma software tvoří: zavádí coding agenty, nastavuje standardy, kontrolní body a dohledatelnost toho, co AI vytvořila. Měří lead time a kvalitu, ne počet řádků kódu.',
-              '**Hands-on solution / AI architekt.** Navrhuje systémy, ve kterých je AI součástí produktu – vyhledávání v dokumentech, agenty, napojení na firemní data. Čím víc kódu píše stroj, tím víc váží rozhodnutí o celku.',
-              '**Tech lead produktu s agenty.** Vlastní produkt od zadání po provoz. Vede malý tým lidí a k tomu agenty. Místo psaní kódu specifikuje, rozhoduje a ověřuje. Tým má tři až pět lidí, ne patnáct.',
-              '**Správce AI agentů v provozu.** Hlídá, jak agenti fungují v ostrém provozu: kvalitu výstupů, náklady, bezpečnost a pravidla.',
-            ],
-          },
-          {
-            kind: 'p',
-            text: 'Společné mají jedno: člověk převádí byznysový záměr na ověřený výsledek. Má k tomu tři páky – **specifikaci** (co a proč), **architekturu** (jak to do sebe zapadá) a **ověřování** (jak víme, že to funguje).',
-          },
-          {
-            kind: 'lesson',
-            text: 'Vývojář jako „člověk, který píše kód“ končí. Vývojář jako „člověk, který ručí za to, že software funguje“ se mění v něco mezi architektem, tech leadem a dirigentem agentů.',
-          },
-          { kind: 'h2', text: 'Bude míň softwaru, nebo víc?' },
-          {
-            kind: 'p',
-            text: 'Levnější vývoj neznamená, že všechno, co jde postavit, má cenu. Aplikace, kterou nikdo nepoužije a nikdo nezaplatí, zůstane bezcenná, i když vznikla za odpoledne.',
-          },
-          {
-            kind: 'p',
-            text: 'Ve firmách je to jinak. Mají obrovské backlogy věcí, které se nedělaly jen proto, že byly drahé – hlavně modernizace starých systémů, integrace a automatizace. Ty se teď vyplatí. Softwaru tedy přibude, ale lidí na něj bude potřeba méně. A ti, kdo umějí celý proces řídit, budou žádaní.',
-          },
-          { kind: 'h2', text: 'Co z toho plyne' },
-          {
-            kind: 'p',
-            text: '**Pro vývojáře:** nečekat, až se trh „vrátí“. Vyzvednout to, co AI neumí – znalost domény, architekturu, vedení lidí, odpovědnost za výsledek – a naučit se s agenty pracovat prakticky, ne jen o nich číst.',
-          },
-          {
-            kind: 'p',
-            text: '**Pro firmy:** neměřit AI tím, kolik kódu vygeneruje, ale tím, jak rychle a spolehlivě se dostanou od nápadu k funkčnímu řešení. A mít někoho, kdo ten nový způsob práce navrhne a zavede do týmů.',
-          },
-          {
-            kind: 'p',
-            text: 'Já jsem si vybral jasně: tech lead a architekt, který software staví s AI. Ne proto, že by programování přestalo bavit. Ale proto, že tam se teď rozhoduje.',
-          },
-        ],
-      },
-      {
-        slug: 'rychlost-vyvoje',
-        title: 'Rychlost vývoje: co se za pár let změnilo',
-        perex:
-          'Patnáct let se vývoj software zrychloval pomalu. Pak přišla AI a během pár let – v posledních měsících ještě výrazněji – se změnilo, co jeden zkušený člověk zvládne. Co to znamená pro nové projekty i pro modernizaci starých systémů.',
-        date: 'Říjen 2026',
-        readTime: '6 minut čtení',
-        blocks: [
-          {
-            kind: 'p',
-            text: 'Vývoji podnikových systémů se věnuji od roku 2011. Za tu dobu se vystřídalo spoustu nástrojů a módních vln, ale skutečný skok v tom, co jeden člověk zvládne, přišel až s AI. Jak to vypadalo krok za krokem:',
-          },
-          {
-            kind: 'stages',
-            entries: [
-              { label: '2011–2022', title: 'Řádek po řádku', text: 'Lepší IDE, frameworky, cloud a CI/CD. Zrychlení se ale počítalo na procenta – kód pořád psal člověk.' },
-              { label: 'První asistenti', title: 'Našeptávač a chat', text: 'AI doplňovala řádky a odpovídala na otázky. Užitečné hlavně u rutiny, často se sebejistými nesmysly.' },
-              { label: 'Celý projekt', title: 'AI rozumí repozitáři', text: 'Refaktoring přes desítky souborů, testy, vysvětlení cizího kódu. Nová technologie za dny, ne měsíce.' },
-              { label: 'Dnes', title: 'Agenti dotáhnou úkol', text: 'Naplánují, upraví soubory, spustí build a testy, opraví chyby. Zlepšují se po měsících, ne po letech.' },
-            ],
-          },
-          { kind: 'h2', text: 'Co to znamená v praxi' },
-          {
-            kind: 'p',
-            text: 'Konkrétní příklad: aplikaci Job Scout – backend v .NET 10, stahování nabídek, AI pipeline, přihlášení přes Microsoft a Google, správa uživatelů, Angular, přes 600 testů, CI, 21 zapsaných architektonických rozhodnutí a nasazení v Azure – jsem postavil zhruba za tři dny intenzivní práce.',
-          },
-          {
-            kind: 'compare',
-            entries: [
-              { label: '2–3 měsíce', title: 'tříčlenný tým bez AI (odhad)' },
-              { label: '~3 dny', title: 'jeden zkušený člověk s AI agentem' },
-            ],
-            text: 'Stejný rozsah, stejné nároky na kvalitu: testy, bezpečnost, dokumentace, nasazení.',
-          },
-          {
-            kind: 'p',
-            text: 'Sám jsem to zažil i dřív: když jsem po letech v Javě přešel na .NET, byl jsem díky AI plně produktivní během pár dnů. Dnes už nejde jen o rychlejší psaní kódu, ale o to, že jeden člověk zvládne celé workflow – od návrhu po provoz.',
-          },
-          { kind: 'h2', text: 'Co to znamená pro modernizaci starých systémů' },
-          {
-            kind: 'cards',
-            entries: [
-              { label: '01', title: 'Orientace v kódu', text: 'Dny místo týdnů – AI projde formuláře, uložené procedury i triggery.' },
-              { label: '02', title: 'Byznys pravidla', text: 'Pravidla schovaná v kódu se dají vytěžit a sepsat; člověk je ověří s uživateli.' },
-              { label: '03', title: 'Testy jako záchranná síť', text: 'Charakterizační testy, které hlídají, že nový systém funguje stejně jako starý.' },
-              { label: '04', title: 'Převod po modulech', text: 'Výrazně levnější než dřív – systémy, na které se roky nesahalo, stojí za přepočítání.' },
-            ],
-          },
-          {
-            kind: 'lesson',
-            text: 'Projekt, který jste před dvěma lety odložili jako příliš drahý, stojí za to přepočítat. Cena se mezitím změnila víc než za předchozích deset let.',
-          },
-          { kind: 'h2', text: 'Kde je teď úzké hrdlo' },
-          {
-            kind: 'p',
-            text: 'Psaní kódu už není to nejpomalejší. Úzkým hrdlem jsou rozhodnutí: co stavět, jak to navrhnout, kdo smí co vidět, kolik to bude stát v provozu a co se stane, když něco selže. AI zrychluje toho, kdo ví, co dělá. Bez zkušenosti dostanete rychle hodně kódu, kterému nikdo nerozumí.',
-          },
-          { kind: 'link', text: 'Na co jsem při vývoji s AI agentem narazil v praxi →', article: 'co-ai-agent-pokazil' },
-        ] as Block[],
-      },
-      {
-        slug: 'co-ai-agent-pokazil',
-        title: 'Co AI agent při vývoji pokazil – a proč na tom záleží',
-        perex:
-          'Aplikaci Job Scout psal AI agent, já jsem byl architekt a reviewer – zadával jsem, kontroloval, testoval a nasazoval. Klasické bezpečnostní chyby agent nedělal. Ty, které udělal, byly zrádnější: kód správně, testy zelené, logika nedomyšlená.',
-        date: 'Říjen 2026',
-        readTime: '7 minut čtení',
-        blocks: [
-          {
-            kind: 'project',
-            caption: 'O jakém projektu je řeč',
-            src: 'img/job-scout-cover.webp',
-            alt: 'Job Scout – ukázka aplikace',
-            text: 'Job Scout je webová aplikace, která každé ráno projde nové nabídky práce, ohodnotí je podle životopisu a k nejlepším připraví návrh průvodního dopisu. Běží naostro v Azure a vyzkoušet si ji může každý.',
-            items: [
-              '~3 dny intenzivní práce jednoho člověka s AI agentem',
-              'přihlášení Microsoft / Google, víc uživatelů, schvalování přístupu',
-              '.NET 10, Angular, Claude API, Azure, přes 600 testů',
-            ],
-            href: 'Případová studie Job Scout →',
-          },
-          { kind: 'h2', text: 'Nejdřív to dobré: hloupé chyby už (skoro) nedělá' },
-          {
-            kind: 'p',
-            text: 'Typické strašáky „vibe codingu“ se v Job Scoutu neobjevily. Agent sám od sebe:',
-          },
-          {
-            kind: 'ul',
-            items: [
-              'držel hesla a API klíče mimo repozitář,',
-              'validoval vstupy a nepsal ručně skládané SQL,',
-              'napsal přes 600 automatických testů a testy, které hlídají vrstvy aplikace,',
-              'přidal ochranu proti prompt injection.',
-            ],
-          },
-          {
-            kind: 'p',
-            text: 'Chyby, které udělal, byly jiného druhu: kód byl správně, testy zelené – ale logika nedomyšlená. Přesně ty, které žádný linter ani bezpečnostní scanner nenajde.',
-          },
-          { kind: 'h2', text: 'Příběh 1: Kdokoli s přístupem mohl „vyžrat“ AI tokeny' },
-          {
-            kind: 'p',
-            text: 'Ranní běh měl od začátku pevné limity. Pak jsme přidali tlačítka „Ohodnotit“ a „Napsat nový návrh dopisu“ – každé z nich je placené volání AI. Agent je naprogramoval přesně podle zadání.',
-          },
-          {
-            kind: 'facts',
-            entries: [
-              { title: 'Chyba', text: 'Nikdo se nezeptal „co když někdo klikne tisíckrát?“. Stačilo změnit jedno písmeno v poznámkách a profil se znovu analyzoval; dopis šlo přepisovat donekonečna.' },
-              { title: 'Jak jsem na to přišel', text: 'Den po spuštění, když jsem aplikaci poslal prvním lidem a sám si ji proklikal. Přišel na to člověk, ne AI.' },
-              { title: 'Oprava (jedno dopoledne)', text: 'Limity na kliknutí v klouzavém okně 24 hodin, denní „záchranná brzda“ s e-mailem správci, zámek proti dvojkliku a měsíční limit u poskytovatele AI.' },
-            ],
-          },
-          {
-            kind: 'lesson',
-            text: 'U aplikací s AI je „útok na peněženku“ stejně reálné riziko jako únik dat (OWASP ho pro LLM aplikace vede jako Unbounded Consumption). AI dodá, co zadáte – otázku „kolik nás to může stát, když se to zneužije“ musí položit člověk.',
-          },
-          { kind: 'h2', text: 'Příběh 2: Zamítnutý uživatel se dostal do aplikace' },
-          {
-            kind: 'p',
-            text: 'Přístup do Job Scoutu schvaluje správce. Agent implementoval „Zamítnout žádost“ – a použil k tomu existující stav „pozastavený účet“. Na první pohled logické.',
-          },
-          {
-            kind: 'facts',
-            entries: [
-              { title: 'Chyba', text: 'Pozastavený uživatel je pořád členem a smí si prohlížet svá data. Zamítnutý žadatel tak po přihlášení prošel dovnitř.' },
-              { title: 'Proč to testy nechytily', text: 'Testovaly přesně to, co agent napsal. Nikdo netestoval, že zamítnutý žadatel nemá vidět vůbec nic.' },
-              { title: 'Jak jsem na to přišel', text: 'Ručním testem v produkci: zamítl jsem testovací účet a ten se normálně přihlásil. Zamítnutí je teď samostatná akce.' },
-            ],
-          },
-          {
-            kind: 'lesson',
-            text: 'Autorizace je místo, kde „skoro správně“ znamená „špatně“. Review přístupových pravidel a ruční test „zkusím se tam dostat“ nenahradí žádný automat.',
-          },
-          { kind: 'h2', text: 'Bonus: dvě části, které spolu nemluvily' },
-          {
-            kind: 'p',
-            text: 'Agent napsal workflow, které po každém commitu postaví Docker image – a rozumně vynechá commity, kde se mění jen dokumentace. Jindy napsal nasazovací skript, který nasadí image podle posledního commitu. Každá část sama o sobě správně. Dohromady: po změně README chtěl skript nasadit image, který nikdy nevznikl. Chyba ne v kódu, ale ve spojení dvou rozhodnutí z různých dnů.',
-          },
-          { kind: 'h2', text: 'Kontrola podle seznamu: tady je AI silná' },
-          {
-            kind: 'p',
-            text: 'Po spuštění jsme aplikaci prošli bod po bodu podle bezpečnostního checklistu pro „vibe coding“. Kontrolu dělal opět agent – a když dostane jasný seznam, je důkladný. Našel i další díru, kterou předtím sám vytvořil: o přístup mohl kdokoli požádat stokrát a správci by přišlo sto e-mailů.',
-          },
-          {
-            kind: 'cards',
-            entries: [
-              { title: 'Vstupy a injekce', text: 'parametrizované dotazy, escapování výstupu, limity velikosti' },
-              { title: 'Autorizace', text: 'každý dotaz omezený na vlastníka dat, oprávnění z databáze' },
-              { title: 'Zneužití', text: 'rate limiting, limity na AI, omezení e-mailů' },
-              { title: 'CI a závislosti', text: 'CodeQL, Dependabot, kontrola zranitelných balíčků' },
-            ],
-          },
-          {
-            kind: 'source',
-            text: 'O2 CyberNews: Vibe coding – funkční kód není automaticky bezpečný',
-            href: 'https://o2cybernews.cz/clanky/vibe-coding-funkcni-kod-neni-automaticky-bezpecny',
-          },
-          { kind: 'h2', text: 'Co z toho plyne pro firmy' },
-          {
-            kind: 'ul',
-            items: [
-              'AI se rychle zlepšuje – klasické bezpečnostní chyby dnes dobrý agent s jasnými pravidly sám od sebe nedělá. To ale neznamená, že je kód hotový.',
-              'Hlídat je potřeba logiku, ne syntaxi: kdo smí co vidět, co se stane při zneužití, kolik to stojí, jak spolu části fungují dohromady.',
-              'Zelené testy nestačí – agent testuje to, co napsal. Testy na „co by se stát nemělo“ musí vymyslet člověk.',
-              'Rychlá zpětná vazba z provozu odhalila obě hlavní chyby do 24 hodin. Pustit aplikaci brzy malé skupině lidí a mít limity a monitoring nákladů od prvního dne se vyplatilo.',
-            ],
-          },
-          { kind: 'h2', text: 'Jak s AI zacházím u zákazníků' },
-          {
-            kind: 'ul',
-            items: [
-              'AI používám k orientaci ve velkém kódu, vytěžení byznys pravidel, návrhu testů a dokumentace. Závěry, architekturu a doporučení dělám já.',
-              'Jen firemní verze AI služeb, které smluvně netrénují na datech zákazníka. Když máte vlastní schválené nástroje (třeba Azure OpenAI ve vašem tenantu), použiju je.',
-              'Pracuji na kopii kódu a s anonymizovanými nebo testovacími daty, nikdy s produkčními osobními údaji. Po skončení zakázky vše smažu a potvrdím to písemně.',
-              'AI nikdy nedávám klíče a hesla. Každou změnu, kterou agent udělá, projdu, schválím a ručím za ni.',
-            ],
-          },
-          { kind: 'h2', text: 'A co když AI nechcete?' },
-          {
-            kind: 'p',
-            text: 'Jde to i bez ní. Ale upřímně: je to cesta zpátky. Kdo dnes vyvíjí pomaleji a dráž než konkurence, prohraje – firmy na trhu i lidé na pracovním trhu. Sám jsem se musel přizpůsobit a vím, že to jde.',
-          },
-          {
-            kind: 'p',
-            text: 'Řešením není se AI vyhýbat, ale používat ji vědomě: s důrazem na bezpečnost, ochranu dat a kontrolu výstupů. S tímhle přechodem vám rád pomůžu – stejně jako jsem ho zvládl já.',
-          },
-        ] as Block[],
-      },
-    ] as Article[],
+    published: 'Publikováno',
+    updated: 'Aktualizováno',
+    caseStudy: 'Případová studie',
+    topics: 'Témata',
+    allTopics: 'Všechna témata',
+    related: 'Související články',
+    aboutMore: 'Více o mně →',
+    rss: 'RSS',
   },
 
   projects: {
@@ -596,6 +332,17 @@ export const cs = {
     status: { live: 'běží naostro', soon: 'připravuji', done: 'hotovo' },
     items: [
       {
+        id: 'parovani-plateb',
+        status: 'live',
+        title: 'Párování plateb s AI',
+        subtitle: 'Od Delphi k AI-native aplikaci',
+        text: 'Modernizace starého modulu v Delphi a Oracle PL/SQL do .NET 10 a AI, která páruje bankovní platby s fakturami. Pravidla vyřeší jednoduché případy, model jen ty nejasné a každou jeho odpověď kontroluje kód. Evaly v CI, veřejná aplikace v Azure, kód na GitHubu. Postaveno s AI agentem za ~2,5 dne.',
+        facts: ['~2,5 dne s AI agentem', '100 % správných automatických párování', '40/40 odražených injection', '$0,36 / 1 000 plateb'],
+        tags: ['Delphi → .NET 10', 'Claude API', 'Evaly', 'Azure', 'PostgreSQL'],
+        image: 'img/payment-matching-cover.webp',
+        study: 'parovani-plateb',
+      },
+      {
         id: 'job-scout',
         status: 'live',
         title: 'Job Scout',
@@ -604,16 +351,7 @@ export const cs = {
         facts: ['~3 dny intenzivní práce', '600+ testů', '21 ADR', 'CZ / EN'],
         tags: ['.NET 10', 'Angular', 'Claude API', 'Azure', 'PostgreSQL'],
         image: 'img/job-scout-cover.webp',
-      },
-      {
-        id: 'delphi',
-        status: 'soon',
-        title: 'Transformace Delphi → .NET s AI',
-        subtitle: 'Modernizace typického podnikového systému',
-        text: 'Ukázková modernizace systému správy pohledávek z Delphi a Oracle PL/SQL do .NET a Azure – krok za krokem, bez „velkého třesku“. Charakterizační testy jako záchranná síť, postupný převod logiky z databáze, AI agent v roli pomocníka a AI asistent v nové aplikaci. Výsledek zveřejním jako případovou studii a open source.',
-        facts: ['Delphi + Oracle PL/SQL', '→ .NET 10 + Azure', 'Strangler Fig', 'AI asistent nad daty'],
-        tags: ['Delphi', 'Oracle', '.NET', 'Azure', 'AI'],
-        image: '',
+        study: 'job-scout',
       },
       {
         id: 'web',
@@ -624,6 +362,7 @@ export const cs = {
         facts: ['1 den', 'Azure Static Web Apps', 'vlastní doména a e-mail', 'CZ / EN, světlý / tmavý'],
         tags: ['Angular', 'Azure', 'GitHub Actions', 'Cloudflare'],
         image: '',
+        study: '',
       },
     ],
     caseStudy: 'Případová studie →',
@@ -632,94 +371,8 @@ export const cs = {
     soonNote: 'Chcete vědět, až bude hotovo? Napište mi.',
   },
 
-  jobScout: {
+  study: {
     eyebrow: 'Případová studie',
-    title: 'Job Scout: chytrý pomocník pro hledání práce',
-    lead:
-      'Kompletní webová aplikace, která každé ráno projde nové nabídky práce, ohodnotí je podle vašeho životopisu, k nejlepším připraví návrh průvodního dopisu a pošle souhrn e-mailem. AI předvybírá, člověk rozhoduje.',
-    imageAlt: 'Job Scout – nabídky ohodnocené podle životopisu, přihlášení přes Microsoft a Google, ranní e-mail a náklady na AI',
-    imageCaption: 'Ilustrace aplikace – firmy a nabídky jsou smyšlené.',
-    facts: [
-      { value: '~3 dny', label: 'intenzivní práce s AI agentem' },
-      { value: '2–3 měsíce', label: 'odhad pro tříčlenný tým bez AI' },
-      { value: '600+', label: 'automatických testů' },
-      { value: '21', label: 'zapsaných architektonických rozhodnutí' },
-    ],
-    blocks: [
-      { kind: 'h2', text: 'Proč vznikl' },
-      {
-        kind: 'p',
-        text: 'Hledání práce zná každý: desítky portálů, stovky inzerátů a hodiny čtení, než najdete pár nabídek, které opravdu sedí. Chtěl jsem ukázat, že s AI se dá rychle postavit aplikace, která tuhle práci udělá za vás – a přitom splňuje všechno, co se od skutečného produktu čeká: přihlášení, víc uživatelů, ochranu dat, hlídání nákladů a provoz v cloudu.',
-      },
-      {
-        kind: 'p',
-        text: 'Výsledek běží naostro, sám ho denně používám a vyzkoušet si ho může každý – bez registrace, na ukázkovém účtu se skutečnými aktuálními nabídkami.',
-      },
-      { kind: 'h2', text: 'Jak funguje' },
-      {
-        kind: 'stages',
-        entries: [
-          { label: '1', title: 'Přihlášení', text: 'Účtem Microsoft nebo Google – žádná nová hesla.' },
-          { label: '2', title: 'Životopis', text: 'Nahrajete CV a pár poznámek („plně na dálku, žádná Java“). AI z nich sestaví váš profil.' },
-          { label: '3', title: 'Hledání každé ráno', text: 'V 6:30 se stáhnou jen nové nabídky; levný model roztřídí titulky, silnější ohodnotí zbytek 1–10.' },
-          { label: '4', title: 'Dopis a e-mail', text: 'K nejlepším nabídkám návrh průvodního dopisu, ráno souhrn e-mailem. Nic se neodesílá samo.' },
-        ],
-      },
-      { kind: 'h2', text: 'Pod kapotou – pro vývojáře' },
-      {
-        kind: 'p',
-        text: 'Pro ty, kdo chtějí vědět, jak je to postavené. Všechna rozhodnutí včetně zamítnutých alternativ jsou zapsaná jako ADR ve veřejném repozitáři.',
-      },
-      { kind: 'h3', text: 'Přihlášení a přístup' },
-      {
-        kind: 'ul',
-        items: [
-          'OpenID Connect s Microsoftem a Googlem, žádná vlastní hesla.',
-          'Vzor BFF: prohlížeč nikdy nevidí token, jen cookie HttpOnly / Secure / __Host-; ochrana proti CSRF.',
-          'Přístup na schválení správcem, pozvánky jedním odkazem; oprávnění se čtou z databáze při každém požadavku.',
-        ],
-      },
-      { kind: 'h3', text: 'AI, která se dá řídit a zaplatit' },
-      {
-        kind: 'ul',
-        items: [
-          'Pipeline místo jednoho drahého volání: levný model (Haiku) třídí po dávkách, silnější (Sonnet) hodnotí a píše dopisy.',
-          'Strukturovaný výstup s JSON schématem a validací – výstupu AI se nikdy slepě nevěří; CV a inzeráty jsou pro model nedůvěryhodná data.',
-          'Každé volání se zapíše s tokeny a cenou; limity na kliknutí (klouzavých 24 h) a záchranná brzda pro celou aplikaci.',
-          'Vlastní úzké rozhraní k LLM – model se mění v konfiguraci, aplikace nezná SDK dodavatele.',
-        ],
-      },
-      { kind: 'h3', text: 'Cloud a provoz' },
-      {
-        kind: 'ul',
-        items: [
-          'Celé prostředí jako kód (Bicep), nasazení jedním skriptem.',
-          'Jeden Docker obraz (Angular + API + worker + headless Chromium) z GitHub Actions; Azure Container Apps + Container Apps Job pro ranní běh.',
-          'Tajné údaje jen v Key Vaultu přes managed identity; PostgreSQL, data v EU; e-maily přes Azure Communication Services s SPF a DKIM.',
-        ],
-      },
-      { kind: 'h3', text: 'Kvalita a bezpečnost' },
-      {
-        kind: 'ul',
-        items: [
-          '600+ automatických testů (533 .NET + 85 Angular) bez sítě a bez volání AI; architektonické testy hlídají vrstvy.',
-          'CI na každý commit, CodeQL, Dependabot, kontrola zranitelných balíčků, bezpečnostní hlavičky, rate limiting.',
-          'Modulární monolit s porty a adaptéry; 21 ADR veřejně na GitHubu.',
-        ],
-      },
-      {
-        kind: 'cards',
-        entries: [
-          { label: 'Backend', title: '.NET 10 · ASP.NET Core · EF Core' },
-          { label: 'Frontend', title: 'Angular 21 · signals · CZ / EN' },
-          { label: 'AI', title: 'Claude API · Haiku + Sonnet' },
-          { label: 'Cloud', title: 'Azure Container Apps · PostgreSQL · Key Vault' },
-        ],
-      },
-    ] as Block[],
-    aiLink: 'Co agent při vývoji pokazil a jak jsem na to přišel →',
-    demo: 'Vyzkoušet bez registrace',
-    github: 'Zdrojový kód na GitHubu',
   },
 
   references: {
@@ -923,6 +576,7 @@ export const cs = {
       error: 'Zprávu se nepodařilo odeslat. Napište mi prosím přímo na',
       rateLimited: 'Z vašeho připojení už odešlo několik zpráv za sebou. Zkuste to prosím později, nebo napište přímo na',
     },
+    faqLink: 'Časté otázky →',
     faqTitle: 'Časté otázky',
     faq: [
       {
@@ -988,7 +642,9 @@ export const cs = {
 
   footer: {
     tradeRegister: 'Fyzická osoba zapsaná v živnostenském rejstříku',
-    privacy: 'Ochrana osobních údajů',
+    faq: 'Otázky a odpovědi',
+    confidentiality: 'Důvěrnost a ochrana dat',
+    privacy: 'Zásady ochrany osobních údajů',
   },
 
   notFound: {

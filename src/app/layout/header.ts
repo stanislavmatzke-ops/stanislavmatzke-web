@@ -51,6 +51,9 @@ import { Logo } from '../shared/logo';
           <a [routerLink]="i18n.link('services')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.services }}</a>
           <a [routerLink]="i18n.link('projects')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.showcase }}</a>
           <a [routerLink]="i18n.link('articles')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.articles }}</a>
+          @if (i18n.hasPage('confidentiality')) {
+            <a [routerLink]="i18n.link('confidentiality')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.confidentiality }}</a>
+          }
           <a [routerLink]="i18n.link('references')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.references }}</a>
           <a [routerLink]="i18n.link('about')" routerLinkActive="is-active" (click)="open.set(false)">{{ t.nav.about }}</a>
           <a class="btn btn--primary btn--small" [routerLink]="i18n.link('contact')" (click)="open.set(false)">{{ t.nav.cta }}</a>

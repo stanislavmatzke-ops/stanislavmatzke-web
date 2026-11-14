@@ -20,6 +20,8 @@ import { SITE } from '../core/site';
           <a [href]="site.phoneHref">{{ site.phone }}</a>
           <a [href]="site.linkedin" rel="noopener" target="_blank">LinkedIn</a>
           <a [href]="site.github" rel="noopener" target="_blank">GitHub</a>
+          @if (i18n.hasPage('faq')) { <a [routerLink]="i18n.link('faq')">{{ t.footer.faq }}</a> }
+          @if (i18n.hasPage('confidentiality')) { <a [routerLink]="i18n.link('confidentiality')">{{ t.footer.confidentiality }}</a> }
           <a [routerLink]="i18n.link('privacy')">{{ t.footer.privacy }}</a>
           <span>© {{ year }}</span>
         </div>

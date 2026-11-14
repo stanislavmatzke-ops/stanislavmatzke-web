@@ -2002,3 +2002,140 @@ p {
 .block-cards {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
 }
+
+/* ---------- Obsah z markdownu: články, oblasti, studie, stránky ---------- */
+
+.list-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+.list-tools__rss {
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.area-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.area-filter .tag {
+  text-decoration: none;
+  color: var(--ink);
+}
+.area-filter .tag:hover {
+  border-color: var(--accent);
+}
+.area-filter .tag.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.article-card--study {
+  border-style: dashed;
+}
+.article-card__meta .pill {
+  margin-right: 6px;
+  vertical-align: 1px;
+}
+.article-meta {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+.article-meta a {
+  color: var(--accent);
+}
+.article-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-block: 8px 72px;
+}
+.author-box {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.author-box img {
+  width: 72px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+.author-box p {
+  margin: 4px 0 6px;
+  color: var(--muted);
+}
+.author-box a {
+  font-weight: 600;
+}
+.related__list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.related__list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.related__list a {
+  font-weight: 600;
+}
+.related__meta {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+.faq-link {
+  margin-top: 24px;
+}
+.prose code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--neutral);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+.block-table {
+  overflow-x: auto;
+  margin: 8px 0 24px;
+}
+.block-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.block-table th,
+.block-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.block-table thead th {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  border-bottom-color: var(--line-strong);
+}
+.block-table tbody th {
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .author-box {
+    align-items: flex-start;
+  }
+}

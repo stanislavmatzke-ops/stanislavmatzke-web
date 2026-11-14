@@ -5,12 +5,12 @@ import { Block } from '../i18n/types';
 import { I18n } from '../i18n/i18n.service';
 import { parseInline } from './inline';
 
-/** Vykreslí souvislý text (článek, případová studie, zásady) včetně vizuálních bloků. */
+/** Vykreslí souvislý text (článek, případová studie, stránka, zásady) včetně vizuálních bloků. */
 @Component({
   selector: 'app-blocks',
   imports: [RouterLink, NgTemplateOutlet],
   template: `
-    <ng-template #rich let-text>@for (s of inline(text); track $index) {@switch (s.kind) {@case ('bold') {<strong>{{ s.text }}</strong>}@case ('link') {<a [routerLink]="i18n.articleLink(s.slug ?? '')">{{ s.text }}</a>}@default {<ng-container>{{ s.text }}</ng-container>}}}</ng-template>
+    <ng-template #rich let-text>@for (s of inline(text); track $index) {@switch (s.kind) {@case ('bold') {<strong>{{ s.text }}</strong>}@case ('em') {<em>{{ s.text }}</em>}@case ('code') {<code>{{ s.text }}</code>}@case ('link') {<a [routerLink]="s.href ?? i18n.articleLink(s.slug ?? '')">{{ s.text }}</a>}@case ('external') {<a [href]="s.href" rel="noopener" target="_blank">{{ s.text }}</a>}@default {<ng-container>{{ s.text }}</ng-container>}}}</ng-template>
     @for (b of blocks(); track $index) {
       @switch (b.kind) {
         @case ('h2') { <h2>{{ b.text }}</h2> }
@@ -29,12 +29,12 @@ import { parseInline } from './inline';
         @case ('lesson') { <aside class="lesson"><span class="lesson__label">{{ lessonLabel() }}</span><span><ng-container *ngTemplateOutlet="rich; context: { $implicit: b.text ?? '' }" /></span></aside> }
         @case ('quote') { <blockquote>{{ b.text }}</blockquote> }
         @case ('source') { <p class="source"><a [href]="b.href" rel="noopener" target="_blank">{{ b.text }} ↗</a></p> }
-        @case ('link') { <p class="prose__more"><a [routerLink]="i18n.articleLink(b.article ?? '')">{{ b.text }}</a></p> }
+        @case ('link') { <p class="prose__more"><a [routerLink]="b.href">{{ b.text }}</a></p> }
 
         @case ('stages') {
           <ol class="stages" role="list">
-            @for (e of b.entries ?? []; track $index; let last = $last) {
-              <li class="stages__item" [class.stages__item--now]="last">
+            @for (e of b.entries ?? []; track $index) {
+              <li class="stages__item" [class.stages__item--now]="e.current">
                 <span class="stages__label">{{ e.label }}</span>
                 <strong>{{ e.title }}</strong>
                 <span>{{ e.text }}</span>
@@ -81,6 +81,28 @@ import { parseInline } from './inline';
           </dl>
         }
 
+        @case ('table') {
+          <div class="block-table">
+            <table>
+              <thead>
+                <tr>
+                  @for (cell of b.head ?? []; track $index) { <th scope="col"><ng-container *ngTemplateOutlet="rich; context: { $implicit: cell }" /></th> }
+                </tr>
+              </thead>
+              <tbody>
+                @for (row of b.rows ?? []; track $index) {
+                  <tr>
+                    @for (cell of row; track $index; let first = $first) {
+                      @if (first) { <th scope="row"><ng-container *ngTemplateOutlet="rich; context: { $implicit: cell }" /></th> }
+                      @else { <td><ng-container *ngTemplateOutlet="rich; context: { $implicit: cell }" /></td> }
+                    }
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        }
+
         @case ('image') {
           <figure class="block-image">
             <img [src]="b.src" [alt]="b.alt ?? ''" loading="lazy" />
@@ -99,7 +121,7 @@ import { parseInline } from './inline';
                   @for (item of b.items ?? []; track $index) { <li>{{ item }}</li> }
                 </ul>
               }
-              <a [routerLink]="i18n.link('jobScout')">{{ b.href }}</a>
+              <a [routerLink]="b.href">{{ b.label }}</a>
             </div>
           </aside>
         }

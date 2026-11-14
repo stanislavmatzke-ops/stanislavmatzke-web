@@ -1,15 +1,21 @@
 /**
- * Minimal inline formatting for article text – parsed into segments, never rendered as HTML:
+ * Minimal inline formatting for content text – parsed into segments, never rendered as HTML:
  *   **bold**              → <strong>
- *   [link text](slug)     → link to another article by its slug
+ *   *italics*             → <em>
+ *   `code`                → <code>
+ *   [text](/path)         → link to a page of this web (router link)
+ *   [text](https://…)     → external link (new tab)
+ *   [text](slug)          → link to an article by its slug (older texts)
  */
 export interface InlineSegment {
-  kind: 'text' | 'bold' | 'link';
+  kind: 'text' | 'bold' | 'em' | 'code' | 'link' | 'external';
   text: string;
+  /** Router path (kind 'link'), URL (kind 'external') or an article slug (kind 'link' with slug). */
+  href?: string;
   slug?: string;
 }
 
-const PATTERN = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([a-z0-9-]+)\)/g;
+const PATTERN = /\*\*(.+?)\*\*|\*([^*\s](?:[^*]*?[^*\s])?)\*|`([^`]+)`|\[([^\]]+)\]\(([^)\s]+)\)/g;
 const cache = new Map<string, InlineSegment[]>();
 
 export function parseInline(text: string): InlineSegment[] {
@@ -22,7 +28,14 @@ export function parseInline(text: string): InlineSegment[] {
     const at = m.index ?? 0;
     if (at > last) segments.push({ kind: 'text', text: text.slice(last, at) });
     if (m[1] !== undefined) segments.push({ kind: 'bold', text: m[1] });
-    else segments.push({ kind: 'link', text: m[2], slug: m[3] });
+    else if (m[2] !== undefined) segments.push({ kind: 'em', text: m[2] });
+    else if (m[3] !== undefined) segments.push({ kind: 'code', text: m[3] });
+    else {
+      const href = m[5];
+      if (/^https?:\/\//.test(href)) segments.push({ kind: 'external', text: m[4], href });
+      else if (href.startsWith('/')) segments.push({ kind: 'link', text: m[4], href });
+      else segments.push({ kind: 'link', text: m[4], slug: href });
+    }
     last = at + m[0].length;
   }
   if (last < text.length) segments.push({ kind: 'text', text: text.slice(last) });

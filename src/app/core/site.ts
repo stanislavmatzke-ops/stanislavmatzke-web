@@ -12,6 +12,8 @@ export const SITE = {
   github: 'https://github.com/stanislavmatzke-ops',
   jobScoutDemo: 'https://jobscout.stanislavmatzke.com',
   jobScoutRepo: 'https://github.com/stanislavmatzke-ops/job-scout',
+  paymentMatchingDemo: 'https://payments.stanislavmatzke.com/demo',
+  paymentMatchingRepo: 'https://github.com/stanislavmatzke-ops/payment-matching-ai',
   webRepo: 'https://github.com/stanislavmatzke-ops/stanislavmatzke-web',
   portrait: 'img/stanislav-matzke.jpg',
 } as const;

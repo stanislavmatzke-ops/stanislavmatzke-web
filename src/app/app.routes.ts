@@ -1,15 +1,17 @@
 import { Routes } from '@angular/router';
-import { Lang, PageKey, PATHS } from './i18n/types';
+import { AREA_SEGMENT, Lang, PageKey, PATHS } from './i18n/types';
 import { HomePage } from './pages/home';
 import { ServicesPage } from './pages/services';
 import { ArticlesPage } from './pages/articles';
 import { ArticlePage } from './pages/article';
+import { AreaPage } from './pages/area';
 import { ProjectsPage } from './pages/projects';
-import { JobScoutPage } from './pages/job-scout';
+import { StudyPage } from './pages/study';
 import { ReferencesPage } from './pages/references';
 import { AboutPage } from './pages/about';
 import { ContactPage } from './pages/contact';
 import { PrivacyPage } from './pages/privacy';
+import { ContentPageView } from './pages/content-page';
 import { NotFoundPage } from './pages/not-found';
 
 const components: Record<PageKey, Routes[number]['component']> = {
@@ -17,16 +19,20 @@ const components: Record<PageKey, Routes[number]['component']> = {
   services: ServicesPage,
   articles: ArticlesPage,
   projects: ProjectsPage,
-  jobScout: JobScoutPage,
   references: ReferencesPage,
   about: AboutPage,
   contact: ContactPage,
   privacy: PrivacyPage,
+  confidentiality: ContentPageView,
+  faq: ContentPageView,
 };
 
 const prefixed = (lang: Lang, path: string) => (lang === 'en' ? (path ? `en/${path}` : 'en') : path);
 
-/** Každá stránka existuje česky (bez prefixu) a anglicky (/en/...); články mají adresu podle slugu. */
+/**
+ * Každá stránka existuje česky (bez prefixu) a anglicky (/en/...).
+ * Články, studie a oblasti mají adresu podle slugu z markdownu (content/).
+ */
 function routesFor(lang: Lang): Routes {
   const pages: Routes = (Object.keys(components) as PageKey[]).map((page) => ({
     path: prefixed(lang, PATHS[lang][page]),
@@ -34,11 +40,23 @@ function routesFor(lang: Lang): Routes {
     component: components[page],
     data: { lang, page },
   }));
-  pages.push({
-    path: prefixed(lang, `${PATHS[lang].articles}/:slug`),
-    component: ArticlePage,
-    data: { lang, page: 'article' },
-  });
+  pages.push(
+    {
+      path: prefixed(lang, `${PATHS[lang].articles}/${AREA_SEGMENT[lang]}/:slug`),
+      component: AreaPage,
+      data: { lang, page: 'area' },
+    },
+    {
+      path: prefixed(lang, `${PATHS[lang].articles}/:slug`),
+      component: ArticlePage,
+      data: { lang, page: 'article' },
+    },
+    {
+      path: prefixed(lang, `${PATHS[lang].projects}/:slug`),
+      component: StudyPage,
+      data: { lang, page: 'study' },
+    },
+  );
   return pages;
 }
 

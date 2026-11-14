@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { I18n } from '../i18n/i18n.service';
 import { CtaBand } from '../shared/cta-band';
 
 @Component({
   selector: 'app-services',
-  imports: [CtaBand],
+  imports: [CtaBand, RouterLink],
   template: `
     @let s = i18n.t().services;
     <section class="page-head page-head--pattern">
@@ -46,6 +47,9 @@ import { CtaBand } from '../shared/cta-band';
               </dl>
             </div>
           </article>
+        }
+        @if (i18n.hasPage('faq')) {
+          <p class="faq-link"><a class="link-strong" [routerLink]="i18n.link('faq')">{{ i18n.t().contact.faqLink }}</a></p>
         }
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { I18n } from '../i18n/i18n.service';
 import { SITE } from '../core/site';
@@ -20,12 +20,17 @@ import { CtaBand } from '../shared/cta-band';
 
     <section class="section">
       <div class="container project-list">
-        @for (item of p.items; track item.id) {
+        @for (item of items(); track item.id) {
+          @let study = item.study ? i18n.studyLink(item.study) : null;
           <article class="project-card" [class.project-card--with-image]="item.image">
             @if (item.image) {
-              <a class="project-card__image" [routerLink]="i18n.link('jobScout')">
-                <img [src]="item.image" [alt]="item.title" loading="lazy" width="1600" height="1000" />
-              </a>
+              @if (study) {
+                <a class="project-card__image" [routerLink]="study">
+                  <img [src]="item.image" [alt]="item.title" loading="lazy" width="1600" height="1000" />
+                </a>
+              } @else {
+                <div class="project-card__image"><img [src]="item.image" [alt]="item.title" loading="lazy" width="1600" height="1000" /></div>
+              }
             }
             <div class="project-card__body">
               <span class="pill pill--small" [class.pill--warn]="item.status === 'soon'" [class.pill--neutral]="item.status === 'done'">
@@ -41,14 +46,15 @@ import { CtaBand } from '../shared/cta-band';
                 @for (tag of item.tags; track tag) { <li class="tag tag--small">{{ tag }}</li> }
               </ul>
               <div class="links">
+                @if (study) { <a [routerLink]="study">{{ p.caseStudy }}</a> }
                 @switch (item.id) {
+                  @case ('parovani-plateb') {
+                    <a [href]="site.paymentMatchingDemo" target="_blank" rel="noopener">{{ p.demo }}</a>
+                    <a [href]="site.paymentMatchingRepo" target="_blank" rel="noopener">{{ p.github }}</a>
+                  }
                   @case ('job-scout') {
-                    <a [routerLink]="i18n.link('jobScout')">{{ p.caseStudy }}</a>
                     <a [href]="site.jobScoutDemo" target="_blank" rel="noopener">{{ p.demo }}</a>
                     <a [href]="site.jobScoutRepo" target="_blank" rel="noopener">{{ p.github }}</a>
-                  }
-                  @case ('delphi') {
-                    <a [routerLink]="i18n.link('contact')">{{ p.soonNote }}</a>
                   }
                   @case ('web') {
                     <a [href]="site.webRepo" target="_blank" rel="noopener">{{ p.github }}</a>
@@ -67,6 +73,9 @@ import { CtaBand } from '../shared/cta-band';
 export class ProjectsPage {
   protected readonly i18n = inject(I18n);
   protected readonly site = SITE;
+
+  /** Projekty v pořadí ze slovníku; projekt se studií, která v buildu není (koncept), se nezobrazí. */
+  protected readonly items = computed(() => this.i18n.t().projects.items.filter((i) => !i.study || this.i18n.studyLink(i.study)));
 
   protected statusLabel(status: string): string {
     const s = this.i18n.t().projects.status;

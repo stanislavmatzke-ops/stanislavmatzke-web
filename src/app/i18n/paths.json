@@ -1,0 +1,28 @@
+{
+  "cs": {
+    "home": "",
+    "services": "sluzby",
+    "articles": "clanky",
+    "projects": "projekty",
+    "references": "reference",
+    "about": "o-mne",
+    "contact": "kontakt",
+    "privacy": "ochrana-osobnich-udaju",
+    "confidentiality": "duvernost",
+    "faq": "otazky"
+  },
+  "en": {
+    "home": "",
+    "services": "services",
+    "articles": "articles",
+    "projects": "projects",
+    "references": "references",
+    "about": "about",
+    "contact": "contact",
+    "privacy": "privacy",
+    "confidentiality": "confidentiality",
+    "faq": "faq"
+  },
+  "contentPages": ["confidentiality", "faq"],
+  "areaSegment": { "cs": "tema", "en": "topic" }
+}

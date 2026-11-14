@@ -1,11 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, computed, inject } from '@angular/core';
 import { I18n } from '../i18n/i18n.service';
+import { Article, CaseStudy } from '../i18n/types';
+import { ArticleCard } from '../shared/article-card';
+import { AreaFilter } from '../shared/area-filter';
 import { CtaBand } from '../shared/cta-band';
 
 @Component({
   selector: 'app-articles',
-  imports: [RouterLink, CtaBand],
+  imports: [ArticleCard, AreaFilter, CtaBand],
   template: `
     @let t = i18n.t();
     @let a = t.articles;
@@ -17,19 +19,17 @@ import { CtaBand } from '../shared/cta-band';
       </div>
     </section>
 
-    <section class="section">
-      <div class="container article-list">
-        @for (item of a.items; track item.slug; let i = $index) {
-          <a class="article-card" [routerLink]="i18n.articleLink(item.slug)">
-            <span class="article-card__num">{{ pad(i + 1) }}</span>
-            <div class="article-card__body">
-              <span class="article-card__meta">{{ item.date }} · {{ item.readTime }}</span>
-              <h2>{{ item.title }}</h2>
-              <p>{{ item.perex }}</p>
-              <span class="article-card__more">{{ t.common.readArticle }}</span>
-            </div>
-          </a>
-        }
+    <section class="section section--flush-top">
+      <div class="container stack">
+        <div class="list-tools">
+          <app-area-filter />
+          <a class="list-tools__rss" [href]="i18n.link('articles') + '/feed.xml'">{{ a.rss }}</a>
+        </div>
+        <div class="article-list">
+          @for (item of items(); track item.key) {
+            <app-article-card [article]="item.article" [study]="item.study" />
+          }
+        </div>
       </div>
     </section>
 
@@ -38,7 +38,13 @@ import { CtaBand } from '../shared/cta-band';
 })
 export class ArticlesPage {
   protected readonly i18n = inject(I18n);
-  protected pad(n: number): string {
-    return n.toString().padStart(2, '0');
-  }
+
+  /** Články a případové studie podle data publikace, nejnovější první. */
+  protected readonly items = computed(() => {
+    const list: { key: string; date: string; article: Article | null; study: CaseStudy | null }[] = [
+      ...this.i18n.articles().map((a) => ({ key: `a:${a.slug}`, date: a.published, article: a, study: null })),
+      ...this.i18n.studies().map((s) => ({ key: `s:${s.slug}`, date: s.published, article: null, study: s })),
+    ];
+    return list.sort((x, y) => y.date.localeCompare(x.date) || x.key.localeCompare(y.key));
+  });
 }
