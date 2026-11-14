@@ -136,6 +136,9 @@ export const en: Content = {
       statValue: '~3 days',
       statLabel: 'Job Scout',
       statText: 'of intensive work by one person with an AI agent. Without AI, an estimated 2–3 months for a team of three.',
+      paymentStatValue: '~2.5 days',
+      paymentStatLabel: 'Payment matching with AI',
+      paymentStatText: 'of work by one person with an AI agent. Without AI, an estimated 4–6 months for a team of 4–5 people.',
       jobScoutTitle: 'Job Scout',
       jobScoutText:
         'A smart assistant for your job search: every morning it reviews new offers, scores them against your CV, drafts cover letters and sends a summary by e-mail. AI pre-selects, a human decides.',

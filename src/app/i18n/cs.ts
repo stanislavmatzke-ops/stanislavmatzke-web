@@ -138,6 +138,9 @@ export const cs = {
       statValue: '~3 dny',
       statLabel: 'Job Scout',
       statText: 'intenzivní práce jednoho člověka s AI agentem. Bez AI odhadem 2–3 měsíce tříčlenného týmu.',
+      paymentStatValue: '~2,5 dne',
+      paymentStatLabel: 'Párování plateb s AI',
+      paymentStatText: 'práce jednoho člověka s AI agentem. Bez AI odhadem 4–6 měsíců týmu 4–5 lidí.',
       jobScoutTitle: 'Job Scout',
       jobScoutText:
         'Chytrý pomocník pro hledání práce: každé ráno projde nové nabídky, ohodnotí je podle životopisu, připraví návrhy dopisů a pošle souhrn e-mailem. AI předvybírá, člověk rozhoduje.',
