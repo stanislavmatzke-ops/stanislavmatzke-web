@@ -71,6 +71,7 @@ export const cs = {
   } satisfies Record<string, Meta>,
 
   common: {
+    faqLink: 'Časté otázky →',
     availability: 'Volné kapacity od prosince 2026',
     location: 'Praha / hybrid · projekty, IČO i dlouhodobě',
     bookCall: 'Domluvit nezávazný hovor',
@@ -135,12 +136,6 @@ export const cs = {
       title: 'Co dřív zabralo měsíce týmu, dnes zvládne jeden zkušený člověk za dny.',
       lead:
         'Ukázkové projekty, které jsem postavil s AI agenty – od návrhu přes kód a testy po nasazení v Azure. Ne prototypy „na slajdy“, ale aplikace, které běží a můžete si je vyzkoušet.',
-      statValue: '~3 dny',
-      statLabel: 'Job Scout',
-      statText: 'intenzivní práce jednoho člověka s AI agentem. Bez AI odhadem 2–3 měsíce tříčlenného týmu.',
-      paymentStatValue: '~2,5 dne',
-      paymentStatLabel: 'Párování plateb s AI',
-      paymentStatText: 'práce jednoho člověka s AI agentem. Bez AI odhadem 4–6 měsíců týmu 4–5 lidí.',
       jobScoutTitle: 'Job Scout',
       jobScoutText:
         'Chytrý pomocník pro hledání práce: každé ráno projde nové nabídky, ohodnotí je podle životopisu, připraví návrhy dopisů a pošle souhrn e-mailem. AI předvybírá, člověk rozhoduje.',
@@ -579,9 +574,37 @@ export const cs = {
       error: 'Zprávu se nepodařilo odeslat. Napište mi prosím přímo na',
       rateLimited: 'Z vašeho připojení už odešlo několik zpráv za sebou. Zkuste to prosím později, nebo napište přímo na',
     },
-    faqLink: 'Časté otázky →',
-    faqTitle: 'Časté otázky',
-    faq: [
+  },
+
+  privacy: {
+    title: 'Ochrana osobních údajů',
+    blocks: [
+      { kind: 'p', text: 'Správcem osobních údajů je Stanislav Matzke (kontaktní údaje níže).' },
+      { kind: 'h2', text: 'Kontaktní formulář a e-mail' },
+      {
+        kind: 'p',
+        text: 'Když mi napíšete, použiji vaše jméno, e-mail, případně firmu a obsah zprávy jen k odpovědi a k jednání o případné spolupráci (oprávněný zájem, resp. jednání o smlouvě). Zprávy uchovávám nejdéle 2 roky od posledního kontaktu, pokud z ní nevznikne smluvní vztah.',
+      },
+      {
+        kind: 'p',
+        text: 'Zprávu z formuláře odešle server webu přes Azure Communication Services (Microsoft) na kontakt@stanislavmatzke.com; e-maily na tuto adresu přeposílá služba Cloudflare do mé schránky u Googlu (Gmail). Všichni tři poskytovatelé zpracovávají zprávy jen jako technický prostředník. Kvůli ochraně proti zneužití server krátce (nejvýše hodinu) drží v paměti vaši IP adresu – nikam ji neukládá.',
+      },
+      { kind: 'h2', text: 'Návštěva webu' },
+      {
+        kind: 'p',
+        text: 'Web nepoužívá žádné cookies ani reklamní či sledovací nástroje napříč weby – i písma jsou uložená přímo na webu. Návštěvnost měřím přes Cloudflare Web Analytics: bez cookies, bez otisku prohlížeče a bez sledování jednotlivých lidí, jen souhrnná čísla (zobrazené stránky, odkud návštěva přišla, země, typ zařízení). Hosting zajišťuje Microsoft Azure, který kvůli bezpečnosti a provozu krátkodobě zpracovává technické údaje o přístupu (např. IP adresu). Volbu světlého nebo tmavého režimu si pamatuje jen váš prohlížeč.',
+      },
+      { kind: 'h2', text: 'Vaše práva' },
+      {
+        kind: 'p',
+        text: 'Máte právo na přístup k údajům, opravu, výmaz, omezení zpracování, vznesení námitky a podání stížnosti u Úřadu pro ochranu osobních údajů. Stačí mi napsat.',
+      },
+    ] as Block[],
+  },
+
+  /** Otázky přesunuté ze stránky Kontakt; dočasně na stránce Otázky a odpovědi pod otázkami editora. */
+  faqPage: {
+    extra: [
       {
         q: 'Kolik to stojí?',
         a: 'Záleží na rozsahu. Po úvodním hovoru dostanete do dvou pracovních dnů nabídku s pevnou cenou za konkrétní výstup. U dlouhodobé spolupráce se domluvíme na denní sazbě.',
@@ -615,32 +638,6 @@ export const cs = {
         a: 'Pro správný tým a firmu ano. Jinak preferuji projekty a dlouhodobou spolupráci na IČO.',
       },
     ],
-  },
-
-  privacy: {
-    title: 'Ochrana osobních údajů',
-    blocks: [
-      { kind: 'p', text: 'Správcem osobních údajů je Stanislav Matzke (kontaktní údaje níže).' },
-      { kind: 'h2', text: 'Kontaktní formulář a e-mail' },
-      {
-        kind: 'p',
-        text: 'Když mi napíšete, použiji vaše jméno, e-mail, případně firmu a obsah zprávy jen k odpovědi a k jednání o případné spolupráci (oprávněný zájem, resp. jednání o smlouvě). Zprávy uchovávám nejdéle 2 roky od posledního kontaktu, pokud z ní nevznikne smluvní vztah.',
-      },
-      {
-        kind: 'p',
-        text: 'Zprávu z formuláře odešle server webu přes Azure Communication Services (Microsoft) na kontakt@stanislavmatzke.com; e-maily na tuto adresu přeposílá služba Cloudflare do mé schránky u Googlu (Gmail). Všichni tři poskytovatelé zpracovávají zprávy jen jako technický prostředník. Kvůli ochraně proti zneužití server krátce (nejvýše hodinu) drží v paměti vaši IP adresu – nikam ji neukládá.',
-      },
-      { kind: 'h2', text: 'Návštěva webu' },
-      {
-        kind: 'p',
-        text: 'Web nepoužívá žádné cookies ani reklamní či sledovací nástroje napříč weby – i písma jsou uložená přímo na webu. Návštěvnost měřím přes Cloudflare Web Analytics: bez cookies, bez otisku prohlížeče a bez sledování jednotlivých lidí, jen souhrnná čísla (zobrazené stránky, odkud návštěva přišla, země, typ zařízení). Hosting zajišťuje Microsoft Azure, který kvůli bezpečnosti a provozu krátkodobě zpracovává technické údaje o přístupu (např. IP adresu). Volbu světlého nebo tmavého režimu si pamatuje jen váš prohlížeč.',
-      },
-      { kind: 'h2', text: 'Vaše práva' },
-      {
-        kind: 'p',
-        text: 'Máte právo na přístup k údajům, opravu, výmaz, omezení zpracování, vznesení námitky a podání stížnosti u Úřadu pro ochranu osobních údajů. Stačí mi napsat.',
-      },
-    ] as Block[],
   },
 
   footer: {

@@ -49,7 +49,7 @@ import { CtaBand } from '../shared/cta-band';
           </article>
         }
         @if (i18n.hasPage('faq')) {
-          <p class="faq-link"><a class="link-strong" [routerLink]="i18n.link('faq')">{{ i18n.t().contact.faqLink }}</a></p>
+          <p class="faq-link"><a class="link-strong" [routerLink]="i18n.link('faq')">{{ i18n.t().common.faqLink }}</a></p>
         }
       </div>
     </section>

@@ -106,17 +106,6 @@ interface Showcase {
             <h2 class="band__title">{{ h.built.title }}</h2>
             <p class="band__lead">{{ h.built.lead }}</p>
           </header>
-          <div class="band-stat">
-            @if (showcase().side) {
-              <span class="band-stat__label">{{ h.built.paymentStatLabel }}</span>
-              <span class="band-stat__value">{{ h.built.paymentStatValue }}</span>
-              <span class="band-stat__text">{{ h.built.paymentStatText }}</span>
-            } @else {
-              <span class="band-stat__label">{{ h.built.statLabel }}</span>
-              <span class="band-stat__value">{{ h.built.statValue }}</span>
-              <span class="band-stat__text">{{ h.built.statText }}</span>
-            }
-          </div>
         </div>
 
         <div class="showcase">

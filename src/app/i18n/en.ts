@@ -69,6 +69,7 @@ export const en: Content = {
   },
 
   common: {
+    faqLink: 'Frequently asked questions →',
     availability: 'Available from December 2026',
     location: 'Prague / hybrid · projects, contracting or long-term',
     bookCall: 'Book a free call',
@@ -133,12 +134,6 @@ export const en: Content = {
       title: 'What used to take a team months, one experienced person now delivers in days.',
       lead:
         'Showcase projects I built with AI agents – from design through code and tests to deployment on Azure. Not “slide-deck” prototypes, but applications that run and that you can try.',
-      statValue: '~3 days',
-      statLabel: 'Job Scout',
-      statText: 'of intensive work by one person with an AI agent. Without AI, an estimated 2–3 months for a team of three.',
-      paymentStatValue: '~2.5 days',
-      paymentStatLabel: 'Payment matching with AI',
-      paymentStatText: 'of work by one person with an AI agent. Without AI, an estimated 4–6 months for a team of 4–5 people.',
       jobScoutTitle: 'Job Scout',
       jobScoutText:
         'A smart assistant for your job search: every morning it reviews new offers, scores them against your CV, drafts cover letters and sends a summary by e-mail. AI pre-selects, a human decides.',
@@ -577,9 +572,37 @@ export const en: Content = {
       error: 'The message could not be sent. Please write to me directly at',
       rateLimited: 'Several messages have already been sent from your connection. Please try again later or write to me directly at',
     },
-    faqLink: 'Frequently asked questions →',
-    faqTitle: 'Frequently asked questions',
-    faq: [
+  },
+
+  privacy: {
+    title: 'Privacy',
+    blocks: [
+      { kind: 'p', text: 'The data controller is Stanislav Matzke (contact details below).' },
+      { kind: 'h2', text: 'Contact form and e-mail' },
+      {
+        kind: 'p',
+        text: 'When you write to me, I use your name, e-mail, company if given and the message only to reply and to discuss a possible engagement (legitimate interest or pre-contractual steps). I keep messages for at most 2 years from the last contact unless they lead to a contract.',
+      },
+      {
+        kind: 'p',
+        text: 'Messages from the form are sent by the website’s server through Azure Communication Services (Microsoft) to kontakt@stanislavmatzke.com; e-mails to this address are forwarded by Cloudflare to my Google (Gmail) mailbox. All three providers process the messages only as technical intermediaries. To prevent abuse, the server briefly (at most one hour) keeps your IP address in memory – it is never stored.',
+      },
+      { kind: 'h2', text: 'Visiting the website' },
+      {
+        kind: 'p',
+        text: 'This website uses no cookies and no advertising or cross-site tracking tools – even the fonts are hosted on the site itself. Visits are measured with Cloudflare Web Analytics: no cookies, no browser fingerprinting and no tracking of individuals, only aggregate numbers (pages viewed, where visits came from, country, device type). Hosting is provided by Microsoft Azure, which briefly processes technical access data (such as your IP address) for security and operation. Your choice of light or dark mode is remembered only by your browser.',
+      },
+      { kind: 'h2', text: 'Your rights' },
+      {
+        kind: 'p',
+        text: 'You have the right to access, rectification, erasure, restriction of processing, to object, and to lodge a complaint with the Czech Office for Personal Data Protection. Just write to me.',
+      },
+    ] as Block[],
+  },
+
+  /** Otázky přesunuté ze stránky Kontakt; dočasně na stránce Otázky a odpovědi pod otázkami editora. */
+  faqPage: {
+    extra: [
       {
         q: 'How much does it cost?',
         a: 'It depends on the scope. After the intro call you will get a fixed-price proposal for a concrete deliverable within two business days. For long-term work we agree on a day rate.',
@@ -613,32 +636,6 @@ export const en: Content = {
         a: 'For the right team and company, yes. Otherwise I prefer projects and long-term contracting.',
       },
     ],
-  },
-
-  privacy: {
-    title: 'Privacy',
-    blocks: [
-      { kind: 'p', text: 'The data controller is Stanislav Matzke (contact details below).' },
-      { kind: 'h2', text: 'Contact form and e-mail' },
-      {
-        kind: 'p',
-        text: 'When you write to me, I use your name, e-mail, company if given and the message only to reply and to discuss a possible engagement (legitimate interest or pre-contractual steps). I keep messages for at most 2 years from the last contact unless they lead to a contract.',
-      },
-      {
-        kind: 'p',
-        text: 'Messages from the form are sent by the website’s server through Azure Communication Services (Microsoft) to kontakt@stanislavmatzke.com; e-mails to this address are forwarded by Cloudflare to my Google (Gmail) mailbox. All three providers process the messages only as technical intermediaries. To prevent abuse, the server briefly (at most one hour) keeps your IP address in memory – it is never stored.',
-      },
-      { kind: 'h2', text: 'Visiting the website' },
-      {
-        kind: 'p',
-        text: 'This website uses no cookies and no advertising or cross-site tracking tools – even the fonts are hosted on the site itself. Visits are measured with Cloudflare Web Analytics: no cookies, no browser fingerprinting and no tracking of individuals, only aggregate numbers (pages viewed, where visits came from, country, device type). Hosting is provided by Microsoft Azure, which briefly processes technical access data (such as your IP address) for security and operation. Your choice of light or dark mode is remembered only by your browser.',
-      },
-      { kind: 'h2', text: 'Your rights' },
-      {
-        kind: 'p',
-        text: 'You have the right to access, rectification, erasure, restriction of processing, to object, and to lodge a complaint with the Czech Office for Personal Data Protection. Just write to me.',
-      },
-    ] as Block[],
   },
 
   footer: {

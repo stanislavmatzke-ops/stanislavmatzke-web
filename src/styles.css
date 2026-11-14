@@ -1363,32 +1363,6 @@ p {
 .band__head .section-head {
   flex: 1 1 600px;
 }
-.band-stat {
-  flex: 0 1 320px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 26px 28px;
-  border-radius: var(--radius);
-  background: var(--band-card);
-  border: 1px solid var(--band-line);
-}
-.band-stat__label {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--band-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-.band-stat__value {
-  font-family: var(--serif);
-  font-size: 64px;
-  line-height: 1;
-  color: var(--band-accent);
-}
-.band-stat__text {
-  color: var(--band-ink);
-}
 .band .band-card {
   background: var(--band-card);
   border-color: var(--band-line);
@@ -1564,10 +1538,7 @@ p {
     gap: 12px;
     padding: 24px;
   }
-  .band-stat__value {
-    font-size: 52px;
-  }
-  .eyebrow--num::after {
+    .eyebrow--num::after {
     display: none;
   }
 }

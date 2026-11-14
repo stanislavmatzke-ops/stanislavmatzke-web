@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { I18n } from '../i18n/i18n.service';
 import { SITE } from '../core/site';
 import { ContactForm } from '../shared/contact-form';
 
 @Component({
   selector: 'app-contact',
-  imports: [ContactForm, RouterLink],
+  imports: [ContactForm],
   template: `
     @let c = i18n.t().contact;
     <section class="page-head page-head--pattern">
@@ -28,22 +27,6 @@ import { ContactForm } from '../shared/contact-form';
       </div>
     </section>
 
-    <section class="section section--surface">
-      <div class="container container--narrow stack">
-        <h2>{{ c.faqTitle }}</h2>
-        <div class="faq">
-          @for (item of c.faq; track item.q) {
-            <details>
-              <summary>{{ item.q }}</summary>
-              <p>{{ item.a }}</p>
-            </details>
-          }
-        </div>
-        @if (i18n.hasPage('faq')) {
-          <p class="faq-link"><a class="link-strong" [routerLink]="i18n.link('faq')">{{ c.faqLink }}</a></p>
-        }
-      </div>
-    </section>
   `,
 })
 export class ContactPage {
