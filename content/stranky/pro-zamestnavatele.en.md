@@ -27,6 +27,8 @@ I can start **from 1 January 2027**, or earlier by agreement. Prague, hybrid.
 
 My website and my own projects are my portfolio and the way I stay hands-on with AI. In a permanent role, you get my full commitment: no parallel engagements without your consent, and never a conflict of interest.
 
+Besides that, I am starting my own early-stage project – IOaaS, operating integrations between business systems with the help of AI ([ioaas.eu](https://ioaas.eu)). In a permanent role I will pause it by agreement with the employer, or keep it within a scope we agree on – always without a conflict of interest. And if the topic is interesting for you too, I am happy to discuss it.
+
 ## Why I have my own projects
 
 They show how I work better than a CV does. You can try them out and go through their code:

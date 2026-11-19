@@ -27,6 +27,8 @@ Nastoupit můžu **od 1. 1. 2027**, po dohodě i dříve. Praha, hybridně.
 
 Web a vlastní projekty jsou moje portfolio a způsob, jak zůstat v praxi s AI. Ve stálé roli se věnuji naplno vám: žádné souběžné zakázky bez vašeho souhlasu a nikdy ve střetu zájmů.
 
+Kromě toho rozjíždím vlastní projekt v rané fázi – IOaaS, provoz integrací mezi firemními systémy s pomocí AI ([ioaas.eu](https://ioaas.eu)). Ve stálé roli ho dohodou se zaměstnavatelem pozastavím, nebo poběží jen v rozsahu, na kterém se domluvíme – vždy bez střetu zájmů. A pokud by téma bylo zajímavé i pro vás, rád ho proberu.
+
 ## Proč mám vlastní projekty
 
 Ukazují, jak pracuji, líp než životopis. Můžete si je vyzkoušet a projít jejich kód:

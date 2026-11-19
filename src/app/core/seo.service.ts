@@ -2,6 +2,7 @@ import { DOCUMENT, Injectable, effect, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { I18n } from '../i18n/i18n.service';
 import { Lang, Meta as PageMeta } from '../i18n/types';
+import { SITE } from './site';
 
 const ORIGIN = 'https://stanislavmatzke.com';
 const SITE_NAME = 'Stanislav Matzke';
@@ -83,8 +84,19 @@ export class SeoService {
       this.setLink('alternate', url('en'), 'en');
       this.setLink('alternate', url('cs'), 'x-default');
 
-      // Strukturovaná data: BlogPosting u článku, Article u případové studie.
+      // Strukturovaná data: BlogPosting u článku, Article u případové studie, Person na úvodní stránce.
       // Data jsou ISO 8601 ze stejné hlavičky jako viditelné datum.
+      const person =
+        page === 'home'
+          ? {
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: SITE_NAME,
+              url: url(lang),
+              image: `${ORIGIN}/${SITE.portrait}`,
+              sameAs: ['https://www.linkedin.com/in/stanislav-matzke/', SITE.github],
+            }
+          : null;
       this.setJsonLd(
         dated
           ? {
@@ -100,7 +112,7 @@ export class SeoService {
               url: url(lang),
               mainEntityOfPage: { '@type': 'WebPage', '@id': url(lang) },
             }
-          : null,
+          : person,
       );
     });
   }

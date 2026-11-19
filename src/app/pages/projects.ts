@@ -33,20 +33,25 @@ import { CtaBand } from '../shared/cta-band';
               }
             }
             <div class="project-card__body">
-              <span class="pill pill--small" [class.pill--warn]="item.status === 'soon'" [class.pill--neutral]="item.status === 'done'">
+              <span class="pill pill--small" [class.pill--warn]="item.status === 'soon' || item.status === 'early'" [class.pill--neutral]="item.status === 'done'">
                 {{ statusLabel(item.status) }}
               </span>
               <h2>{{ item.title }}</h2>
               <span class="project-card__subtitle">{{ item.subtitle }}</span>
               <p class="muted">{{ item.text }}</p>
-              <ul class="project-card__facts" role="list">
-                @for (f of item.facts; track f) { <li>{{ f }}</li> }
-              </ul>
-              <ul class="tags" role="list">
-                @for (tag of item.tags; track tag) { <li class="tag tag--small">{{ tag }}</li> }
-              </ul>
+              @if (item.facts.length) {
+                <ul class="project-card__facts" role="list">
+                  @for (f of item.facts; track f) { <li>{{ f }}</li> }
+                </ul>
+              }
+              @if (item.tags.length) {
+                <ul class="tags" role="list">
+                  @for (tag of item.tags; track tag) { <li class="tag tag--small">{{ tag }}</li> }
+                </ul>
+              }
               <div class="links">
                 @if (study) { <a [routerLink]="study">{{ p.caseStudy }}</a> }
+                @if (item.url) { <a [href]="item.url" target="_blank" rel="noopener">{{ item.urlLabel }}</a> }
                 @switch (item.id) {
                   @case ('parovani-plateb') {
                     <a [href]="site.paymentMatchingDemo" target="_blank" rel="noopener">{{ p.demo }}</a>
@@ -79,6 +84,6 @@ export class ProjectsPage {
 
   protected statusLabel(status: string): string {
     const s = this.i18n.t().projects.status;
-    return status === 'live' ? s.live : status === 'soon' ? s.soon : s.done;
+    return status === 'live' ? s.live : status === 'soon' ? s.soon : status === 'early' ? s.early : s.done;
   }
 }

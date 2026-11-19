@@ -337,7 +337,7 @@ export const cs = {
     eyebrow: 'Projekty',
     title: 'Postaveno s AI',
     lead: 'Ukázky, na kterých je vidět, co dnes zvládne jeden zkušený člověk s AI – od návrhu přes kód a testy po nasazení a provoz. Ne prototypy „na slajdy“, ale věci, které běží.',
-    status: { live: 'běží naostro', soon: 'připravuji', done: 'hotovo' },
+    status: { live: 'běží naostro', soon: 'připravuji', done: 'hotovo', early: 'vlastní projekt v rané fázi' },
     items: [
       {
         id: 'parovani-plateb',
@@ -360,6 +360,19 @@ export const cs = {
         tags: ['.NET 10', 'Angular', 'Claude API', 'Azure', 'PostgreSQL'],
         image: 'img/job-scout-cover.webp',
         study: 'job-scout',
+      },
+      {
+        id: 'ioaas',
+        status: 'early',
+        title: 'IOaaS',
+        subtitle: 'Integration Operations as a Service',
+        text: 'Mapování a provoz integrací mezi firemními systémy s AI agenty a ověřovací vrstvou. Nejdřív jen čtení, změny jen po schválení.',
+        facts: [],
+        tags: [],
+        image: '',
+        study: '',
+        url: 'https://ioaas.eu',
+        urlLabel: 'ioaas.eu →',
       },
       {
         id: 'web',

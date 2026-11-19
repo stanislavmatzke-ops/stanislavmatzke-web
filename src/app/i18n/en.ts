@@ -335,7 +335,7 @@ export const en: Content = {
     eyebrow: 'Projects',
     title: 'Built with AI',
     lead: 'Showcases of what one experienced person can deliver with AI today – from design through code and tests to deployment and operations. Not “slide-deck” prototypes, but things that run.',
-    status: { live: 'live', soon: 'in progress', done: 'done' },
+    status: { live: 'live', soon: 'in progress', done: 'done', early: 'early-stage own project' },
     items: [
       {
         id: 'parovani-plateb',
@@ -358,6 +358,19 @@ export const en: Content = {
         tags: ['.NET 10', 'Angular', 'Claude API', 'Azure', 'PostgreSQL'],
         image: 'img/job-scout-cover.webp',
         study: 'job-scout',
+      },
+      {
+        id: 'ioaas',
+        status: 'early',
+        title: 'IOaaS',
+        subtitle: 'Integration Operations as a Service',
+        text: 'Mapping and operating integrations between business systems with AI agents and a verification layer. Read-only first, changes only after approval.',
+        facts: [],
+        tags: [],
+        image: '',
+        study: '',
+        url: 'https://ioaas.eu',
+        urlLabel: 'ioaas.eu →',
       },
       {
         id: 'web',
