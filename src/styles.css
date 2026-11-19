@@ -2211,3 +2211,9 @@ p {
 .faq__answer > :first-child {
   margin-top: 0;
 }
+
+/* Světlý obrázek jiného poměru stran (IOaaS): pozadí panelu ve stejné barvě jako obrázek */
+.project-card__image--light {
+  background: #f9f9f4;
+  border-right: 1px solid var(--line);
+}

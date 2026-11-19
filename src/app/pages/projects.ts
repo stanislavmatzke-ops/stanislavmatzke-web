@@ -28,6 +28,10 @@ import { CtaBand } from '../shared/cta-band';
                 <a class="project-card__image" [routerLink]="study">
                   <img [src]="item.image" [alt]="item.title" loading="lazy" width="1600" height="1000" />
                 </a>
+              } @else if (item.url) {
+                <a class="project-card__image project-card__image--light" [href]="item.url" target="_blank" rel="noopener">
+                  <img [src]="item.image" [alt]="item.title" loading="lazy" width="1200" height="630" />
+                </a>
               } @else {
                 <div class="project-card__image"><img [src]="item.image" [alt]="item.title" loading="lazy" width="1600" height="1000" /></div>
               }
