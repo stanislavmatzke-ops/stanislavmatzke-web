@@ -4,8 +4,8 @@
 export const SITE = {
   name: 'Stanislav Matzke',
   email: 'kontakt@stanislavmatzke.com',
-  phone: '+420 723 249 650',
-  phoneHref: 'tel:+420723249650',
+  phone: '+420 737 414 917',
+  phoneHref: 'tel:+420737414917',
   ico: '88558177',
   address: 'Na Volánové 749/3, 160 00 Praha 6',
   linkedin: 'https://www.linkedin.com/in/stanislav-matzke',

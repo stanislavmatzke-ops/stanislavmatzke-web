@@ -46,7 +46,7 @@ They show how I work better than a CV does. You can try them out and go through 
 
 ## Contact
 
-[LinkedIn](https://www.linkedin.com/in/stanislav-matzke) · [kontakt@stanislavmatzke.com](mailto:kontakt@stanislavmatzke.com) · [+420 723 249 650](tel:+420723249650)
+[LinkedIn](https://www.linkedin.com/in/stanislav-matzke) · [kontakt@stanislavmatzke.com](mailto:kontakt@stanislavmatzke.com) · [+420 737 414 917](tel:+420737414917)
 
 I’m happy to send my CV – just ask.
 

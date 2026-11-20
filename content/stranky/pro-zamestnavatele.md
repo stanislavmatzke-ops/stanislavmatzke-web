@@ -46,7 +46,7 @@ Ukazují, jak pracuji, líp než životopis. Můžete si je vyzkoušet a projít
 
 ## Kontakt
 
-[LinkedIn](https://www.linkedin.com/in/stanislav-matzke) · [kontakt@stanislavmatzke.com](mailto:kontakt@stanislavmatzke.com) · [+420 723 249 650](tel:+420723249650)
+[LinkedIn](https://www.linkedin.com/in/stanislav-matzke) · [kontakt@stanislavmatzke.com](mailto:kontakt@stanislavmatzke.com) · [+420 737 414 917](tel:+420737414917)
 
 Životopis rád pošlu – stačí napsat.
 
